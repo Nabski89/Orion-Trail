@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
+    public Image MainScreen;
+    public TextMeshProUGUI textMesh;
     public Supplies SupplyScript;
     public GameObject CharacterHolder;
     // Update is called once per frame
@@ -26,6 +30,10 @@ public class Move : MonoBehaviour
         {
             // Do something with the selected event
             Debug.Log("Selected event: " + selectedEvent.name);
+
+            Event EventActivate = selectedEvent.GetComponent<Event>();
+            MainScreen.sprite=EventActivate.EventPicture;
+            textMesh.text=EventActivate.EventText;
         }
     }
 

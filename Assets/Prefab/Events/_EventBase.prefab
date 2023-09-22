@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 361490066885543517}
   - component: {fileID: 106168357562645771}
   m_Layer: 0
-  m_Name: Event Base
+  m_Name: _EventBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a26af8cdba3a9c45ad42164d7e21fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EventPicture: {fileID: 0}
+  EventText: Bandit

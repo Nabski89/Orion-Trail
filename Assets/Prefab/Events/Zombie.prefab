@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: EventText
       value: BRAINS BRAINS
       objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: EventPicture
+      value: 
+      objectReference: {fileID: 21300000, guid: eb09bcc11b5db5745ac52b50dc5a3e96, type: 3}
     - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
       propertyPath: m_RootOrder
       value: 0

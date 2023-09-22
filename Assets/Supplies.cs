@@ -14,5 +14,4 @@ public class Supplies : MonoBehaviour
     public int RepairElectronic = 1;
     //Engine Parts
     public int RepairEngine = 1;
-    public float ShipStatus
 }
