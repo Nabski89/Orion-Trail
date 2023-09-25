@@ -20,7 +20,6 @@ public class Move : MonoBehaviour
 
         ShipInitialPosition = ShipScape.localPosition;
         ShipTargetPosition = ShipInitialPosition;
-
     }
 
     // Update is called once per frame
@@ -42,9 +41,11 @@ public class Move : MonoBehaviour
     public RectTransform ShipScape;
     private Vector3 ShipInitialPosition;
     private Vector3 ShipTargetPosition;
+    public Transform EventHolder;
     public void MoveShip()
     {
-        if (Starscape.localPosition == StarTargetPosition && ShipScape.localPosition == ShipTargetPosition)
+        Debug.Log("Current event amount is  " + EventHolder.childCount);
+        if (Starscape.localPosition == StarTargetPosition && ShipScape.localPosition == ShipTargetPosition && EventHolder.childCount == 0)
         {
             SupplyScript.Fuel -= 5;
             SupplyScript.Food -= CharacterHolder.transform.childCount;
@@ -66,7 +67,9 @@ public class Move : MonoBehaviour
     public void TriggerEvent()
     {
         // Example of how to select a random event
-        GameObject selectedEvent = SelectRandomEvent();
+
+        SelectRandomEvent();
+        Event selectedEvent = EventHolder.GetComponentInChildren<Event>();
         if (selectedEvent != null)
         {
             // Do something with the selected event
@@ -74,17 +77,21 @@ public class Move : MonoBehaviour
 
             Event EventActivate = selectedEvent.GetComponent<Event>();
             MainScreen.sprite = EventActivate.EventPicture;
+            //reset the color because we are making events black after we kill them
+            MainScreen.color = new Color32(255, 255, 255, 255);
             //if we have a second layer for color, activate it
             if (EventActivate.EventPictureLayer2 != null)
             {
-                ColorLayer.color = new Color32(0, 0, 0, 100);
+                ColorLayer.color = new Color32(0, 0, 0, 255);
                 ColorLayer.sprite = EventActivate.EventPictureLayer2;
                 if (EventActivate.Layer2Color != null)
                     ColorLayer.color = EventActivate.Layer2Color[Random.Range(0, EventActivate.Layer2Color.Length)];
             }
             else
                 ColorLayer.color = new Color32(255, 255, 225, 0);
-            DialogBox.TEXTBOX = EventActivate.EventText;
+
+            //set the textbox with a random text from the default types
+            DialogBox.TEXTBOX = EventActivate.EventText[Random.Range(0, EventActivate.EventText.Length)];
             DialogBox.NewText();
         }
     }
@@ -101,12 +108,11 @@ public class Move : MonoBehaviour
 
     public List<EventData> events = new List<EventData>();
 
-    public GameObject SelectRandomEvent()
+    public void SelectRandomEvent()
     {
         if (events.Count == 0)
         {
             Debug.LogWarning("No events defined.");
-            return null;
         }
 
         int totalWeight = 0;
@@ -124,13 +130,10 @@ public class Move : MonoBehaviour
         foreach (EventData eventData in events)
         {
             currentWeight += eventData.eventWeight;
-            if (randomValue < currentWeight)
+            if (randomValue < currentWeight && randomValue > currentWeight - eventData.eventWeight)
             {
-                return eventData.eventObject;
+                Instantiate(eventData.eventObject, EventHolder);
             }
         }
-
-        // This should not happen, but if it does, return the last event
-        return events[events.Count - 1].eventObject;
     }
 }

@@ -11,5 +11,10 @@ public class Event : MonoBehaviour
     public GameObject Subevent1;
     public GameObject Subevent2;
     [TextArea]
-    public string EventText;
+    public string[] EventText;
+
+    public void TempEventDestro()
+    {
+        Destroy(gameObject);
+    }
 }

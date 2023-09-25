@@ -96,20 +96,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92fd5a97e6e7054fa49d4c3a34bbdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  CharName: 
+  HP: 50
   HPUI: {fileID: 7139811060346495241}
-  Morale: 3
+  Morale: 50
   MoraleUI: {fileID: 3619734691015111941}
   Hunger: 0
   HungerUI: {fileID: 3536909384494963162}
-  speed: 0
-  Endurance: 0
-  Firearms: 0
-  Weapons: 0
+  Charisma: 0
+  Survival: 0
+  Engineering: 0
+  Kinesthetics: 0
   Luck: 0
-  KnowHow: 0
-  Magnetism: 0
-  Brawn: 0
+  Bullets: 0
 --- !u!1 &1370764779209634105
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +352,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -488,7 +487,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -624,7 +623,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -721,6 +720,7 @@ MonoBehaviour:
   - Annabelle
   - 'Katrina '
   - 'Elly '
+  Name: 
 --- !u!1 &5669115096580726839
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,7 +830,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 877fd669fc16d4746bbaae5c3f08ff56, type: 2}
   m_sharedMaterial: {fileID: 7899067107961810053, guid: 877fd669fc16d4746bbaae5c3f08ff56, type: 2}
@@ -1504,7 +1504,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

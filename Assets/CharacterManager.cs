@@ -6,7 +6,7 @@ using TMPro;
 public class CharacterManager : MonoBehaviour
 {
     public string CharName;
-    public int HP = 3;
+    public int HP = 50;
     public TextMeshProUGUI HPUI;
     public int Morale = 50;
     public TextMeshProUGUI MoraleUI;

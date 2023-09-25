@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2820014848726630639}
   - component: {fileID: 9097535670543582463}
+  - component: {fileID: 3582856109082147167}
+  - component: {fileID: 2443790618931969910}
   m_Layer: 0
   m_Name: CombatEvent
   m_TagString: Untagged
@@ -49,7 +51,33 @@ MonoBehaviour:
   Layer2Color: []
   Subevent1: {fileID: 0}
   Subevent2: {fileID: 0}
-  EventText: Bandit
+  EventText: []
+--- !u!114 &3582856109082147167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231241529720400379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61527bb3dfd1a9a41a396cd5735c4bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
+  attack: []
+--- !u!114 &2443790618931969910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231241529720400379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152bae1b4615bf145aad2816b08a2e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6586075068641928685
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +126,7 @@ MonoBehaviour:
   EventPicture: {fileID: 0}
   EventPictureLayer2: {fileID: 0}
   Layer2Color: []
-  Subevent1: {fileID: 0}
+  Subevent1: {fileID: 2231241529720400379}
   Subevent2: {fileID: 0}
-  EventText: Bandit
+  EventText:
+  - Texto
