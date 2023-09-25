@@ -6,6 +6,7 @@ public class CrewNameRandomizer : MonoBehaviour
 {
     public TextMeshProUGUI textMesh;
     public string[] textArray;
+    public string Name;
     // Start is called before the first frame update
     private void Start()
     {
@@ -24,6 +25,7 @@ public class CrewNameRandomizer : MonoBehaviour
         {
             int randomIndex = Random.Range(0, textArray.Length);
             textMesh.text = textArray[randomIndex];
+            Name = textMesh.text;
         }
         else
         {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 731268733738665983}
   - component: {fileID: 3607427850644482478}
   - component: {fileID: 3618711352354857161}
+  - component: {fileID: 7856608072269393231}
   m_Layer: 5
   m_Name: Character Sheet
   m_TagString: Untagged
@@ -83,6 +84,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7856608072269393231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903377653229437032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92fd5a97e6e7054fa49d4c3a34bbdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 3
+  HPUI: {fileID: 7139811060346495241}
+  Morale: 3
+  MoraleUI: {fileID: 3619734691015111941}
+  Hunger: 0
+  HungerUI: {fileID: 3536909384494963162}
+  speed: 0
+  Endurance: 0
+  Firearms: 0
+  Weapons: 0
+  Luck: 0
+  KnowHow: 0
+  Magnetism: 0
+  Brawn: 0
 --- !u!1 &1370764779209634105
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +231,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4607445688239773848}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7856608072269393231}
+        m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
+        m_MethodName: BringUpStats
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2663750655765349944
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 184.5, y: -48.5}
+  m_AnchoredPosition: {x: 180.7, y: -49}
   m_SizeDelta: {x: 24, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4491271247297337555
@@ -305,8 +344,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -631,6 +670,57 @@ MonoBehaviour:
   - Cooper
   - Joe
   - Lepir
+  - Zachery
+  - Mythmi
+  - Sunshine
+  - Gene
+  - Bea
+  - Bentin
+  - Hugbug
+  - Mothblocks
+  - Likes-Green
+  - Kat
+  - Kira
+  - Lisette
+  - Vire
+  - Gonk
+  - Boops
+  - Kraven
+  - Strikes
+  - Shoves
+  - Ron
+  - Hugh
+  - Sepulchre
+  - Korol
+  - Nar
+  - Sam
+  - Eucles
+  - Tastes
+  - Callie
+  - Calls
+  - Spites
+  - Acco
+  - Nat
+  - Khara
+  - Richard
+  - Seth
+  - Bird
+  - Bog
+  - Heedal
+  - Steve
+  - Helen
+  - Dan
+  - Rhoa
+  - Jasmine
+  - Tenneb
+  - Onasha
+  - Rich
+  - Vivian
+  - Mimas
+  - 'Ellioth '
+  - Annabelle
+  - 'Katrina '
+  - 'Elly '
 --- !u!1 &5669115096580726839
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +868,7 @@ GameObject:
   - component: {fileID: 2301486453384805672}
   - component: {fileID: 3423709898250627431}
   - component: {fileID: 5832470312221219155}
+  - component: {fileID: 5526444735949157999}
   m_Layer: 5
   m_Name: Kill
   m_TagString: Untagged
@@ -887,7 +978,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3423709898250627431}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5526444735949157999}
+        m_TargetAssemblyTypeName: Kill, Assembly-CSharp
+        m_MethodName: KillCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5526444735949157999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5779691919111026300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba40581feb98c34e9487858f602d591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6194474625359118332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1272,7 @@ GameObject:
   - component: {fileID: 8059729249653157183}
   - component: {fileID: 3619734691015111941}
   m_Layer: 5
-  m_Name: Morale
+  m_Name: Moralee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1180,8 +1295,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 299.6, y: -48.5}
-  m_SizeDelta: {x: 24, y: 24}
+  m_AnchoredPosition: {x: 296, y: -49}
+  m_SizeDelta: {x: 46.4583, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8059729249653157183
 CanvasRenderer:
@@ -1211,7 +1326,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 877fd669fc16d4746bbaae5c3f08ff56, type: 2}
   m_sharedMaterial: {fileID: 7899067107961810053, guid: 877fd669fc16d4746bbaae5c3f08ff56, type: 2}
@@ -1245,8 +1360,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1315,7 +1430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 62.5, y: -48.5}
+  m_AnchoredPosition: {x: 62.5, y: -49}
   m_SizeDelta: {x: 24, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &566163603543808368
@@ -1380,8 +1495,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

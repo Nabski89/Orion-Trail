@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6011992276729964239
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: EventText
+      value: "-CHANGELING!\n\n[The mask has slipped! And (CREWMEMBER)\u2018s true
+        nature is revealed! They\u2019re a hostile alien masquerading as human!] 
+        \n\n(Changeling): \u201CYour\u2026 end\u2026 comes\u2026\u201D "
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: EventPicture
+      value: 
+      objectReference: {fileID: 21300000, guid: b57434ffea01114499229058dee8e696, type: 3}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: EventPictureLayer2
+      value: 
+      objectReference: {fileID: 21300000, guid: d4931ca2acc64454cacf957f37799b3f, type: 3}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[0].b
+      value: 0.0047169924
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[0].g
+      value: 0.0047169924
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[1].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[1].g
+      value: 0.681675
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[1].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[2].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[2].b
+      value: 0.989954
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[2].g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[2].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[3].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[3].b
+      value: 0.28786033
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[3].g
+      value: 0.9528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Layer2Color.Array.data[3].r
+      value: 0.27416337
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361490066885543517, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586075068641928685, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_Name
+      value: Changeling
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
