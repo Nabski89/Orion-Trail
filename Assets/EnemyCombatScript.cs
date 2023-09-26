@@ -8,6 +8,9 @@ public class EnemyCombatScript : MonoBehaviour
     void Start()
     {
 
+        CombatController Controller = GetComponentInParent<CombatController>();
+        Controller.Enemy = this;
+        Controller.InitiateCombat();
     }
 
     // Update is called once per frame
@@ -15,14 +18,12 @@ public class EnemyCombatScript : MonoBehaviour
     {
 
     }
-    //this is to check how many times we have triggered this event
-    public int ClownNumber;
-    public GameObject Enemy;
+    //   public GameObject Enemy;
 
     [System.Serializable]
     public class Attacks
     {
-        public GameObject eventObject;
+        //     public GameObject eventObject;
         public string AttackText;
         public int DamageMin;
         public int DamageMax;

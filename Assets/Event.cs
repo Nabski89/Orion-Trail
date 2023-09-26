@@ -15,6 +15,17 @@ public class Event : MonoBehaviour
 
     public void TempEventDestro()
     {
+        TriggerSubEvent1();
         Destroy(gameObject);
+    }
+    public void TriggerSubEvent1()
+    {
+        //if the sub event exists, then unparent it from this,
+        if (Subevent1 != null)
+        {
+            Subevent1.transform.parent = transform.parent;
+            Subevent1.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 }

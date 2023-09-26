@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2820014848726630639
 Transform:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   EventPicture: {fileID: 0}
   EventPictureLayer2: {fileID: 0}
   Layer2Color: []
-  Subevent1: {fileID: 2231241529720400379}
+  Subevent1: {fileID: 0}
   Subevent2: {fileID: 0}
   EventText:
   - Texto

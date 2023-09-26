@@ -21,7 +21,7 @@ public class StatScreen : MonoBehaviour
 
         if (WindowEnable == true && Character != null)
         {
-            if (transform.localScale.y < 1.0f)
+            if (transform.localScale.y < 0.97f)
                 transform.localScale += scaleChange * Time.deltaTime;
             else
                 transform.localScale = Vector3.one;

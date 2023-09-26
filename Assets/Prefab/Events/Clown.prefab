@@ -13,6 +13,10 @@ PrefabInstance:
         dictum dolor tempus. Cras eu nunc placerat, dictum tellus ac, semper tellus.'
       objectReference: {fileID: 0}
     - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Subevent1
+      value: 
+      objectReference: {fileID: 6968385091252142798}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
       propertyPath: EventPicture
       value: 
       objectReference: {fileID: 21300000, guid: ddd2c3dbebed15343a24c553e4d66862, type: 3}
@@ -93,9 +97,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2231241529720400379, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 2676311816712638168}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: attack.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6586075068641928685, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
       propertyPath: m_Name
       value: Clown
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+--- !u!1 &2676311816712638168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6586075068641928685, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+  m_PrefabInstance: {fileID: 9097934302278265653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6968385091252142798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2231241529720400379, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+  m_PrefabInstance: {fileID: 9097934302278265653}
+  m_PrefabAsset: {fileID: 0}
