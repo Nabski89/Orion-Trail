@@ -5,20 +5,31 @@ using TMPro;
 
 public class CombatController : MonoBehaviour
 {
-    public CharacterManager Character1;
-    public CharacterManager Character2;
+    public CharacterManager[] Character;
+    public int[] CharAtkType;
     public EnemyCombatScript Enemy;
     public Transform CombatOverlay;
     public TextMeshProUGUI TextBoxUI;
     public TextMeshProUGUI CrewName1;
     public TextMeshProUGUI CrewName2;
     public bool WindowEnable;
-
+    //holds all the crewmembers, used to select who is in the fight
+    public Transform Crew;
     void Start()
     {
         scaleChange = new Vector3(1f, 0, 0);
     }
-    public Transform Crew;
+    void Update()
+    {
+        MinMaxScreen();
+        if (Enemy != null)
+        {
+            if (CharAtkType[0] != 0 && CharAtkType[1] != 0)
+                CombatAction();
+            UpdateHPBars();
+            EndCombat();
+        }
+    }
     public void InitiateCombat()
     {
         //GPT debug logging
@@ -50,46 +61,48 @@ public class CombatController : MonoBehaviour
             secondIndex = Random.Range(0, characterManagers.Length);
         }
 
-        Character1 = characterManagers[firstIndex];
-        Character2 = characterManagers[secondIndex];
+        Character[0] = characterManagers[firstIndex];
+        Character[1] = characterManagers[secondIndex];
+        Debug.Log("Combat was started");
         SetUpScreen();
     }
     //pulled this out for clarity, TODO go back to edit once the layout is better
     void SetUpScreen()
     {
         WindowEnable = true;
-        if (Character1 != null)
-            CrewName1.text = Character1.CharName;
-        if (Character2 != null)
-            CrewName2.text = Character2.CharName;
+        if (Character[0] != null)
+            CrewName1.text = Character[0].CharName;
+        if (Character[1] != null)
+            CrewName2.text = Character[1].CharName;
     }
+    void EndCombat()
+    {
+        if (Enemy.HP < 1)
+            Destroy(Enemy.transform.gameObject);
+    }
+
 
     public void CombatAction()
     {
-        //characters attack then the enemy goes.
-        if (Character1 != null)
-            CharacterAttack(Character1);
-        if (Character2 != null)
-            CharacterAttack(Character2);
+        //characters attack then the enemy goes. 
+        if (Character[0] != null)
+            CharacterAttack(0);
+        if (Character[1] != null)
+            CharacterAttack(1);
         EnemyAttack();
-
     }
-    void CharacterAttack(CharacterManager Char)
+    void CharacterAttack(int Char)
     {
+        Enemy.HP -= 1;
         //TODO make an array that holds attack types, randomrange the length of the array to select your attack type. 1 default attack, 1 feat/stat based attack, 1 weapon based attack, 1 do nothing attack
-        Char.Kinesthetics += 1;
+        //Character[Char];
+        CharAtkType[Char] = 0;
     }
     void EnemyAttack()
     {
-        Character1.HP -= 1;
+        Character[0].HP -= 1;
+        Character[1].HP -= 1;
     }
-
-    void Update()
-    {
-        MinMaxScreen();
-    }
-
-
     private Vector3 scaleChange;
     void MinMaxScreen()
     {
@@ -109,5 +122,10 @@ public class CombatController : MonoBehaviour
             else
                 CombatOverlay.localScale = new Vector3(0, 1, 1);
         }
+    }
+    public Transform EnemyHPBar;
+    void UpdateHPBars()
+    {
+        EnemyHPBar.transform.localScale = Vector3.one - Vector3.right * ((Enemy.MaxHP - Enemy.HP) / Enemy.MaxHP);
     }
 }

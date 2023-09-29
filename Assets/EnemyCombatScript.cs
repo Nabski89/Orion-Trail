@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyCombatScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int HP = 5;
+    public int MaxHP = 5;
     void Start()
     {
 
