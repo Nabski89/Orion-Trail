@@ -95,10 +95,14 @@ public class Move : MonoBehaviour
             DialogBox.NewText();
         }
     }
+    public void DarkenEnemy()
+    {
+        MainScreen.color = new Color32(0, 0, 0, 255);
+    }
+
 
     //GPT CODE
     //TIME TO LEARN ABOUT SOME STUFF
-
     [System.Serializable]
     public class EventData
     {
@@ -107,7 +111,6 @@ public class Move : MonoBehaviour
     }
 
     public List<EventData> events = new List<EventData>();
-
     public void SelectRandomEvent()
     {
         if (events.Count == 0)

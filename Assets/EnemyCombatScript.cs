@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyCombatScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int HP = 5;
-    public int MaxHP = 5;
+    public float HP = 5;
+    public float MaxHP = 5;
     void Start()
     {
 
@@ -30,8 +30,7 @@ public class EnemyCombatScript : MonoBehaviour
         public int DamageMin;
         public int DamageMax;
     }
-
-    public List<Attacks> attack = new List<Attacks>();
+    public Attacks[] Attack;
 
     public void WinCombat()
     {

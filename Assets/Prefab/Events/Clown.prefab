@@ -106,8 +106,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2676311816712638168}
     - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Attack.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
       propertyPath: attack.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: attack.Array.data[0].DamageMax
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: attack.Array.data[0].DamageMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: attack.Array.data[1].DamageMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: attack.Array.data[1].DamageMin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Attack.Array.data[0].AttackText
+      value: Clown Attack 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: Attack.Array.data[1].AttackText
+      value: Clown Attack 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: attack.Array.data[0].AttackText
+      value: Clown Attack 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: attack.Array.data[1].AttackText
+      value: Clown Attack Two
       objectReference: {fileID: 0}
     - target: {fileID: 6586075068641928685, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
       propertyPath: m_Name

@@ -5,11 +5,12 @@ using TMPro;
 
 public class CombatController : MonoBehaviour
 {
+    private Move MoveScript;
     public CharacterManager[] Character;
     public int[] CharAtkType;
     public EnemyCombatScript Enemy;
     public Transform CombatOverlay;
-    public TextMeshProUGUI TextBoxUI;
+    public DialogText TextBoxUI;
     public TextMeshProUGUI CrewName1;
     public TextMeshProUGUI CrewName2;
     public bool WindowEnable;
@@ -17,6 +18,11 @@ public class CombatController : MonoBehaviour
     public Transform Crew;
     void Start()
     {
+        MoveScript = GetComponentInChildren<Move>();
+        if (MoveScript == null)
+        {
+            Debug.LogWarning("Hey the move script is no longer in a child of the combat controller. Fix it or combat won't work.");
+        }
         scaleChange = new Vector3(1f, 0, 0);
     }
     void Update()
@@ -78,7 +84,13 @@ public class CombatController : MonoBehaviour
     void EndCombat()
     {
         if (Enemy.HP < 1)
+        {
+            TextBoxUI.TEXTBOX += "<br>" + Enemy.transform + " been defeated";
             Destroy(Enemy.transform.gameObject);
+            WindowEnable = false;
+            MoveScript.DarkenEnemy();
+            Debug.Log("Combat Ends");
+        }
     }
 
 
@@ -86,9 +98,15 @@ public class CombatController : MonoBehaviour
     {
         //characters attack then the enemy goes. 
         if (Character[0] != null)
+        {
             CharacterAttack(0);
+            TextBoxUI.TEXTBOX += "<br>" + Character[0].CharName + " Attacks";
+        }
         if (Character[1] != null)
+        {
             CharacterAttack(1);
+            TextBoxUI.TEXTBOX += "<br>" + Character[1].CharName + " Attacks";
+        }
         EnemyAttack();
     }
     void CharacterAttack(int Char)
@@ -100,8 +118,14 @@ public class CombatController : MonoBehaviour
     }
     void EnemyAttack()
     {
+        //  int         Charisma = Random.Range(0, Enemy.attack.AttackText.length); 
         Character[0].HP -= 1;
         Character[1].HP -= 1;
+        int randomIndex = Random.Range(0, Enemy.Attack.Length);
+        TextBoxUI.TEXTBOX += "<br>The Enemy Attacks" + Enemy.transform.name + Enemy.Attack[randomIndex].AttackText;
+        Debug.Log("Enemy.attack");
+
+        //    Debug.Log("Enemy HP: " + Enemy.HP+ Enemy.attack.Length);
     }
     private Vector3 scaleChange;
     void MinMaxScreen()
@@ -126,6 +150,6 @@ public class CombatController : MonoBehaviour
     public Transform EnemyHPBar;
     void UpdateHPBars()
     {
-        EnemyHPBar.transform.localScale = Vector3.one - Vector3.right * ((Enemy.MaxHP - Enemy.HP) / Enemy.MaxHP);
+        EnemyHPBar.transform.localScale = new Vector3(Mathf.Max(0, Enemy.HP / Enemy.MaxHP), 1, 1);
     }
 }

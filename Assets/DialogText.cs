@@ -5,9 +5,9 @@ using TMPro;
 
 public class DialogText : MonoBehaviour
 {
+    public GameObject SoundEffect;
     public TextMeshProUGUI textMesh;
     public string TEXTBOX = "Your text here";
-    int totalCharacters = 2;
     int displayedCharacters = 0;
     private void Start()
     {
@@ -20,16 +20,18 @@ public class DialogText : MonoBehaviour
     }
     void Update()
     {
-        if (displayedCharacters <= totalCharacters)
+        if (displayedCharacters <= TEXTBOX.Length)
         {
             textMesh.text = TEXTBOX.Substring(0, displayedCharacters);
             displayedCharacters += 1;
+            GameObject SoundBlip = Instantiate(SoundEffect);
+            Destroy(SoundBlip,.05f);
         }
     }
     //this is a certified ChatGPT moment because I would have done this in update instead of as a co-routine
     public void NewText()
     {
-        totalCharacters = TEXTBOX.Length;
+
         displayedCharacters = 0;
     }
 }

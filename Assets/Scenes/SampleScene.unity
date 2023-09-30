@@ -5598,7 +5598,7 @@ MonoBehaviour:
   CharAtkType: 0000000000000000
   Enemy: {fileID: 0}
   CombatOverlay: {fileID: 1329792518}
-  TextBoxUI: {fileID: 1384806849}
+  TextBoxUI: {fileID: 1384806851}
   CrewName1: {fileID: 304028385}
   CrewName2: {fileID: 807627582}
   WindowEnable: 0
@@ -5811,11 +5811,11 @@ RectTransform:
   m_Father: {fileID: 1785876207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 870, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -435, y: 0}
+  m_SizeDelta: {x: 834.9291, y: 100}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1384806849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5868,15 +5868,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 18
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 18
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5886,7 +5886,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 5
+  m_overflowMode: 4
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -5930,6 +5930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66940ffd0a4dc584588c0892f246063d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundEffect: {fileID: 6260994195197290758, guid: 494b1c82c8cf9254d9f574c30247af6e, type: 3}
   textMesh: {fileID: 1384806849}
   TEXTBOX: In the 2200's, the Orion trail was established as a dangerous yet opportunistic
     trail through space for those willing to risk it. Many pioneers seeking new lives
@@ -9734,6 +9735,22 @@ PrefabInstance:
     - target: {fileID: 6066825703849943815, guid: dc55f31192f07a549b8b4c9090607931, type: 3}
       propertyPath: m_Name
       value: Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409453727297463441, guid: dc55f31192f07a549b8b4c9090607931, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409453727297463441, guid: dc55f31192f07a549b8b4c9090607931, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409453727297463441, guid: dc55f31192f07a549b8b4c9090607931, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409453727297463441, guid: dc55f31192f07a549b8b4c9090607931, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 21.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc55f31192f07a549b8b4c9090607931, type: 3}
