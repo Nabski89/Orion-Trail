@@ -67,4 +67,18 @@ public class CharacterManager : MonoBehaviour
         CharacterShip Ship = transform.GetComponentInParent<CharacterShip>();
         Ship.StatUI.Maximize(this);
     }
+
+
+
+
+
+    [System.Serializable]
+    public class Attacks
+    {
+        //     public GameObject eventObject;
+        public string AttackText;
+        public int DamageMin;
+        public int DamageMax;
+    }
+    public Attacks[] Attack;
 }

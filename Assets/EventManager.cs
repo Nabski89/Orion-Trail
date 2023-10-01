@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    // Update is called once per frame
     public void PushButton()
     {
         Event selectedEvent = GetComponentInChildren<Event>();
@@ -15,7 +14,9 @@ public class EventManager : MonoBehaviour
             {
                 GetComponentInParent<Move>().MainScreen.color = new Color32(0, 0, 0, 255);
             }
-            selectedEvent.TempEventDestro();
+            //check to make sure we aren't in a combat so we can't just clear out of it
+            if (GetComponentInChildren<EnemyCombatScript>() == null)
+                selectedEvent.TempEventDestro();
         }
     }
 }

@@ -11,7 +11,7 @@ public class FoodUI : MonoBehaviour
     void Start()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
-        SupplyScript = transform.parent.GetComponent<Supplies>();
+        SupplyScript = GetComponentInParent<Supplies>();
     }
 
     // Update is called once per frame

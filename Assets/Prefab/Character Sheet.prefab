@@ -109,6 +109,17 @@ MonoBehaviour:
   Kinesthetics: 0
   Luck: 0
   Bullets: 0
+  Attack:
+  - AttackText: ' uses a perfectly standard attack'
+    DamageMin: 0
+    DamageMax: 0
+  - AttackText: ' be like "It''s a special attack". WOW you would expect this to
+      do more damage but it doesn''t because no one is special yet.'
+    DamageMin: 0
+    DamageMax: 0
+  - AttackText: ' used an item. It does nothing because items don''t exist yet.'
+    DamageMin: 0
+    DamageMax: 0
 --- !u!1 &1370764779209634105
 GameObject:
   m_ObjectHideFlags: 0

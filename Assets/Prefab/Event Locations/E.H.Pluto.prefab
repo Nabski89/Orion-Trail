@@ -103,5 +103,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: E.H.Pluto
       objectReference: {fileID: 0}
+    - target: {fileID: 5231975250519076535, guid: 0e5e11a99cfcaad4bbf82d229882f791, type: 3}
+      propertyPath: eventObject
+      value: 
+      objectReference: {fileID: 3519729678912523486, guid: 6716676cd041c104cad589ba8df8e6ea, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e5e11a99cfcaad4bbf82d229882f791, type: 3}

@@ -14,6 +14,7 @@ public class Move : MonoBehaviour
 
     private void Start()
     {
+        SupplyScript = GetComponentInParent<Supplies>();
         //set the initial position of the stars and ship
         StarInitialPosition = Starscape.localPosition;
         StarTargetPosition = StarInitialPosition;
@@ -37,29 +38,36 @@ public class Move : MonoBehaviour
     private Vector3 StarInitialPosition;
     private Vector3 StarTargetPosition;
     private float elapsedTime = 0;
-
     public RectTransform ShipScape;
     private Vector3 ShipInitialPosition;
     private Vector3 ShipTargetPosition;
     public Transform EventHolder;
+    public int TravelLocation;
     public void MoveShip()
     {
+
         Debug.Log("Current event amount is  " + EventHolder.childCount);
         if (Starscape.localPosition == StarTargetPosition && ShipScape.localPosition == ShipTargetPosition && EventHolder.childCount == 0)
         {
-            SupplyScript.Fuel -= 5;
             SupplyScript.Food -= CharacterHolder.transform.childCount;
-            TriggerEvent();
+            if (SupplyScript.Fuel > 5)
+            {
+                SupplyScript.Fuel -= 5;
+                //this increments so we can figure out if we are at a static event
+                TravelLocation += 1;
+                TriggerEvent();
 
-            //Move The Stars
-            StarInitialPosition = Starscape.localPosition;
-            StarTargetPosition -= new Vector3(moveDistance, 0f, 0f);
+                //Move The Stars
+                StarInitialPosition = Starscape.localPosition;
+                StarTargetPosition -= new Vector3(moveDistance, 0f, 0f);
+                //Move The Ship
+                ShipInitialPosition = ShipScape.localPosition;
+                ShipTargetPosition += new Vector3(ShipmoveDistance, 0f, 0f);
+            }
+            else
+                SelectFuelEvent();
 
-            //Move The Ship
-            ShipInitialPosition = ShipScape.localPosition;
-            ShipTargetPosition += new Vector3(ShipmoveDistance, 0f, 0f);
-
-            //Bookkeeping
+            //Bookkeeping for the ship movement
             elapsedTime = 0;
         }
     }
@@ -67,8 +75,17 @@ public class Move : MonoBehaviour
     public void TriggerEvent()
     {
         // Example of how to select a random event
-
+        /*        if (transform.GetChild(0).GetChild(TravelLocation).GetComponent<EventLocation>().eventObject != null)
+                {
+                    Debug.Log("Trigger a story event");
+                    SelectNonRandomEvent();
+                }
+                else
+                {
+         */
+        Debug.Log("Trigger a random event");
         SelectRandomEvent();
+        //      }
         Event selectedEvent = EventHolder.GetComponentInChildren<Event>();
         if (selectedEvent != null)
         {
@@ -100,7 +117,10 @@ public class Move : MonoBehaviour
         MainScreen.color = new Color32(0, 0, 0, 255);
     }
 
-
+    public void SelectNonRandomEvent()
+    {
+        Instantiate(transform.GetChild(0).GetChild(TravelLocation).GetComponent<EventLocation>().eventObject, EventHolder);
+    }
     //GPT CODE
     //TIME TO LEARN ABOUT SOME STUFF
     [System.Serializable]
@@ -109,11 +129,12 @@ public class Move : MonoBehaviour
         public GameObject eventObject;
         public int eventWeight;
     }
-
-    public List<EventData> events = new List<EventData>();
+    public List<EventData> RandomEvents = new List<EventData>();
+    public List<EventData> NoFuelEvents = new List<EventData>();
+    //select a random list from the big list of events, and instantiate it in our event holder
     public void SelectRandomEvent()
     {
-        if (events.Count == 0)
+        if (RandomEvents.Count == 0)
         {
             Debug.LogWarning("No events defined.");
         }
@@ -121,7 +142,7 @@ public class Move : MonoBehaviour
         int totalWeight = 0;
 
         // Calculate the total weight of all events
-        foreach (EventData eventData in events)
+        foreach (EventData eventData in RandomEvents)
         {
             totalWeight += eventData.eventWeight;
         }
@@ -130,13 +151,34 @@ public class Move : MonoBehaviour
         int currentWeight = 0;
 
         // Select an event based on the random value
-        foreach (EventData eventData in events)
+        foreach (EventData eventData in RandomEvents)
         {
             currentWeight += eventData.eventWeight;
             if (randomValue < currentWeight && randomValue > currentWeight - eventData.eventWeight)
-            {
                 Instantiate(eventData.eventObject, EventHolder);
-            }
+        }
+    }
+    //This is the same thing as the random events but for fuel instead
+    public void SelectFuelEvent()
+    {
+        if (NoFuelEvents.Count == 0)
+        {
+            Debug.LogWarning("No events defined.");
+        }
+        int totalWeight = 0;
+        // Calculate the total weight of all events
+        foreach (EventData eventData in NoFuelEvents)
+        {
+            totalWeight += eventData.eventWeight;
+        }
+        int randomValue = Random.Range(0, totalWeight);
+        int currentWeight = 0;
+        // Select an event based on the random value
+        foreach (EventData eventData in NoFuelEvents)
+        {
+            currentWeight += eventData.eventWeight;
+            if (randomValue < currentWeight && randomValue > currentWeight - eventData.eventWeight)
+                Instantiate(eventData.eventObject, EventHolder);
         }
     }
 }

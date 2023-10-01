@@ -85,7 +85,7 @@ public class CombatController : MonoBehaviour
     {
         if (Enemy.HP < 1)
         {
-            TextBoxUI.TEXTBOX += "<br>" + Enemy.transform + " been defeated";
+            TextBoxUI.TEXTBOX += "<br>" + Enemy.transform.name + " been defeated";
             Destroy(Enemy.transform.gameObject);
             WindowEnable = false;
             MoveScript.DarkenEnemy();
@@ -100,21 +100,44 @@ public class CombatController : MonoBehaviour
         if (Character[0] != null)
         {
             CharacterAttack(0);
-            TextBoxUI.TEXTBOX += "<br>" + Character[0].CharName + " Attacks";
+            //         TextBoxUI.TEXTBOX += "<br>" + Character[0].CharName + " Attacks";
         }
         if (Character[1] != null)
         {
             CharacterAttack(1);
-            TextBoxUI.TEXTBOX += "<br>" + Character[1].CharName + " Attacks";
         }
         EnemyAttack();
     }
+    //TODO make an array that holds attack types, randomrange the length of the array to select your attack type. 1 default attack, 1 feat/stat based attack, 1 weapon based attack, 1 do nothing attack
+    //for REASONS we can't use the attack type directly in the array, we have to shift it by 1
     void CharacterAttack(int Char)
     {
-        Enemy.HP -= 1;
-        //TODO make an array that holds attack types, randomrange the length of the array to select your attack type. 1 default attack, 1 feat/stat based attack, 1 weapon based attack, 1 do nothing attack
-        //Character[Char];
-        CharAtkType[Char] = 0;
+        if (CharAtkType[Char] == 6)
+        {
+            int RandomAttack = Random.Range(1, 6);
+            if (RandomAttack < 4)
+            {
+                Enemy.HP -= 1;
+                TextBoxUI.TEXTBOX += "<br>" + Character[Char].CharName + Character[Char].Attack[CharAtkType[Char] - 1].AttackText;
+            }
+            if (RandomAttack == 4 || RandomAttack == 5)
+            {
+                TextBoxUI.TEXTBOX += "<br>Yeah those buttons don't do anything yet. Try again later";
+            }
+        }
+        else
+        {
+            if (CharAtkType[Char] < 4)
+            {
+                Enemy.HP -= 1;
+                TextBoxUI.TEXTBOX += "<br>" + Character[Char].CharName + Character[Char].Attack[CharAtkType[Char] - 1].AttackText;
+            }
+            if (CharAtkType[Char] == 4 || CharAtkType[Char] == 5)
+            {
+                TextBoxUI.TEXTBOX += "<br>Yeah those buttons don't do anything yet. Try again later";
+            }
+            CharAtkType[Char] = 0;
+        }
     }
     void EnemyAttack()
     {
@@ -130,7 +153,6 @@ public class CombatController : MonoBehaviour
     private Vector3 scaleChange;
     void MinMaxScreen()
     {
-
         if (WindowEnable == true)
         {
             if (CombatOverlay.localScale.x < 0.97f)

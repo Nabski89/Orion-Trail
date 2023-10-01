@@ -98,6 +98,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2231241529720400379, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: m_Name
+      value: Clown
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231241529720400379, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
