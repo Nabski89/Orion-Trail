@@ -1807,22 +1807,38 @@ MonoBehaviour:
   MainScreen: {fileID: 1113350302}
   ColorLayer: {fileID: 429435505}
   DialogBox: {fileID: 1384806851}
-  SupplyScript: {fileID: 0}
+  SupplyScript: {fileID: 1345780362}
   CharacterHolder: {fileID: 920430281}
-  moveDistance: 58
-  ShipmoveDistance: 2
-  moveDuration: 1
+  StaticEvents: []
+  StaticEventNumber: 0
+  BreakDownTrack: 0
+  MoveSpeed: 10
   Starscape: {fileID: 218504044}
   ShipScape: {fileID: 1378823017}
   EventHolder: {fileID: 1096277808}
   TravelLocation: 0
-  RandomEvents: []
+  RandomEvents:
+  - eventObject: {fileID: 5662867620706543460, guid: 710a32634b7782f42be30abd9db1f68b, type: 3}
+    eventWeight: 5
+  - eventObject: {fileID: 2676311816712638168, guid: 0133f69778bae0f4b99e8be569202dc2, type: 3}
+    eventWeight: 5
+  - eventObject: {fileID: 6883689016531749752, guid: e656eb40cf9ee46449074189f3a5274e, type: 3}
+    eventWeight: 5
   NoFuelEvents:
   - eventObject: {fileID: 2520985838417134475, guid: 9354593fb09ac9e4dad46fa4f13b0202, type: 3}
     eventWeight: 5
   - eventObject: {fileID: 3368170359532585058, guid: 6ffbb6f607b74254cbfd768a4dffb16e, type: 3}
     eventWeight: 5
   - eventObject: {fileID: 6991224298728283524, guid: 05ce3377274fab64f9fd488995ac6e62, type: 3}
+    eventWeight: 5
+  BreakEvents:
+  - eventObject: {fileID: 1763914882941318666, guid: 93780ba8f38fd1446800e5397f2da5ae, type: 3}
+    eventWeight: 5
+  - eventObject: {fileID: 2706828189050762811, guid: 6e89aa643b6552a49938015f5b24cf13, type: 3}
+    eventWeight: 5
+  - eventObject: {fileID: 5083754993883746031, guid: 344ea1ed801e4bc4f97d4cf8b4f48bef, type: 3}
+    eventWeight: 5
+  - eventObject: {fileID: 4372236110403809900, guid: 95467b6662f71aa4ba34e433e8698357, type: 3}
     eventWeight: 5
 --- !u!114 &476035224
 MonoBehaviour:

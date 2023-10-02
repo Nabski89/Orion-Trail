@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3270478314470430661
+--- !u!1001 &2438764488740737259
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2142453166000298779, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: m_Name
-      value: Pluto
+      value: OrionPrime
       objectReference: {fileID: 0}
     - target: {fileID: 4889133347473012907, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: m_RootOrder
@@ -56,17 +56,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
-      propertyPath: EventPicture
-      value: 
-      objectReference: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
-    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
-      propertyPath: Layer2Color.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: EventText.Array.data[0]
-      value: Pluto, long since occupied with long-range sensors and scanners, stands
-        ready to, and indeed continues to probe the far reaches of the galaxy.
+      value: You have made it to Orion! Congratulations! Your crew is one of the
+        few to start a new foothold for mankind!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}

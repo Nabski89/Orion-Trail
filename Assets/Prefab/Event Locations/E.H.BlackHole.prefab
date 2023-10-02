@@ -103,5 +103,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: E.H.BlackHole
       objectReference: {fileID: 0}
+    - target: {fileID: 5231975250519076535, guid: 0e5e11a99cfcaad4bbf82d229882f791, type: 3}
+      propertyPath: eventObject
+      value: 
+      objectReference: {fileID: 6000703863270045023, guid: 2e8078dcab8286a42b9715c238369e87, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e5e11a99cfcaad4bbf82d229882f791, type: 3}

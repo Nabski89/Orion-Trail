@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2142453166000298779, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: m_Name
-      value: _EventBase Variant
+      value: Asteroid
       objectReference: {fileID: 0}
     - target: {fileID: 4889133347473012907, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: m_RootOrder
@@ -54,6 +54,11 @@ PrefabInstance:
     - target: {fileID: 4889133347473012907, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: EventText.Array.data[0]
+      value: At the edge of the Sol system lies a treacherous asteroid belt. Many
+        have been crushed by stray asteroids and misguided judgement.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}

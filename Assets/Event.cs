@@ -12,6 +12,8 @@ public class Event : MonoBehaviour
     public GameObject Subevent2;
     [TextArea]
     public string[] EventText;
+    public string[] Options;
+
 
     public void TempEventDestro()
     {

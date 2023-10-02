@@ -17,6 +17,6 @@ public class FuelUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textMesh.text = " " + SupplyScript.Fuel;
+        textMesh.text = " " + Mathf.FloorToInt(SupplyScript.Fuel);
     }
 }
