@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterShip : MonoBehaviour
 {
     public StatScreen StatUI;
+
     // Start is called before the first frame update
     void Start()
     {

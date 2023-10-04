@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7530320084815200570
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 209750373983692821, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: EventText.Array.data[0]
+      value: CREWNAME has been feeling down, but the rest of the crew gets together
+        and throws them a party for their birthday.
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474078736567653187, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410435591792537843, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}
+      propertyPath: m_Name
+      value: +Party
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f00beaf0bc496445ada8bd3128a1737, type: 3}

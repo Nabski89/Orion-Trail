@@ -19,7 +19,6 @@ public class CharacterManager : MonoBehaviour
     public int Kinesthetics;
     public int Luck;
     public int Bullets;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -40,12 +39,6 @@ public class CharacterManager : MonoBehaviour
     {
         HPUI.text = HP.ToString();
         MoraleUI.text = Morale.ToString();
-
-        if (Morale < 1)
-        {
-            HP -= 1;
-            Morale += Random.Range(0, 4);
-        }
 
         if (HP < 1)
             Die();

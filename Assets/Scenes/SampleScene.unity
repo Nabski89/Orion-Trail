@@ -1808,7 +1808,7 @@ MonoBehaviour:
   ColorLayer: {fileID: 429435505}
   DialogBox: {fileID: 1384806851}
   SupplyScript: {fileID: 1345780362}
-  CharacterHolder: {fileID: 920430281}
+  CharacterHolder: {fileID: 920430284}
   StaticEvents: []
   StaticEventNumber: 0
   BreakDownTrack: 0
@@ -1839,6 +1839,15 @@ MonoBehaviour:
   - eventObject: {fileID: 5083754993883746031, guid: 344ea1ed801e4bc4f97d4cf8b4f48bef, type: 3}
     eventWeight: 5
   - eventObject: {fileID: 4372236110403809900, guid: 95467b6662f71aa4ba34e433e8698357, type: 3}
+    eventWeight: 5
+  MoraleEvents:
+  - eventObject: {fileID: 3663899112476277085, guid: e67d611076505f64ba9c94f01b432967, type: 3}
+    eventWeight: 5
+  - eventObject: {fileID: 3492368942263366089, guid: 3f348d0acc755dc4f841c6cd73401a55, type: 3}
+    eventWeight: 5
+  - eventObject: {fileID: 3983272674599476410, guid: 939b6cdfcf34f3e4b94a95343717e339, type: 3}
+    eventWeight: 5
+  - eventObject: {fileID: 5272807686746427002, guid: 2138b4cf693f62b46a5166613dc43303, type: 3}
     eventWeight: 5
 --- !u!114 &476035224
 MonoBehaviour:
@@ -2161,6 +2170,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2246,6 +2256,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d34be30c76f0ac42942a3a820b6117f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86832f84a0cf34eb9b89129d49b7a15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startConfig: {fileID: 11400000, guid: 6adb959626b904caca730305a43e0053, type: 2}
+  crtRenderSettings: {fileID: 11400000, guid: 2d929546960894d169f1999a321e4ff4, type: 2}
+  _runtimeMaterial: {fileID: 0}
+  data:
+    pixelationAmount: 0
+    maxColorChannels:
+      red: 0
+      green: 0
+      blue: 0
+      greyScale: 0
+    dithering4: 0
+    dithering8: 0
+    vignette: 0.106
+    innerCurve: 4.7
+    monitorCurve: 0
+    monitorInnerSize:
+      width: 0
+      height: 0
+    monitorOutterSize:
+      width: 0.096
+      height: 0.1
+    zoom: 1.31
+    monitorRoundness: 0.2
+    monitorTexture: {fileID: 2800000, guid: a5e897f9f29eb488ba4791cd52d004b5, type: 3}
+    monitorColor:
+      r: 0.12867041
+      g: 0.1254902
+      b: 0.21568628
+      a: 0.5254902
+    innerMonitorDarkness: 0.596
+    innerMonitorShine: 0.25
+    colorScans:
+      greenChannelMultiplier: -0.048
+      redBlueChannelMultiplier: 0.048
+      sizeMultiplier: 1
+    innerMonitorShineRadius: -0.087
+    innerMonitorShineCurve: 10
+  lastValidationId: ffefe190-c5c7-403b-bd64-ac77cae017c5
 --- !u!224 &605903452 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4060131847468288808, guid: 6f62024e6d65b524cba06841781d0fad, type: 3}
@@ -3010,6 +3070,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatUI: {fileID: 1006835846}
+  NoMoralCrew:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!224 &938779327 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8056580625448621624, guid: 95b7c0c717f04b949ba28ee43751e4ab, type: 3}
