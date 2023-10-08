@@ -14,6 +14,7 @@ public class Move : MonoBehaviour
     public Transform[] StaticEvents;
     public int StaticEventNumber;
     public float BreakDownTrack;
+    public int EatTracker = 0;
     private void Start()
     {
         // Loop through the starscape children and add them to the StaticEvents array
@@ -31,6 +32,7 @@ public class Move : MonoBehaviour
 
         ShipInitialPosition = ShipScape.localPosition;
         ShipTargetPosition = ShipInitialPosition;
+
     }
 
     // Update is called once per frame
@@ -38,15 +40,38 @@ public class Move : MonoBehaviour
     {
         if (MoveSpeed != 0 && EventHolder.childCount == 0)
         {
+            //get our crew members which will be used for food then morale
+            CharacterManager[] characterManagers = CharacterHolder.GetComponentsInChildren<CharacterManager>();
             BreakDownTrack += Time.deltaTime;
+            //eatting is a subsystem of breaking down just so I don't have to have two timers
             if (BreakDownTrack > 1)
             {
+                EatTracker += 1;
                 BreakDownTrack = 0;
                 if (Random.Range(0, 60) < 2)
                 {
                     SelectRandomEvent(BreakEvents);
                 }
+                //every ten second increase our crews hunger rate then eat food relative to how hungry they are
+                //if we have enough food the crew eats, starting with the captain, otherwise they just start to get CRANKY
+                if (EatTracker > 9)
+                {
+                    EatTracker = 0;
+                    CharacterHolder.CrewHunger();
+                    foreach (CharacterManager characterManager in characterManagers)
+                    {
+                        if (SupplyScript.Food >= characterManager.Hunger)
+                        {
+                            SupplyScript.Food -= characterManager.Hunger;
+                            characterManager.Hunger = 0;
+                        }
+                        else
+                            characterManager.Morale -= characterManager.Hunger;
+                    }
+                }
             }
+
+
             ShipScape.transform.position += Vector3.right * Time.deltaTime * MoveSpeed / 10;
             Starscape.transform.position -= Vector3.right * Time.deltaTime * 3 / 10 * MoveSpeed;
             SupplyScript.Fuel -= Time.deltaTime / 10;
@@ -55,7 +80,7 @@ public class Move : MonoBehaviour
                 SelectRandomEvent(NoFuelEvents);
             }
             CharacterManager SadCrewmate = null;
-            CharacterManager[] characterManagers = CharacterHolder.GetComponentsInChildren<CharacterManager>();
+
             // Loop through each CharacterManager and subtract 1 from Morale
             foreach (CharacterManager characterManager in characterManagers)
             {

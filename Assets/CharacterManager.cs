@@ -26,12 +26,13 @@ public class CharacterManager : MonoBehaviour
         CharName = GetComponentInChildren<CrewNameRandomizer>().Name;
 
         //randomize our stats
-        Charisma = Random.Range(0, 4);
-        Survival = Random.Range(0, 4);
-        Engineering = Random.Range(0, 4);
-        Kinesthetics = Random.Range(0, 4);
-        Luck = Random.Range(0, 4);
+        Charisma = Random.Range(-1, 6);
+        Survival = Random.Range(-1, 6);
+        Engineering = Random.Range(-1, 6);
+        Kinesthetics = Random.Range(-1, 6);
+        Luck = Random.Range(-1, 6);
         Bullets = Random.Range(0, 4);
+        HP = Random.Range(4, 9) + Survival * 4 + Kinesthetics;
     }
 
     // Update is called once per frame
@@ -39,6 +40,7 @@ public class CharacterManager : MonoBehaviour
     {
         HPUI.text = HP.ToString();
         MoraleUI.text = Morale.ToString();
+        HungerUI.text = Hunger.ToString();
 
         if (HP < 1)
             Die();
