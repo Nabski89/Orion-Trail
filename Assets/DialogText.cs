@@ -8,7 +8,7 @@ public class DialogText : MonoBehaviour
     public GameObject SoundEffect;
     public TextMeshProUGUI textMesh;
     public string TEXTBOX = "Your text here";
-    int displayedCharacters = 0;
+    public int displayedCharacters = 0;
     private void Start()
     {
         if (textMesh == null)

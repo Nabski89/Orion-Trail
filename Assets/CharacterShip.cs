@@ -12,12 +12,6 @@ public class CharacterShip : MonoBehaviour
     {
         SetEngineUIBlack();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void CrewHunger()
     {
         CharacterManager[] characterManagers = GetComponentsInChildren<CharacterManager>();

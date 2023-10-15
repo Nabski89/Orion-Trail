@@ -1667,7 +1667,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1708880075}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1783,7 +1783,6 @@ RectTransform:
   m_Children:
   - {fileID: 218504044}
   - {fileID: 1378823017}
-  - {fileID: 1096277808}
   m_Father: {fileID: 1345780360}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1812,6 +1811,7 @@ MonoBehaviour:
   StaticEvents: []
   StaticEventNumber: 0
   BreakDownTrack: 0
+  EatTracker: 0
   MoveSpeed: 10
   Starscape: {fileID: 218504044}
   ShipScape: {fileID: 1378823017}
@@ -1820,7 +1820,7 @@ MonoBehaviour:
   RandomEvents:
   - eventObject: {fileID: 5662867620706543460, guid: 710a32634b7782f42be30abd9db1f68b, type: 3}
     eventWeight: 5
-  - eventObject: {fileID: 2676311816712638168, guid: 0133f69778bae0f4b99e8be569202dc2, type: 3}
+  - eventObject: {fileID: 1727000040896349592, guid: c6b155fce571d6544a1ed7a03f569c9c, type: 3}
     eventWeight: 5
   - eventObject: {fileID: 6883689016531749752, guid: e656eb40cf9ee46449074189f3a5274e, type: 3}
     eventWeight: 5
@@ -3188,7 +3188,7 @@ RectTransform:
   - {fileID: 2082052279}
   - {fileID: 313705912}
   m_Father: {fileID: 1708880075}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3392,13 +3392,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096277807}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 476035222}
-  m_RootOrder: 2
+  m_Father: {fileID: 1708880075}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3448,7 +3448,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1708880075}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4456,7 +4456,7 @@ RectTransform:
   - {fileID: 304028384}
   - {fileID: 807627581}
   m_Father: {fileID: 1708880075}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4985,6 +4985,7 @@ MonoBehaviour:
     trail through space for those willing to risk it. Many pioneers seeking new lives
     on the galactic frontier would find exactly what they were seeking... or lose
     their lives on the way.
+  displayedCharacters: 0
 --- !u!1 &1441244389
 GameObject:
   m_ObjectHideFlags: 0
@@ -5830,6 +5831,7 @@ GameObject:
   - component: {fileID: 1645163471}
   - component: {fileID: 1645163470}
   - component: {fileID: 1645163469}
+  - component: {fileID: 1645163472}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5952,6 +5954,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645163467}
   m_CullTransparentMesh: 1
+--- !u!114 &1645163472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645163467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11684d1a217c6f046aee0ece952e158e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1657455070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6176,6 +6190,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1096277808}
   - {fileID: 1113350301}
   - {fileID: 429435504}
   - {fileID: 1006835845}

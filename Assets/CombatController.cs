@@ -25,12 +25,15 @@ public class CombatController : MonoBehaviour
         }
         scaleChange = new Vector3(1f, 0, 0);
     }
+
+    //Check our screensize, then if we have two attacks queue'd up AND have finished displaying the last attack, take the next attack.
+    //After that check if combat is done
     void Update()
     {
         MinMaxScreen();
         if (Enemy != null)
         {
-            if (CharAtkType[0] != 0 && CharAtkType[1] != 0)
+            if (CharAtkType[0] != 0 && CharAtkType[1] != 0 && TextBoxUI.displayedCharacters >= TextBoxUI.TEXTBOX.Length)
                 CombatAction();
             UpdateHPBars();
             EndCombat();
