@@ -19,6 +19,7 @@ public class CharacterManager : MonoBehaviour
     public int Kinesthetics;
     public int Luck;
     public int Bullets;
+    public GameObject Equipment;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,8 +64,10 @@ public class CharacterManager : MonoBehaviour
         Ship.StatUI.Maximize(this);
     }
 
+    public void Equip()
+    {
 
-
+    }
 
 
     [System.Serializable]

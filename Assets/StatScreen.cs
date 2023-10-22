@@ -9,6 +9,7 @@ public class StatScreen : MonoBehaviour
     public bool WindowEnable;
     public CharacterManager Character;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,5 +63,15 @@ public class StatScreen : MonoBehaviour
     {
         WindowEnable = false;
     }
+    public Transform EquipmentManager;
+    public void Equip(GameObject ToEquip)
+    {
+        //check if we already have an equipment
+        if (Character.Equipment != null)
+            Instantiate(Character.Equipment, EquipmentManager);
+        //create a new copy of our equipment, and destroy the old one
+        Character.Equipment = Instantiate(ToEquip, Character.transform);
+        Destroy(ToEquip);
 
+    }
 }
