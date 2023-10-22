@@ -110,14 +110,17 @@ MonoBehaviour:
   Luck: 0
   Bullets: 0
   Attack:
-  - AttackText: ' uses a perfectly standard attack'
+  - CharacterAtkGameObject: {fileID: 1454723024916543931, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
+    AttackText: ' uses a perfectly standard attack'
     DamageMin: 0
     DamageMax: 0
-  - AttackText: ' be like "It''s a special attack". WOW you would expect this to
+  - CharacterAtkGameObject: {fileID: 1454723024916543931, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
+    AttackText: ' be like "It''s a special attack". WOW you would expect this to
       do more damage but it doesn''t because no one is special yet.'
     DamageMin: 0
     DamageMax: 0
-  - AttackText: ' used an item. It does nothing because items don''t exist yet.'
+  - CharacterAtkGameObject: {fileID: 1454723024916543931, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
+    AttackText: ' used an item. It does nothing because items don''t exist yet.'
     DamageMin: 0
     DamageMax: 0
 --- !u!1 &1370764779209634105

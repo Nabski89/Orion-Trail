@@ -133,6 +133,9 @@ public class Move : MonoBehaviour
             Debug.Log("Selected event: " + selectedEvent.name);
 
             Event EventActivate = selectedEvent.GetComponent<Event>();
+
+            //this used to set color layers but I would rather do it in the event itself
+            /*
             MainScreen.sprite = EventActivate.EventPicture;
             //reset the color because we are making events black after we kill them
             MainScreen.color = new Color32(255, 255, 255, 255);
@@ -146,18 +149,18 @@ public class Move : MonoBehaviour
             }
             else
                 ColorLayer.color = new Color32(255, 255, 225, 0);
-
+*/
             //set the textbox with a random text from the default types
             DialogBox.TEXTBOX = EventActivate.EventText[Random.Range(0, EventActivate.EventText.Length)];
             DialogBox.NewText();
         }
     }
-
+/* This used to make enemies dark on defeat
     public void DarkenEnemy()
     {
         MainScreen.color = new Color32(0, 0, 0, 255);
     }
-
+*/
     public void SelectNonRandomEvent()
     {
 

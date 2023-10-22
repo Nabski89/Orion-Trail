@@ -5,6 +5,7 @@ using TMPro;
 
 public class CombatController : MonoBehaviour
 {
+    public Transform CombatLog;
     private Move MoveScript;
     public CharacterManager[] Character;
     public int[] CharAtkType;
@@ -91,7 +92,8 @@ public class CombatController : MonoBehaviour
             TextBoxUI.TEXTBOX += "<br>" + Enemy.transform.name + " been defeated";
             Destroy(Enemy.transform.gameObject);
             WindowEnable = false;
-            MoveScript.DarkenEnemy();
+            //TODO make enemies black on defeat again
+       //     MoveScript.DarkenEnemy();
             Debug.Log("Combat Ends");
         }
     }
@@ -133,6 +135,8 @@ public class CombatController : MonoBehaviour
             if (CharAtkType[Char] < 4)
             {
                 Enemy.HP -= 1;
+                Instantiate(Character[Char].Attack[CharAtkType[Char] - 1].CharacterAtkGameObject, CombatLog);
+                
                 TextBoxUI.TEXTBOX += "<br>" + Character[Char].CharName + Character[Char].Attack[CharAtkType[Char] - 1].AttackText;
             }
             if (CharAtkType[Char] == 4 || CharAtkType[Char] == 5)
