@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2438764488740737259
+--- !u!1001 &1770814675348266794
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,8 +9,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2142453166000298779, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: m_Name
-      value: OrionPrime
+      value: TauCP
       objectReference: {fileID: 0}
+    - target: {fileID: 2377525000921848591, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 03c7dabe6e53d2d4aa12ef2b0aabc028, type: 3}
+    - target: {fileID: 3287020039611153202, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e219b1742d49dc4f842a89382c442da, type: 3}
     - target: {fileID: 4889133347473012907, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,8 +65,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: EventText.Array.data[0]
-      value: You have made it to Orion! Congratulations! Your crew is one of the
-        few to start a new foothold for mankind!
+      value: Tau Ceti Beta has recently become a waypoint for colonists headed towards
+        Orion. There are many ships and makeshift stations in the vicinity.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}

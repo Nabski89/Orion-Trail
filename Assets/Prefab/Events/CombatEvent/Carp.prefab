@@ -7,6 +7,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1422032361941062734, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a0ba263221af4b94a90e6dd79bf88ebc, type: 3}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: HP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: MaxHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[1].DamageMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[2].DamageMax
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[0].AttackText
+      value: gnashes
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[1].AttackText
+      value: Goes Ape Shit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[2].AttackText
+      value: looks tired
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198101151093646160, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9ac85e87f6184ef44b01957646d577b0, type: 3}
+    - target: {fileID: 3966706418662314563, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d12666e7f1376847bfe5426b2c2aa29, type: 3}
+    - target: {fileID: 4637405152776767389, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9ac85e87f6184ef44b01957646d577b0, type: 3}
+    - target: {fileID: 5353004557005391456, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d12666e7f1376847bfe5426b2c2aa29, type: 3}
     - target: {fileID: 8070032108468555618, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -91,9 +143,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8473766523741296990, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a0ba263221af4b94a90e6dd79bf88ebc, type: 3}
     - target: {fileID: 8578406082031896180, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Name
-      value: CombatEvent
+      value: Carp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}

@@ -7,6 +7,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1422032361941062734, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 265ca1f4889258446a55df0c83e99f24, type: 3}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: HP
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: MaxHP
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[0].DamageMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[0].DamageMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[1].DamageMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[1].DamageMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[0].AttackText
+      value: Blorbles
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[1].AttackText
+      value: Sloshes
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198101151093646160, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 558b43b491d1bd0408eeb087288f75e5, type: 3}
+    - target: {fileID: 3966706418662314563, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d74da5a7c377d3448aa03e6aac956d3, type: 3}
+    - target: {fileID: 4637405152776767389, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 558b43b491d1bd0408eeb087288f75e5, type: 3}
+    - target: {fileID: 5353004557005391456, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d74da5a7c377d3448aa03e6aac956d3, type: 3}
     - target: {fileID: 8070032108468555618, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -91,9 +147,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8473766523741296990, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 265ca1f4889258446a55df0c83e99f24, type: 3}
     - target: {fileID: 8578406082031896180, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Name
-      value: CombatEvent
+      value: Slime
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}

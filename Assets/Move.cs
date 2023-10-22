@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
+    /* Removed to do it in the event itself instead
     public Image MainScreen;
     public Image ColorLayer;
+    */
     public DialogText DialogBox;
     public Supplies SupplyScript;
     public CharacterShip CharacterHolder;

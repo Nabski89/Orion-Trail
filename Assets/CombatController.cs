@@ -93,7 +93,7 @@ public class CombatController : MonoBehaviour
             Destroy(Enemy.transform.gameObject);
             WindowEnable = false;
             //TODO make enemies black on defeat again
-       //     MoveScript.DarkenEnemy();
+            //     MoveScript.DarkenEnemy();
             Debug.Log("Combat Ends");
         }
     }
@@ -117,34 +117,73 @@ public class CombatController : MonoBehaviour
     //for REASONS we can't use the attack type directly in the array, we have to shift it by 1
     void CharacterAttack(int Char)
     {
-        if (CharAtkType[Char] == 6)
+        //GROSS NESTED ELSE IF STATMENTS!
+        //If we are dead, retreat, otherwise use a random attack if that's requested otherwise use attack
+        if (Character[Char].HP > 0)
         {
-            int RandomAttack = Random.Range(1, 6);
-            if (RandomAttack < 4)
+            if (CharAtkType[Char] == 6)
             {
-                Enemy.HP -= 1;
-                TextBoxUI.TEXTBOX += "<br>" + Character[Char].CharName + Character[Char].Attack[CharAtkType[Char] - 1].AttackText;
+                int RandomAttack = Random.Range(1, 6);
+                if (RandomAttack < 4)
+                {
+                    Enemy.HP -= 1;
+                    TextBoxUI.TEXTBOX += "<br>" + Character[Char].CharName + Character[Char].Attack[CharAtkType[Char] - 1].AttackText;
+                }
+                if (CharAtkType[Char] == 4)
+                {
+                    TextBoxUI.TEXTBOX += "<br>" + Character[Char].CharName + "Retreats back to the ship.";
+                    Escape(Char);
+                }
+                if (RandomAttack == 5)
+                {
+                    TextBoxUI.TEXTBOX += "<br>Yeah those buttons don't do anything yet. Try again later";
+                }
             }
-            if (RandomAttack == 4 || RandomAttack == 5)
+            else
             {
-                TextBoxUI.TEXTBOX += "<br>Yeah those buttons don't do anything yet. Try again later";
+                if (CharAtkType[Char] < 4)
+                {
+                    Enemy.HP -= 1;
+                    Instantiate(Character[Char].Attack[CharAtkType[Char] - 1].CharacterAtkGameObject, CombatLog);
+
+                    TextBoxUI.TEXTBOX += "<br>" + Character[Char].CharName + Character[Char].Attack[CharAtkType[Char] - 1].AttackText;
+                }
+                if (CharAtkType[Char] == 4)
+                {
+                    TextBoxUI.TEXTBOX += "<br>" + Character[Char].CharName + " Retreats back to the ship.";
+                    Escape(Char);
+                }
+                if (CharAtkType[Char] == 5)
+                {
+                    TextBoxUI.TEXTBOX += "<br>Yeah those buttons don't do anything yet. Try again later";
+                }
+                CharAtkType[Char] = 0;
             }
         }
         else
+            Escape(Char);
+    }
+    void Escape(int Char)
+    {
+        CharacterManager Char1 = Character[0];
+        CharacterManager Char2 = Character[1];
+        CharacterManager[] characterManagers = Crew.GetComponentsInChildren<CharacterManager>();
+        if (characterManagers.Length < 2)
         {
-            if (CharAtkType[Char] < 4)
-            {
-                Enemy.HP -= 1;
-                Instantiate(Character[Char].Attack[CharAtkType[Char] - 1].CharacterAtkGameObject, CombatLog);
-                
-                TextBoxUI.TEXTBOX += "<br>" + Character[Char].CharName + Character[Char].Attack[CharAtkType[Char] - 1].AttackText;
-            }
-            if (CharAtkType[Char] == 4 || CharAtkType[Char] == 5)
-            {
-                TextBoxUI.TEXTBOX += "<br>Yeah those buttons don't do anything yet. Try again later";
-            }
-            CharAtkType[Char] = 0;
+            TextBoxUI.TEXTBOX += "The ship is impossible to pilot alone. Win or lose, death has caught you";
+            //they roll rangom the rest of the way to keep it going TODO
+            CharAtkType[Char] = 6;
+            return;
         }
+
+        int firstIndex = Random.Range(0, characterManagers.Length);
+
+        while (characterManagers[firstIndex] == Char1 || characterManagers[firstIndex] == Char2)
+        {
+            firstIndex = Random.Range(0, characterManagers.Length);
+        }
+        Character[Char] = characterManagers[firstIndex];
+        SetUpScreen();
     }
     void EnemyAttack()
     {

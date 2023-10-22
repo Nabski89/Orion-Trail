@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Outpost
       objectReference: {fileID: 0}
+    - target: {fileID: 2377525000921848591, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 407c975ce4395354a809824af6fe8505, type: 3}
+    - target: {fileID: 3287020039611153202, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 407c975ce4395354a809824af6fe8505, type: 3}
     - target: {fileID: 4889133347473012907, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: m_RootOrder
       value: 0

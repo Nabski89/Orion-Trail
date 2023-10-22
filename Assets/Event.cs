@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 using UnityEngine.UI;
 
 public class Event : MonoBehaviour
@@ -13,8 +14,6 @@ public class Event : MonoBehaviour
     [TextArea]
     public string[] EventText;
     public string[] Options;
-
-
     public void TempEventDestro()
     {
         TriggerSubEvent1();

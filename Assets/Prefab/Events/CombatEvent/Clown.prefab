@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 523106278286318621, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: Attack.Array.size
       value: 2
@@ -35,6 +39,10 @@ PrefabInstance:
       propertyPath: Attack.Array.data[1].AttackText
       value: Clown Attack 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2198101151093646160, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ddd2c3dbebed15343a24c553e4d66862, type: 3}
     - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: Subevent1
       value: 
@@ -76,6 +84,18 @@ PrefabInstance:
         that leaving settled and modernized places like Earth increases the number
         of clowns in space?\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 3966706418662314563, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ba6c25ec57a6baf4aafc12091fa786dc, type: 3}
+    - target: {fileID: 4637405152776767389, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ddd2c3dbebed15343a24c553e4d66862, type: 3}
+    - target: {fileID: 5353004557005391456, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ba6c25ec57a6baf4aafc12091fa786dc, type: 3}
     - target: {fileID: 8070032108468555618, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -163,6 +183,10 @@ PrefabInstance:
     - target: {fileID: 8578406082031896180, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Name
       value: Clown
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078964482896054457, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}

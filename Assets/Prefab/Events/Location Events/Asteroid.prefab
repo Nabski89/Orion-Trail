@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6723120022844765044
+--- !u!1001 &1981246025539485399
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,8 +9,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2142453166000298779, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: m_Name
-      value: TauCB
+      value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 2377525000921848591, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d12666e7f1376847bfe5426b2c2aa29, type: 3}
+    - target: {fileID: 3287020039611153202, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d12666e7f1376847bfe5426b2c2aa29, type: 3}
     - target: {fileID: 4889133347473012907, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,9 +65,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: EventText.Array.data[0]
-      value: 'You have reached the halfway point in your journey, the largest space
-        port along the trail: Tau Ceti Beta. It bustles with activity and life. It
-        gives you hope of finding your future at Orion.'
+      value: At the edge of the Sol system lies a treacherous asteroid belt. Many
+        have been crushed by stray asteroids and misguided judgement.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
