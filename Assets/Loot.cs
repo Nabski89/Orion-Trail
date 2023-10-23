@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Loot : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int Ammo;
+    public int AmmoChance;
+    public int Fuel;
+    public int FuelChance;
+    public int Food;
+    public int FoodChance;
+    public GameObject Special;
+    public int SpecialChance;
     void Start()
     {
-        
+        GetComponentInParent<Supplies>().Fuel +=  Random.Range(-1, Fuel);;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
