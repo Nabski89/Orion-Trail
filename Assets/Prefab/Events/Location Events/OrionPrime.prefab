@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8422149751040964905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4340572588696625650}
+  - component: {fileID: 7239510010907750718}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4340572588696625650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422149751040964905}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2635066750192665318}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7239510010907750718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422149751040964905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50405bdbc551bb24dab57959223df250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TOLOAD: VictoryScreen
+  Automatic: 1
 --- !u!1001 &2438764488740737259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64,9 +110,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: Subevent1
+      value: 
+      objectReference: {fileID: 8422149751040964905}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
       propertyPath: EventText.Array.data[0]
       value: You have made it to Orion! Congratulations! Your crew is one of the
         few to start a new foothold for mankind!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+--- !u!224 &2635066750192665318 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 381003173631349261, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+  m_PrefabInstance: {fileID: 2438764488740737259}
+  m_PrefabAsset: {fileID: 0}

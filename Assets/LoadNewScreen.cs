@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class SceneOpen : MonoBehaviour
-{
-    public string LoadThis;
 
-    public void LoadHere()
+public class LoadNewScreen : MonoBehaviour
+{
+
+    public string TOLOAD;
+    public bool Automatic = false;
+
+    void Start()
+    {
+        if (Automatic == true)
+            LoadScene();
+    }
+    public void LoadScene()
     {
         // Check if the TOLOAD string is not empty or null
-        if (!string.IsNullOrEmpty(LoadThis))
+        if (!string.IsNullOrEmpty(TOLOAD))
         {
             // Load the scene with the specified name
-            SceneManager.LoadScene(LoadThis);
+            SceneManager.LoadScene(TOLOAD);
         }
         else
         {

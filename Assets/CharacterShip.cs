@@ -15,6 +15,9 @@ public class CharacterShip : MonoBehaviour
     public void CrewHunger()
     {
         CharacterManager[] characterManagers = GetComponentsInChildren<CharacterManager>();
+        //this is currently how we hit the defeat screen TODO add more defeat options
+        if (characterManagers.Length <= 2)
+            GetComponentInParent<LoadNewScreen>().LoadScene();
         // Loop through each CharacterManager and subtract 1 from Morale
         foreach (CharacterManager characterManager in characterManagers)
         {

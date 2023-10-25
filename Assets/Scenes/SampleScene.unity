@@ -4821,6 +4821,7 @@ GameObject:
   - component: {fileID: 1345780357}
   - component: {fileID: 1345780361}
   - component: {fileID: 1345780362}
+  - component: {fileID: 1345780363}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4960,6 +4961,20 @@ MonoBehaviour:
   RepairHull: 1
   RepairElectronic: 1
   RepairEngine: 1
+--- !u!114 &1345780363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345780356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50405bdbc551bb24dab57959223df250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TOLOAD: Defeat Scene
+  Automatic: 0
 --- !u!1001 &1374632144
 PrefabInstance:
   m_ObjectHideFlags: 0
