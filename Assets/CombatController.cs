@@ -5,6 +5,7 @@ using TMPro;
 
 public class CombatController : MonoBehaviour
 {
+    LootController LootManager;
     public Transform CombatLog;
     private Move MoveScript;
     public CharacterManager[] Character;
@@ -19,6 +20,7 @@ public class CombatController : MonoBehaviour
     public Transform Crew;
     void Start()
     {
+        LootManager = GetComponent<LootController>();
         MoveScript = GetComponentInChildren<Move>();
         if (MoveScript == null)
         {
@@ -95,6 +97,9 @@ public class CombatController : MonoBehaviour
             //TODO make enemies black on defeat again
             //     MoveScript.DarkenEnemy();
             Debug.Log("Combat Ends");
+            // Find the LootController script and loot
+            LootManager.LootScreen.gameObject.SetActive(true);
+            LootManager.ActivateLooting();
         }
     }
 

@@ -54,7 +54,7 @@ public class CharacterManager : MonoBehaviour
         while (SadOfLoss < StatTotal)
         {
             SadOfLoss += 1;
-            Ship.CrewSad();
+            Ship.CrewMoraleChange(1, false);
         }
         Destroy(gameObject);
     }

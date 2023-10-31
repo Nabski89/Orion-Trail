@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class CharacterShip : MonoBehaviour
 {
     public StatScreen StatUI;
+    GenericManager Reference;
 
     // Start is called before the first frame update
     void Start()
     {
+        Reference = GetComponentInParent<GenericManager>();
         SetEngineUIBlack();
     }
     public void CrewHunger()
@@ -24,17 +26,26 @@ public class CharacterShip : MonoBehaviour
             characterManager.Hunger += 1;
         }
     }
-    public void CrewSad()
+
+    public void CrewMoraleChange(int HowSad, bool IsRandom)
     {
-        CharacterManager[] characterManagers = GetComponentsInChildren<CharacterManager>();
-        // Loop through each CharacterManager and subtract 1 from Morale
-        foreach (CharacterManager characterManager in characterManagers)
+        if (HowSad != 0)
         {
-            characterManager.Morale -= 1;
+            CharacterManager[] characterManagers = GetComponentsInChildren<CharacterManager>();
+            if (IsRandom == false)
+                foreach (CharacterManager characterManager in characterManagers)
+                {
+                    characterManager.Morale += HowSad;
+                    Reference.MainTextReference.TEXTBOX += "<br>The entire crew is sad.";
+                }
+            else
+            {
+                int SadCharacter = Random.Range(0, characterManagers.Length);
+                characterManagers[SadCharacter].Morale += HowSad;
+                Reference.MainTextReference.TEXTBOX += "<br>" + characterManagers[SadCharacter].CharName + " is sad.";
+            }
         }
     }
-
-
 
     //mechanics of the ship itself
     [System.Serializable]
