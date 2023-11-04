@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a0ba263221af4b94a90e6dd79bf88ebc, type: 3}
+    - target: {fileID: 1422032361941062734, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422032361941062734, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422032361941062734, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Color.r
+      value: 0.1254902
+      objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: HP
       value: 10
@@ -47,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9ac85e87f6184ef44b01957646d577b0, type: 3}
+    - target: {fileID: 3646817120629541474, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Name
+      value: Space Carp
+      objectReference: {fileID: 0}
     - target: {fileID: 3966706418662314563, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -153,3 +169,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+--- !u!1 &7163143007201563014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 523106278286318621, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+  m_PrefabInstance: {fileID: 7217839736077602203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5587552140441058309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7163143007201563014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20af3015f0029534887154dd9b48495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColorOptions:
+  - {r: 0.18128292, g: 0, b: 0.3584906, a: 1}
+  - {r: 0.63519895, g: 0.039649326, b: 0.9339623, a: 1}
+  - {r: 0.05838123, g: 0.017399432, b: 0.21698111, a: 1}

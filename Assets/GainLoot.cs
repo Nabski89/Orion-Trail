@@ -10,7 +10,7 @@ public class GainLoot : MonoBehaviour
         if (LootToSpawn != null)
         {
             // Instantiate the loot object
-            GameObject spawnedLoot = Instantiate(LootToSpawn, transform.position, Quaternion.identity);
+            GameObject spawnedLoot = Instantiate(LootToSpawn, transform);
 
             // Find the LootController script in the parent object
             LootController lootController = GetComponentInParent<LootController>();

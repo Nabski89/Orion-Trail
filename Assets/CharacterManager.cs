@@ -13,6 +13,7 @@ public class CharacterManager : MonoBehaviour
     public int Hunger = 0;
     public TextMeshProUGUI HungerUI;
 
+
     public int Charisma;
     public int Survival;
     public int Engineering;
@@ -20,6 +21,10 @@ public class CharacterManager : MonoBehaviour
     public int Luck;
     public int Bullets;
     public GameObject Equipment;
+    //attack info
+    public GameObject CharAtkOverlay;
+    public Transform ActionBar;
+    public float AtkCooldown;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,12 +55,7 @@ public class CharacterManager : MonoBehaviour
     {
         CharacterShip Ship = transform.GetComponentInParent<CharacterShip>();
         int StatTotal = Charisma + Survival + Engineering + Kinesthetics + Luck;
-        int SadOfLoss = 0;
-        while (SadOfLoss < StatTotal)
-        {
-            SadOfLoss += 1;
-            Ship.CrewMoraleChange(1, false);
-        }
+        Ship.CrewMoraleChange(StatTotal, false);
         Destroy(gameObject);
     }
     public void BringUpStats()

@@ -38,8 +38,21 @@ public class CombatController : MonoBehaviour
         {
             if (CharAtkType[0] != 0 && CharAtkType[1] != 0 && TextBoxUI.displayedCharacters >= TextBoxUI.TEXTBOX.Length)
                 CombatAction();
+            UpdateActionBar();
             UpdateHPBars();
             EndCombat();
+        }
+    }
+    public void UpdateActionBar()
+    {
+        //TODO this is the worst way to be doing this, with get component EVERY DANG UPDATE
+        CharacterManager[] characterManagers = Crew.GetComponentsInChildren<CharacterManager>();
+
+        for (int i = 0; i < characterManagers.Length; i++)
+        {
+            characterManagers[i].AtkCooldown = Mathf.Clamp(characterManagers[i].AtkCooldown - Time.deltaTime, 0, 5);
+            float xPos = Mathf.Clamp(characterManagers[i].AtkCooldown * 80f - 230, -230f, 170f);
+            characterManagers[i].ActionBar.localPosition = Vector3.right * xPos;
         }
     }
     public void InitiateCombat()
@@ -57,6 +70,12 @@ public class CombatController : MonoBehaviour
         }
 
         CharacterManager[] characterManagers = Crew.GetComponentsInChildren<CharacterManager>();
+
+        for (int i = 0; i < characterManagers.Length; i++)
+        {
+            characterManagers[i].CharAtkOverlay.SetActive(true);
+            characterManagers[i].AtkCooldown = 7 - characterManagers[i].Kinesthetics;
+        }
 
         if (characterManagers.Length < 2)
         {
@@ -98,6 +117,12 @@ public class CombatController : MonoBehaviour
             //     MoveScript.DarkenEnemy();
             Debug.Log("Combat Ends");
             // Find the LootController script and loot
+            CharacterManager[] characterManagers = Crew.GetComponentsInChildren<CharacterManager>();
+
+            for (int i = 0; i < characterManagers.Length; i++)
+            {
+                characterManagers[i].CharAtkOverlay.SetActive(false);
+            }
             LootManager.LootScreen.gameObject.SetActive(true);
             LootManager.ActivateLooting();
         }
@@ -196,7 +221,7 @@ public class CombatController : MonoBehaviour
         Character[0].HP -= 1;
         Character[1].HP -= 1;
         int randomIndex = Random.Range(0, Enemy.Attack.Length);
-        TextBoxUI.TEXTBOX += "<br>The Enemy Attacks" + Enemy.transform.name + Enemy.Attack[randomIndex].AttackText;
+        TextBoxUI.TEXTBOX += "<br>The" + Enemy.transform.name + " " + Enemy.Attack[randomIndex].AttackText + " for 1 damage";
         Debug.Log("Enemy.attack");
 
         //    Debug.Log("Enemy HP: " + Enemy.HP+ Enemy.attack.Length);

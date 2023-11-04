@@ -53,7 +53,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6866538165182938438, guid: 2e0b0856f38743649ab060587c5c95e4, type: 3}
       propertyPath: m_Name
-      value: _Actual Loot
+      value: Food
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e0b0856f38743649ab060587c5c95e4, type: 3}
+--- !u!1 &5951936992720211786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6866538165182938438, guid: 2e0b0856f38743649ab060587c5c95e4, type: 3}
+  m_PrefabInstance: {fileID: 996244661078880780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-4798559297629940048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951936992720211786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83c1f4127f03b54981d9533122e6f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FoodMod: 20
+  LowerRandom: 10
+  UpperRandom: 10

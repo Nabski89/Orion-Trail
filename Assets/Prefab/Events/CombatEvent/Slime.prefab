@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 265ca1f4889258446a55df0c83e99f24, type: 3}
+    - target: {fileID: 1422032361941062734, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Color.b
+      value: 0.122641504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422032361941062734, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.122641504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422032361941062734, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Color.r
+      value: 0.122641504
+      objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: HP
       value: 4
@@ -51,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 558b43b491d1bd0408eeb087288f75e5, type: 3}
+    - target: {fileID: 3646817120629541474, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Name
+      value: Slime
+      objectReference: {fileID: 0}
     - target: {fileID: 3966706418662314563, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -157,3 +173,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+--- !u!1 &7310413838820384010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 523106278286318621, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+  m_PrefabInstance: {fileID: 7075644039826325783}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1696750205933275540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7310413838820384010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20af3015f0029534887154dd9b48495a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColorOptions:
+  - {r: 0.42674193, g: 0.04472231, b: 0.6320754, a: 1}
+  - {r: 0.19171263, g: 0.14609292, b: 0.6320754, a: 1}
+  - {r: 0.6011093, g: 0.5927376, b: 0.6792453, a: 1}
