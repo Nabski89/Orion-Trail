@@ -107,6 +107,8 @@ GameObject:
   - component: {fileID: 3607427850644482478}
   - component: {fileID: 3618711352354857161}
   - component: {fileID: 7856608072269393231}
+  - component: {fileID: 1391667036040296694}
+  - component: {fileID: 7626726618726606192}
   m_Layer: 5
   m_Name: Character Sheet
   m_TagString: Untagged
@@ -222,6 +224,31 @@ MonoBehaviour:
     AttackText: ' used an item. It does nothing because items don''t exist yet.'
     DamageMin: 0
     DamageMax: 0
+--- !u!114 &1391667036040296694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903377653229437032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4deb670fae8cd24419bade8e481690ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CombatLog: {fileID: 0}
+--- !u!114 &7626726618726606192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903377653229437032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28d5c82720336c4cae7e02d6dbfeba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1370764779209634105
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,10 +928,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 711452524262307952}
+  m_TargetGraphic: {fileID: 8563269556821766553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391667036040296694}
+        m_TargetAssemblyTypeName: CharacterCombatController, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4894178878903833215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,10 +1269,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8156322447956669124}
+  m_TargetGraphic: {fileID: 8563269556821766553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391667036040296694}
+        m_TargetAssemblyTypeName: CharacterCombatController, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5779691919111026300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,10 +1774,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 4015653356273385960}
+  m_TargetGraphic: {fileID: 8563269556821766553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391667036040296694}
+        m_TargetAssemblyTypeName: CharacterCombatController, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7369304890163422814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,4 +2180,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8563269556821766553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1391667036040296694}
+        m_TargetAssemblyTypeName: CharacterCombatController, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
