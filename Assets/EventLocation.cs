@@ -5,4 +5,5 @@ using UnityEngine;
 public class EventLocation : MonoBehaviour
 {
     public GameObject eventObject;
+    public bool VisitedBefore = false;
 }

@@ -220,8 +220,8 @@ MonoBehaviour:
       do more damage but it doesn''t because no one is special yet.'
     DamageMin: 0
     DamageMax: 0
-  - CharacterAtkGameObject: {fileID: 1454723024916543931, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
-    AttackText: ' used an item. It does nothing because items don''t exist yet.'
+  - CharacterAtkGameObject: {fileID: 7296738426004427851, guid: 33847a489da27854ba910f937d33b20e, type: 3}
+    AttackText: ' fires a gun. '
     DamageMin: 0
     DamageMax: 0
 --- !u!114 &1391667036040296694

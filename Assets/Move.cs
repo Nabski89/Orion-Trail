@@ -93,11 +93,13 @@ public class Move : MonoBehaviour
             {
                 SelectRandomEvent(MoraleEvents);
             }
+            /*
             if (ShipScape.transform.position.x > StaticEvents[StaticEventNumber].position.x - 33)
             {
                 SelectNonRandomEvent();
                 MoveSpeed = 0;
             }
+            */
             ActivateEvent();
         }
     }
@@ -157,22 +159,16 @@ public class Move : MonoBehaviour
             DialogBox.NewText();
         }
     }
-/* This used to make enemies dark on defeat
-    public void DarkenEnemy()
-    {
-        MainScreen.color = new Color32(0, 0, 0, 255);
-    }
-*/
-    public void SelectNonRandomEvent()
-    {
-
-        if (StaticEvents[StaticEventNumber].GetComponent<EventLocation>() != null)
+    /* This used to make enemies dark on defeat
+        public void DarkenEnemy()
         {
-            Instantiate(StaticEvents[StaticEventNumber].GetComponent<EventLocation>().eventObject, EventHolder);
+            MainScreen.color = new Color32(0, 0, 0, 255);
         }
-        else
-            TriggerEvent();
-        StaticEventNumber += 1;
+    */
+    public void SelectNonRandomEvent(GameObject NonRandomEvent)
+    {
+        Instantiate(NonRandomEvent, EventHolder);
+        ActivateEvent();
     }
     //GPT CODE
     //TIME TO LEARN ABOUT SOME STUFF

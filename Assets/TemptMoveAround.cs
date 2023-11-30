@@ -7,6 +7,7 @@ public class TemptMoveAround : MonoBehaviour
 {
     public Vector2 TargetPosition;
     public float moveSpeed = 1.0f; // Adjust the speed as needed
+    public Move MoveManager;
 
     void Start()
     {
@@ -31,6 +32,27 @@ public class TemptMoveAround : MonoBehaviour
         if (TargetPosition != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, TargetPosition, moveSpeed * Time.deltaTime);
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check if the collided object has the EventLocation script
+        Debug.Log("TRIGGER with object with SOMETHING");
+        EventLocation eventLocation = other.GetComponent<EventLocation>();
+
+        if (eventLocation != null)
+        {
+            // Access the EventObject from the EventLocation script
+            GameObject eventObject = eventLocation.eventObject;
+
+            // Do something with the eventObject (replace this with your desired actions)
+            if (eventObject != null && eventLocation.VisitedBefore == false)
+            {
+                Debug.Log("Collided with object with EventLocation. EventObject: " + eventObject.name);
+                MoveManager.SelectNonRandomEvent(eventObject);
+                eventLocation.VisitedBefore = true;
+                eventLocation.GetComponent<SpriteRenderer>().color = Color.gray;
+            }
         }
     }
 }
