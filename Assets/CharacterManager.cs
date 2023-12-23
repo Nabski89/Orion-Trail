@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class CharacterManager : MonoBehaviour
 {
+
+    public Sprite CharacterPicture;
     public string CharName;
     public int HP = 50;
     public TextMeshProUGUI HPUI;
