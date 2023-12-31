@@ -302,7 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50405bdbc551bb24dab57959223df250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TOLOAD: TitleScreen
+  TOLOAD: 1.TitleScreen
+  Automatic: 0
 --- !u!114 &275771462
 MonoBehaviour:
   m_ObjectHideFlags: 0

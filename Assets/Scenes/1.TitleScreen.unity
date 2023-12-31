@@ -580,7 +580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50405bdbc551bb24dab57959223df250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TOLOAD: SampleScene
+  TOLOAD: 2.RunSelect
+  Automatic: 0
 --- !u!1 &1736009898
 GameObject:
   m_ObjectHideFlags: 0
