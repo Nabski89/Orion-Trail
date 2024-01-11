@@ -7,6 +7,7 @@ public class CrewSelect : MonoBehaviour
 {
     public GameObject[] CrewSlot;
     public Image[] CharacterImage;
+    public CustomCrew CrewCarryOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +25,7 @@ public class CrewSelect : MonoBehaviour
         Color imageColor = CharacterImage[Number].color;
         imageColor.a = 0f;
         CharacterImage[Number].color = imageColor;
+        //clear them from the crew roster completely
+        CrewCarryOver.Crew[Number] = null;
     }
 }

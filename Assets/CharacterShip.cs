@@ -12,8 +12,45 @@ public class CharacterShip : MonoBehaviour
     void Start()
     {
         Reference = GetComponentInParent<GenericManager>();
+        LoadCustomCrew();
         SetEngineUIBlack();
     }
+    public void LoadCustomCrew()
+    {
+        Debug.Log("load the crew");
+        // Find all instances of CustomCrew in the scene
+        CustomCrew[] customCrews = FindObjectsOfType<CustomCrew>();
+
+        // Loop through each CustomCrew instance
+        foreach (CustomCrew CrewToLoad in customCrews)
+        {
+            Debug.Log("We found a crew");
+            // Check if the current instance is attached to the GameObject this script is on
+            if (CrewToLoad.gameObject != null)
+            {
+                Debug.Log("Remove the old crew");
+                // Destroy existing children
+                foreach (Transform child in transform)
+                    Destroy(child.gameObject);
+
+                // Instantiate copies of each game object in the Crew array
+                InstantiateCrewMembers(CrewToLoad.Crew);
+                Destroy(CrewToLoad.gameObject);
+            }
+        }
+    }
+
+    private void InstantiateCrewMembers(GameObject[] crew)
+    {
+        // Instantiate copies of each game object in the Crew array as children
+        foreach (GameObject crewMemberPrefab in crew)
+        {
+            Instantiate(crewMemberPrefab, transform);
+        }
+    }
+
+
+
     public void CrewHunger()
     {
         CharacterManager[] characterManagers = GetComponentsInChildren<CharacterManager>();

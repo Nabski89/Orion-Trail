@@ -8365,6 +8365,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Sheet
       objectReference: {fileID: 0}
+    - target: {fileID: 903377653229437032, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2535037292249954479, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

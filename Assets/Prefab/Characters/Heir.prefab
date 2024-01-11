@@ -95,6 +95,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heir
       objectReference: {fileID: 0}
+    - target: {fileID: 3618711352354857161, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2b85729016c28ac4e930a2dca8d374e8, type: 3}
+    - target: {fileID: 5228635401641029879, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: Name
+      value: Vivian
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228635401641029879, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: textArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228635401641029879, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: textArray.Array.data[0]
+      value: Vivian
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088928366908790961, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_text
+      value: 'Vivian
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharName
       value: Vivian Clark
@@ -102,7 +124,7 @@ PrefabInstance:
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterPicture
       value: 
-      objectReference: {fileID: 21300000, guid: 2b85729016c28ac4e930a2dca8d374e8, type: 3}
+      objectReference: {fileID: 21300000, guid: 83f55c6920f76804fa752312b3cf3c07, type: 3}
     m_RemovedComponents:
     - {fileID: 7626726618726606192, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}

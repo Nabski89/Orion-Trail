@@ -7,6 +7,7 @@ public class InitialCrewButtons : MonoBehaviour
 {
     public Image BigPicture;
     public CrewSelect CrewSelect;
+    public CustomCrew CrewCarryOver;
     // Start is called before the first frame update
     public void SelectCrew(GameObject Selected)
     {
@@ -27,8 +28,12 @@ public class InitialCrewButtons : MonoBehaviour
 
         ClearCrewmember ButtonTracker = CrewSelect.CrewSlot[CrewSlotNum].GetComponent<ClearCrewmember>();
         ButtonTracker.CrewFilled = true;
+
         //set the big picture info
         BigPicture.sprite = CharMan.CharacterPicture;
+
+        //set the carry over crew
+        CrewCarryOver.Crew[CrewSlotNum] = Selected;
     }
 
 }

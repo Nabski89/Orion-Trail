@@ -321,6 +321,7 @@ MonoBehaviour:
   - {fileID: 1755233155}
   - {fileID: 703385318}
   - {fileID: 1033239449}
+  CrewCarryOver: {fileID: 1656071716}
 --- !u!1 &67359168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigPicture: {fileID: 888211101}
   CrewSelect: {fileID: 31685096}
+  CrewCarryOver: {fileID: 1656071716}
 --- !u!1 &419468980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,7 +1959,7 @@ GameObject:
   - component: {fileID: 494444595}
   - component: {fileID: 494444594}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Captain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2103,7 +2105,7 @@ GameObject:
   - component: {fileID: 564317286}
   - component: {fileID: 564317287}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Crew Positions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2381,7 +2383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2b85729016c28ac4e930a2dca8d374e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83f55c6920f76804fa752312b3cf3c07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2861,7 +2863,7 @@ GameObject:
   - component: {fileID: 703385317}
   - component: {fileID: 703385316}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Crew 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4279,7 +4281,7 @@ GameObject:
   - component: {fileID: 1033239448}
   - component: {fileID: 1033239447}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Crew 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5042,6 +5044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BigPicture: {fileID: 888211101}
   CrewSelect: {fileID: 31685096}
+  CrewCarryOver: {fileID: 0}
 --- !u!114 &1276375813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6443,7 +6446,7 @@ GameObject:
   - component: {fileID: 1568385350}
   - component: {fileID: 1568385349}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Crew 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6726,6 +6729,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598083336}
   m_CullTransparentMesh: 1
+--- !u!1 &1656071713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656071715}
+  - component: {fileID: 1656071714}
+  - component: {fileID: 1656071716}
+  m_Layer: 0
+  m_Name: Crew CarryOver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1656071714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656071713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8d599bfd5939b448f5043da50ce2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1656071715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656071713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 884.27734, y: 213.96545, z: -4.5859623}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1656071716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656071713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a422dadc6d52b4d906852a5ee8456c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Crew:
+  - {fileID: 509781324784395306, guid: 442c3b637050b5f40ac0b6f79ca2a03d, type: 3}
+  - {fileID: 8439896534279268291, guid: e43c8eec1e47109439da81847b941508, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1690349700
 GameObject:
   m_ObjectHideFlags: 0
@@ -7027,7 +7093,7 @@ GameObject:
   - component: {fileID: 1755233154}
   - component: {fileID: 1755233153}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Crew 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
