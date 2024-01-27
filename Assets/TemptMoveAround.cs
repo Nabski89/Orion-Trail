@@ -8,16 +8,16 @@ public class TemptMoveAround : MonoBehaviour
     public Vector2 TargetPosition;
     public float moveSpeed = 1.0f; // Adjust the speed as needed
     public Move MoveManager;
+    public GameObject BackingUpSound;
+    public GameObject EngineForwardSound;
 
     void Start()
     {
-        TargetPosition = new Vector2(0.0f, 0.0f);
-
     }
     void Update()
     {
         // Check for mouse click
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             // Get the mouse position in screen space
             Vector3 mousePosition = Input.mousePosition;
@@ -32,7 +32,12 @@ public class TemptMoveAround : MonoBehaviour
         if (TargetPosition != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, TargetPosition, moveSpeed * Time.deltaTime);
+            if (Vector2.Distance(TargetPosition, transform.position) > 0.01f)
+                EngineSounds(TargetPosition);
+            else
+                EngineSoundsDisable();
         }
+
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -54,5 +59,24 @@ public class TemptMoveAround : MonoBehaviour
                 eventLocation.GetComponent<SpriteRenderer>().color = Color.gray;
             }
         }
+    }
+
+    public void EngineSounds(Vector3 targetPosition)
+    {
+        if (TargetPosition.x < transform.position.x)
+        {
+            BackingUpSound.SetActive(true);
+            EngineForwardSound.SetActive(false);
+        }
+        else
+        {
+            BackingUpSound.SetActive(false);
+            EngineForwardSound.SetActive(true);
+        }
+    }
+    public void EngineSoundsDisable()
+    {
+        BackingUpSound.SetActive(false);
+        EngineForwardSound.SetActive(false);
     }
 }
