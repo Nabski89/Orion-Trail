@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7098037110130826075
 Transform:
   m_ObjectHideFlags: 0
@@ -45,6 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BeaconPrefab: {fileID: 8970346045634557678, guid: b3b2f3cb0d606774cbb56d63c1f3f26e, type: 3}
-  PointA: {x: -10, y: 0}
-  PointB: {x: 10, y: 5}
-  distanceBetweenBeacons: 1
+  PointA: {x: 0, y: 0}
+  PointB: {x: 0, y: 0}
+  distanceBetweenBeacons: 3
+  BeaconColorOptions:
+  - {r: 0.9528302, g: 0.18427375, b: 0.9028428, a: 1}
+  - {r: 0.525945, g: 0.10588233, b: 0.6431373, a: 1}
+  - {r: 0.9056604, g: 0.14097545, b: 0.14097545, a: 1}
+  - {r: 0.4528302, g: 0, b: 0.024566364, a: 1}
+  - {r: 1, g: 0.9745827, b: 0, a: 1}
+  - {r: 0.6437357, g: 0.7169812, b: 0.19953722, a: 1}
+  - {r: 0, g: 0.735849, b: 0.016161188, a: 1}
+  - {r: 0.021626905, g: 0.509434, b: 0.17434703, a: 1}
+  - {r: 0.023529412, g: 0.123347014, b: 0.50980395, a: 1}
+  - {r: 0.15379138, g: 0.25972623, b: 0.9056604, a: 1}
+  BeaconColor: {r: 1, g: 1, b: 1, a: 1}
