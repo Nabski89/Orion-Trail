@@ -5,16 +5,14 @@ using UnityEngine;
 public class ShipJiggle : MonoBehaviour
 {
     public TemptMoveAround TrueShip;
+    public float JiggleRate;
     // Update is called once per frame
     void Update()
     {
-        if (TrueShip.TargetPosition.x != transform.parent.position.x)
-        {
-            transform.localPosition = new Vector3(Random.Range(-.01f, .01f),0, 0f);
-        }
-        if (TrueShip.TargetPosition.y != transform.parent.position.y)
-        {
-            transform.localPosition = new Vector3(0, Random.Range(-.01f, .01f), 0f);
-        }
+        JiggleRate = TrueShip.moveSpeed;
+        if (TrueShip.TargetPosition != Vector2.zero)
+            JiggleRate = JiggleRate / 5;
+        transform.localPosition = new Vector3(Random.Range(-.01f, .01f) * JiggleRate, Random.Range(-.01f, .01f) * JiggleRate, 0f);
+
     }
 }

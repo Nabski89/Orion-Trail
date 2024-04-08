@@ -24,6 +24,6 @@ public class parallax : MonoBehaviour
     public float ParallaxMod = 0.95f;
     void Update()
     {
-        transform.position = (transform.parent.position * ParallaxMod) + Vector3.back * PG13*0.01f;
+        transform.position = (transform.parent.position * ParallaxMod) + Vector3.back * PG13 *-1;
     }
 }

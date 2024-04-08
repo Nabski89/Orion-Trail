@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: _MinorBase
       objectReference: {fileID: 0}
+    - target: {fileID: 7944686106576520616, guid: 0801d70f182f7fa4eae2457b2609f243, type: 3}
+      propertyPath: eventObject
+      value: 
+      objectReference: {fileID: 1530416993176029027, guid: b58a8b4e580de3e459c0566c0f17ce4d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0801d70f182f7fa4eae2457b2609f243, type: 3}
