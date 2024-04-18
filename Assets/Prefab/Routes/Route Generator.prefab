@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2825089490663969905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9142890838094784459}
+  - component: {fileID: 194800002805592238}
+  m_Layer: 0
+  m_Name: Route Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9142890838094784459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2825089490663969905}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &194800002805592238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2825089490663969905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4889851e394de0642aa0141876eae373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoutesToSpawn: 0
+  SpawnNextItem: {x: 0, y: 0, z: 0}
+  RouteStart:
+  - {fileID: 1121724467271954556, guid: 9151c3a2df5961e4bb8d0c322d5258fd, type: 3}
+  - {fileID: 6897445970258258770, guid: 010d788ace1999f47be08858c6fb62a1, type: 3}
+  - {fileID: 8315200642722885202, guid: 3e6366cbc23ee4b4083a3f5322324781, type: 3}
+  - {fileID: 4233207251909580268, guid: d490436542d1ce249986ef99a119b2e8, type: 3}
+  - {fileID: 5737686295767984100, guid: 505d1e098f731d9458f4df139b5935cd, type: 3}
+  - {fileID: 4007001899295638180, guid: 36f94f184458a8348b68034c983969f2, type: 3}
+  RouteMid: []
+  RouteEnd:
+  - {fileID: 4873181367314180049, guid: 2952eecaabb955744a28646f022e761d, type: 3}
+  - {fileID: 2857292700596449250, guid: d314b7db241ff35409c3061926fe1cf9, type: 3}
+  - {fileID: 8666674520435160898, guid: ade4fc20795d1c241b9c9b12d7a3fe6f, type: 3}
+  - {fileID: 7473892434252658371, guid: af72ff23b1c88754aa352300ccac47e2, type: 3}
+  - {fileID: 7703211935381942511, guid: da8a2b6ff4ec97749a29368387245783, type: 3}
+  - {fileID: 6147897193913311902, guid: 88b244ade9833df42834bcdff98c5062, type: 3}
+  Hazards: []

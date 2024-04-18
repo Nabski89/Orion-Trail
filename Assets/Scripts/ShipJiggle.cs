@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShipJiggle : MonoBehaviour
 {
-    public TemptMoveAround TrueShip;
+    public ShipController TrueShip;
     public float JiggleRate;
     // Update is called once per frame
     void Update()

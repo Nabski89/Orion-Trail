@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TemptMoveAround : MonoBehaviour
+public class ShipController : MonoBehaviour
 {
     public Vector2 TargetPositionSet;
     public Vector2 TargetPosition;

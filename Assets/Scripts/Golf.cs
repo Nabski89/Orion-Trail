@@ -22,6 +22,7 @@ public class Golf : MonoBehaviour
 
     //used for the ball
     public GameObject BeaconBall;
+    public ShipController TheShip;
 
     //end location
     public float StoredForward;
@@ -122,8 +123,9 @@ public class Golf : MonoBehaviour
 
     void SpawnBeacon()
     {
-        GameObject NewBeacon = Instantiate(BeaconBall);
+        GameObject NewBeacon = Instantiate(BeaconBall, transform.position, transform.rotation);
         NewBeacon.GetComponent<TravelBall>().TargetLocation = SelectRandomPositionWithinCone(StoredSpread, StoredForward, StoredPower);
+        NewBeacon.GetComponent<TravelBall>().ParentShip = TheShip;
         EndGolf();
     }
 

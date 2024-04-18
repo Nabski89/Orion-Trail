@@ -5,7 +5,7 @@ using UnityEngine;
 public class TravelBall : MonoBehaviour
 {
     public Vector3 TargetLocation;
-    public GameObject ParentShip;
+    public ShipController ParentShip;
     // Speed of the golf ball
     public float initialSpeed = 5.0f;
     public float decelerationRate = 0.1f;
@@ -49,5 +49,7 @@ public class TravelBall : MonoBehaviour
 
         // Ensure the object reaches exactly the target position
         transform.position = TargetLocation;
+        ParentShip.WarpShip(transform.position);
+        Destroy(gameObject);
     }
 }
