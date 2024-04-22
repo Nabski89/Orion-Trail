@@ -13,12 +13,14 @@ public class Golf : MonoBehaviour
     public float RangeSpeed = 20f;
     public float rotationAmount = 0;
     public float RangeMax = 30;
+    public float RangeMin = 30;
 
     //Used for picking our Distance 
     public GameObject PowerSlider;
     public float PowerSpeed = 20f;
     public float PowerAmount = 0;
     public float PowerMax = 30;
+    public float PowerMin = 30;
 
     //used for the ball
     public GameObject BeaconBall;
@@ -41,10 +43,17 @@ public class Golf : MonoBehaviour
             {
                 PowerAmount += PowerSpeed * Time.deltaTime;
 
+                //bounce between high and low power
                 if (PowerAmount > PowerMax)
                 {
-                    PowerAmount = 0;
+                    PowerSpeed = PowerSpeed * -1;
                     PowerMax = PowerMax * 0.98f;
+                    PowerAmount = PowerMax;
+                }
+                if (PowerAmount < PowerMin)
+                {
+                    PowerSpeed = PowerSpeed * -1;
+                    PowerAmount = PowerMin;
                 }
                 ScaleIt();
             }
@@ -104,7 +113,7 @@ public class Golf : MonoBehaviour
         PowerSlider.transform.localScale = new Vector3(PowerAmount, 1, 1);
     }
 
-    public void StartGolf(float RotateValue, float PowerValue)
+    public void StartGolf(float RotateValue, float RotateMin, float PowerValue, float PowMin)
     {
         //check that we don't already have a ball out then activate our layout stuffs
         TravelBall BallCheck = GetComponentInChildren<TravelBall>();
@@ -114,9 +123,11 @@ public class Golf : MonoBehaviour
             Edge2.SetActive(true);
             rotationAmount = 0;
             RangeMax = RotateValue;
+            RangeMin = RotateMin;
             PickRange = true;
             PowerAmount = 0;
             PowerMax = PowerValue;
+            PowerMin = PowMin;
         }
     }
 
