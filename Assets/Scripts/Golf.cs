@@ -44,7 +44,7 @@ public class Golf : MonoBehaviour
                 if (PowerAmount > PowerMax)
                 {
                     PowerAmount = 0;
-                    PowerMax = PowerMax * 1.1f;
+                    PowerMax = PowerMax * 0.98f;
                 }
                 ScaleIt();
             }
@@ -104,11 +104,20 @@ public class Golf : MonoBehaviour
         PowerSlider.transform.localScale = new Vector3(PowerAmount, 1, 1);
     }
 
-    public void StartGolf()
+    public void StartGolf(float RotateValue, float PowerValue)
     {
-        Edge1.SetActive(true);
-        Edge2.SetActive(true);
-        PickRange = true;
+        //check that we don't already have a ball out then activate our layout stuffs
+        TravelBall BallCheck = GetComponentInChildren<TravelBall>();
+        if (BallCheck == null)
+        {
+            Edge1.SetActive(true);
+            Edge2.SetActive(true);
+            rotationAmount = 0;
+            RangeMax = RotateValue;
+            PickRange = true;
+            PowerAmount = 0;
+            PowerMax = PowerValue;
+        }
     }
 
     void EndGolf()
@@ -123,24 +132,20 @@ public class Golf : MonoBehaviour
 
     void SpawnBeacon()
     {
-        GameObject NewBeacon = Instantiate(BeaconBall, transform.position, transform.rotation);
+        GameObject NewBeacon = Instantiate(BeaconBall, transform.position, transform.rotation, transform);
         NewBeacon.GetComponent<TravelBall>().TargetLocation = SelectRandomPositionWithinCone(StoredSpread, StoredForward, StoredPower);
         NewBeacon.GetComponent<TravelBall>().ParentShip = TheShip;
         EndGolf();
     }
 
-
-
     // Function to select a random position within a cone, from GPT
     public Vector3 SelectRandomPositionWithinCone(float angle, float forwardDirection, float distance)
     {
-
         angle = forwardDirection + Random.Range(-angle, angle);
         angle = angle * Mathf.Deg2Rad;
-
         // Calculate direction within cone
         Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
         // Scale direction by distance, normalize to 1 first
-        return direction.normalized * distance;
+        return direction.normalized * distance + transform.position;
     }
 }

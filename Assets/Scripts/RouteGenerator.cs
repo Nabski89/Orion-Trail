@@ -11,16 +11,17 @@ public class RouteGenerator : MonoBehaviour
     public GameObject[] RouteMid;
     public GameObject[] RouteEnd;
     public GameObject[] Hazards;
+    public GameObject[] StoryElements;
 
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < RoutesToSpawn; i++)
-            SpawnRoute();
+            SpawnRoute(i);
     }
 
     // Update is called once per frame
-    void SpawnRoute()
+    void SpawnRoute(int StoryEvent)
     {
         int RouteSegments = Random.Range(1, 4);
         for (int j = 0; j < RouteSegments; j++)
@@ -29,7 +30,8 @@ public class RouteGenerator : MonoBehaviour
             GameObject Route = Instantiate(RouteStart[Random.Range(0, RouteStart.Length)], SpawnNextItem, Quaternion.identity, transform);
             SpawnNextItem = Route.GetComponent<RouteData>().RouteSectionEnd.position;
         }
-        Instantiate(RouteEnd[Random.Range(0, RouteEnd.Length)], SpawnNextItem, Quaternion.identity, transform);
+        GameObject RouteEndPoint = Instantiate(RouteEnd[Random.Range(0, RouteEnd.Length)], SpawnNextItem, Quaternion.identity, transform);
+        Instantiate(StoryElements[StoryEvent], RouteEndPoint.transform.position + Vector3.forward * -0.1f, Quaternion.identity, RouteEndPoint.transform);
         SpawnNextItem += Vector3.right * 1;
     }
 }

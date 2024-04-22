@@ -17,7 +17,7 @@ public class Move : MonoBehaviour
     public int StaticEventNumber;
     public float BreakDownTrack;
     public int EatTracker = 0;
-    private void Start()
+    void Start()
     {
         // Loop through the starscape children and add them to the StaticEvents array
         int childCount = Starscape.transform.childCount;
