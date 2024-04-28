@@ -25,7 +25,7 @@ public class EnemyCombatScript : MonoBehaviour
     [System.Serializable]
     public class Attacks
     {
-        //     public GameObject eventObject;
+        public GameObject eventObject;
         public string AttackText;
         public int DamageMin;
         public int DamageMax;

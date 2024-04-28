@@ -7,6 +7,7 @@ public class CombatController : MonoBehaviour
 {
     LootController LootManager;
     public Transform CombatLog;
+    public RectTransform CombatUIBar;
     private Move MoveScript;
     public CharacterManager[] Character;
     public int[] CharAtkType;
@@ -38,12 +39,13 @@ public class CombatController : MonoBehaviour
         {
             if (CharAtkType[0] != 0 && CharAtkType[1] != 0 && TextBoxUI.displayedCharacters >= TextBoxUI.TEXTBOX.Length)
                 CombatAction();
-            UpdateActionBar();
+            UpdateCrewActionBar();
+            UpdateEnemyActionBar();
             UpdateHPBars();
             EndCombat();
         }
     }
-    public void UpdateActionBar()
+    public void UpdateCrewActionBar()
     {
         //TODO this is the worst way to be doing this, with get component EVERY DANG UPDATE
         CharacterManager[] characterManagers = Crew.GetComponentsInChildren<CharacterManager>();
@@ -54,6 +56,17 @@ public class CombatController : MonoBehaviour
             float xPos = Mathf.Clamp(characterManagers[i].AtkCooldown * 80f - 230, -230f, 170f);
             characterManagers[i].ActionBar.localPosition = Vector3.right * xPos;
         }
+    }
+    public Transform EnemyActionBar;
+    void UpdateEnemyActionBar()
+    {
+        EnemyActionBar.transform.localScale = new Vector3(Mathf.Min(EnemyActionBar.transform.localScale.x + Time.deltaTime, 1), 1, 1);
+        if (EnemyActionBar.transform.localScale == Vector3.one)
+        {
+            EnemyActionBar.transform.localScale = new Vector3(0, 1, 1);
+            EnemyAttack();
+        }
+
     }
     public void InitiateCombat()
     {
@@ -101,10 +114,6 @@ public class CombatController : MonoBehaviour
     void SetUpScreen()
     {
         WindowEnable = true;
-        if (Character[0] != null)
-            CrewName1.text = Character[0].CharName;
-        if (Character[1] != null)
-            CrewName2.text = Character[1].CharName;
     }
     void EndCombat()
     {
@@ -221,6 +230,8 @@ public class CombatController : MonoBehaviour
         Character[0].HP -= 1;
         Character[1].HP -= 1;
         int randomIndex = Random.Range(0, Enemy.Attack.Length);
+        //the position is minus the offset so that when it reaches 0 it will actually activate the thing HARDCODE ALERT, THE STARTING POSITION
+        Instantiate(Enemy.Attack[randomIndex].eventObject, CombatUIBar.position, CombatUIBar.rotation, CombatUIBar);
         TextBoxUI.TEXTBOX += "<br>The" + Enemy.transform.name + " " + Enemy.Attack[randomIndex].AttackText + " for 1 damage";
         Debug.Log("Enemy.attack");
 
@@ -250,4 +261,5 @@ public class CombatController : MonoBehaviour
     {
         EnemyHPBar.transform.localScale = new Vector3(Mathf.Max(0, Enemy.HP / Enemy.MaxHP), 1, 1);
     }
+
 }
