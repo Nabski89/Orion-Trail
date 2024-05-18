@@ -15,6 +15,38 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: MaxHP
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: EmptyHP
+      value: 
+      objectReference: {fileID: 778043076864859225, guid: 37eaee8137b26764b99a4b5fca183591, type: 3}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: HPAmount.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: HPAmount.Array.data[0]
+      value: 
+      objectReference: {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: HPAmount.Array.data[1]
+      value: 
+      objectReference: {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: HPAmount.Array.data[2]
+      value: 
+      objectReference: {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: HPAmount.Array.data[3]
+      value: 
+      objectReference: {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
+    - target: {fileID: 3582856109082147167, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: HPAmount.Array.data[4]
+      value: 
+      objectReference: {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
     - target: {fileID: 4849411010774376051, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
       propertyPath: m_SizeDelta.y
       value: 426

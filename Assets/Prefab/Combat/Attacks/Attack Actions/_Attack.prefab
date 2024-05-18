@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5053983022314870252}
   - component: {fileID: 6753933729686197465}
-  - component: {fileID: 5952971750539471667}
   - component: {fileID: 9220443326126691457}
   - component: {fileID: 5896552112971836208}
   - component: {fileID: 8893274494697501113}
@@ -134,21 +133,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5952971750539471667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454723024916543931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9c7165d1c66b4f46b288930ffef8f75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainEnemy: {fileID: 0}
-  MainCharacter: {fileID: 0}
-  UseCrewAttack: 0
 --- !u!114 &9220443326126691457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0b8ba3969e68146ab599069eb939bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoraleChange: 0
+  IsRandom: 0
 --- !u!114 &179666298088060021
 MonoBehaviour:
   m_ObjectHideFlags: 0

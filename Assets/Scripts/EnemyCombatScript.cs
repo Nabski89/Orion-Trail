@@ -7,6 +7,8 @@ public class EnemyCombatScript : MonoBehaviour
     // Start is called before the first frame update
     public float HP = 5;
     public float MaxHP = 5;
+    public GameObject EmptyHP;
+    public GameObject[] HPAmount;
     void Start()
     {
 
@@ -31,7 +33,6 @@ public class EnemyCombatScript : MonoBehaviour
         public int DamageMax;
     }
     public Attacks[] Attack;
-
     public void WinCombat()
     {
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class Golf : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class Golf : MonoBehaviour
     //used for the ball
     public GameObject BeaconBall;
     public ShipController TheShip;
+    public Supplies TheSupplies;
+    public float FuelUsage;
 
     //end location
     public float StoredForward;
@@ -113,7 +116,7 @@ public class Golf : MonoBehaviour
         PowerSlider.transform.localScale = new Vector3(PowerAmount, 1, 1);
     }
 
-    public void StartGolf(float RotateValue, float RotateMin, float PowerValue, float PowMin)
+    public void StartGolf(float RotateValue, float RotateMin, float PowerValue, float PowMin, float FuelReq)
     {
         //check that we don't already have a ball out then activate our layout stuffs
         TravelBall BallCheck = GetComponentInChildren<TravelBall>();
@@ -128,6 +131,7 @@ public class Golf : MonoBehaviour
             PowerAmount = 0;
             PowerMax = PowerValue;
             PowerMin = PowMin;
+            FuelUsage = FuelReq;
         }
     }
 
@@ -144,8 +148,14 @@ public class Golf : MonoBehaviour
     void SpawnBeacon()
     {
         GameObject NewBeacon = Instantiate(BeaconBall, transform.position, transform.rotation, transform);
+        //use up our fuel, and if we don't have enough our shot goes wide AND only half as far
+        TheSupplies.Fuel = Mathf.Max(0, TheSupplies.Fuel - FuelUsage);
+        if (TheSupplies.Fuel == 0)
+        {
+            StoredSpread = StoredSpread * 2;
+            StoredPower = StoredPower / 2;
+        }
         NewBeacon.GetComponent<TravelBall>().TargetLocation = SelectRandomPositionWithinCone(StoredSpread, StoredForward, StoredPower);
-        NewBeacon.GetComponent<TravelBall>().ParentShip = TheShip;
         EndGolf();
     }
 

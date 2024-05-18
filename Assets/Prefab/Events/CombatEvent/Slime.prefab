@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: MaxHP
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: Attack.Array.size

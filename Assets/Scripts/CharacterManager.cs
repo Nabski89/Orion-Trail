@@ -52,7 +52,9 @@ public class CharacterManager : MonoBehaviour
         HungerUI.text = Hunger.ToString();
 
         if (HP < 1)
-            Die();
+        {
+     //       Die();
+        }
     }
     public void Die()
     {

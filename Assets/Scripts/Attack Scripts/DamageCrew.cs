@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class DamageCrew : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        Debug.LogWarning("we are trying to damage a character named WILL IT WORK?!");
+        int CharReference = GetComponent<EnemyAttackStatic>().AttackSlot;
+        CombatController Combat = GetComponentInParent<CombatController>();
+        Debug.LogWarning("we are trying to damage a character named " + Combat + " " + CharReference);
+        if (Combat != null)
+            Combat.CrewList[CharReference].HP -= 1;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 179666298088060021, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1454723024916543931, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
       propertyPath: m_Name
       value: GunAttack
@@ -55,9 +59,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5896552112971836208, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740403568279715825, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6753933729686197465, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 05a2ad1bd1e09224db7b430f7355de20, type: 3}
+    - target: {fileID: 8893274494697501113, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220443326126691457, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdce5c6bffa6a0d498d17683d54fa060, type: 3}
