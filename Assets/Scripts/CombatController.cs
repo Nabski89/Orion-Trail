@@ -43,9 +43,10 @@ public class CombatController : MonoBehaviour
     {
         for (int i = 0; i < CrewList.Length; i++)
         {
-            CrewList[i].AtkCooldown = Mathf.Clamp(CrewList[i].AtkCooldown - Time.deltaTime, 0, 5);
-            float xPos = Mathf.Clamp(CrewList[i].AtkCooldown * 80f - 230, -230f, 170f);
-            CrewList[i].ActionBar.localPosition = Vector3.right * xPos;
+            CrewList[i].AtkCooldown = Mathf.Clamp(CrewList[i].AtkCooldown - Time.deltaTime, 0, 10);
+            //change the multiplier for the speed and the 127 for offsets            
+            float yPos = Mathf.Clamp(CrewList[i].AtkCooldown * 19f - 127, -127f, 127f);
+            CrewList[i].ActionBar.localPosition = Vector3.up * yPos;
         }
     }
     public Transform EnemyActionBar;
@@ -77,6 +78,7 @@ public class CombatController : MonoBehaviour
         {
             CrewList[i].CharAtkOverlay.SetActive(true);
             CrewList[i].AtkCooldown = 7 - CrewList[i].Kinesthetics;
+            CrewList[i].GetComponent<CharacterCombatController>().StartCombat();
         }
         Debug.Log("Combat was started");
         StartCoroutine(SetUpScreen());
@@ -136,6 +138,7 @@ public class CombatController : MonoBehaviour
             for (int i = 0; i < CrewList.Length; i++)
             {
                 CrewList[i].CharAtkOverlay.SetActive(false);
+                CrewList[i].GetComponent<CharacterCombatController>().EndCombat();
             }
             LootManager.LootScreen.gameObject.SetActive(true);
             LootManager.ActivateLooting();

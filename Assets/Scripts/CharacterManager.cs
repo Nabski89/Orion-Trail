@@ -53,7 +53,7 @@ public class CharacterManager : MonoBehaviour
 
         if (HP < 1)
         {
-     //       Die();
+            //       Die();
         }
     }
     public void Die()
@@ -78,10 +78,8 @@ public class CharacterManager : MonoBehaviour
     [System.Serializable]
     public class Attacks
     {
-        public GameObject CharacterAtkGameObject;
+        public GameObject CharacterAtkObject;
         public string AttackText;
-        public int DamageMin;
-        public int DamageMax;
     }
     public Attacks[] Attack;
 }

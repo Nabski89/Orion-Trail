@@ -10,7 +10,7 @@ public class Equipment : MonoBehaviour
     void Start()
     {
         if (GetComponentInParent<CharacterManager>() != null)
-            GetComponentInParent<CharacterManager>().Attack[AttackNumber].CharacterAtkGameObject = Attack;
+            GetComponentInParent<CharacterManager>().Attack[AttackNumber].CharacterAtkObject = Attack;
     }
     public void ButtonEquip()
     {
