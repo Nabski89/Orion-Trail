@@ -120,7 +120,7 @@ public class CharacterCombatController : MonoBehaviour
                 Image ButtonImage = newButton.GetComponent<Image>();
                 ButtonImage.sprite = Char.Attack[NewAtk].CharacterAtkObject.GetComponent<Image>().sprite;
                 Debug.Log("replaced combat button image");
-                //        newButton.GetComponent<RectTransform>().sizeDelta = new Vector2(ButtonImage.sprite.border, rectTransform.sizeDelta.y);
+                newButton.GetComponent<RectTransform>().sizeDelta = new Vector2(ButtonImage.sprite.border.z+ButtonImage.sprite.border.x, ButtonImage.sprite.border.w+ButtonImage.sprite.border.y);
 
             }
         }

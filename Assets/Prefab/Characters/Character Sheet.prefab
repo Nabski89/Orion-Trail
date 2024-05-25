@@ -216,20 +216,12 @@ MonoBehaviour:
   Attack:
   - CharacterAtkObject: {fileID: 8724979559908978090, guid: b6d67b65642fe3c45b19c11d1cda1735, type: 3}
     AttackText: ' reloads.'
-    DamageMin: 0
-    DamageMax: 0
   - CharacterAtkObject: {fileID: 7296738426004427851, guid: 33847a489da27854ba910f937d33b20e, type: 3}
     AttackText: ' fires a pistol.'
-    DamageMin: 0
-    DamageMax: 0
   - CharacterAtkObject: {fileID: 5301459436549442064, guid: 77d3c1ff86a6a604797af4982d8e6b99, type: 3}
     AttackText: ' fires a gun. '
-    DamageMin: 0
-    DamageMax: 0
   - CharacterAtkObject: {fileID: 8936634288373243894, guid: d9448aaf66b4b774fa1e7f1161f68d1b, type: 3}
     AttackText: ' blasts a cannon. AHOY!'
-    DamageMin: 0
-    DamageMax: 0
 --- !u!114 &1391667036040296694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +241,7 @@ MonoBehaviour:
   ClearOutButton: {fileID: 4199984230261713948}
   InCombat: 0
   ButtonHolder: {fileID: 5292835046515654868}
-  ButtonToSpawn: {fileID: 2767538229376126183, guid: 34661d0d73f5acf4493618327569f549, type: 3}
+  ButtonToSpawn: {fileID: 6756655754805591341, guid: 34661d0d73f5acf4493618327569f549, type: 3}
 --- !u!114 &7626726618726606192
 MonoBehaviour:
   m_ObjectHideFlags: 0
