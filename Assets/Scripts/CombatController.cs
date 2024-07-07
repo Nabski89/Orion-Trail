@@ -17,8 +17,11 @@ public class CombatController : MonoBehaviour
     //holds all the crewmembers, used to select who is in the fight
     public Transform Crew;
     public CharacterManager[] CrewList;
+
+    public CombatLockdown[] CombatLockdowns;
     void Start()
     {
+        CombatLockdowns = GetComponentsInChildren<CombatLockdown>();
         LootManager = GetComponent<LootController>();
         MoveScript = GetComponentInChildren<Move>();
         if (MoveScript == null)
@@ -81,7 +84,16 @@ public class CombatController : MonoBehaviour
             CrewList[i].GetComponent<CharacterCombatController>().StartCombat();
         }
         Debug.Log("Combat was started");
+        //close off other random UI elements
+        foreach (CombatLockdown lockdown in CombatLockdowns)
+        {
+            lockdown.Lockdown();
+        }
+
         StartCoroutine(SetUpScreen());
+
+
+
     }
     IEnumerator SetUpScreen()
     {
@@ -143,6 +155,10 @@ public class CombatController : MonoBehaviour
             LootManager.LootScreen.gameObject.SetActive(true);
             LootManager.ActivateLooting();
             CombatStarted = false;
+            foreach (CombatLockdown lockdown in CombatLockdowns)
+            {
+                lockdown.UnLockdown();
+            }
         }
     }
     void EnemyAttack()

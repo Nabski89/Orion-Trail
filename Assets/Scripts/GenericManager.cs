@@ -7,4 +7,5 @@ public class GenericManager : MonoBehaviour
     public CharacterShip ShipReference;
     public DialogText MainTextReference;
     public Transform CombatLog;
+    public Golf GolfReference;
 }

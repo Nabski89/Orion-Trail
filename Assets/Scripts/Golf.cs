@@ -10,7 +10,9 @@ public class Golf : MonoBehaviour
     //Used for picking our Range 
     bool PickRange;
     public GameObject Edge1;
+    public GameObject Edge1b;
     public GameObject Edge2;
+    public GameObject Edge2b;
     public float RangeSpeed = 20f;
     public float rotationAmount = 0;
     public float RangeMax = 30;
@@ -21,7 +23,7 @@ public class Golf : MonoBehaviour
     public float PowerSpeed = 20f;
     public float PowerAmount = 0;
     public float PowerMax = 30;
-    public float PowerMin = 30;
+    public float PowerMin = 30; //minimum of 1 or it fails
 
     //used for the ball
     public GameObject BeaconBall;
@@ -35,62 +37,55 @@ public class Golf : MonoBehaviour
     public float StoredPower;
 
     bool PickPower;
+    public GameObject FuelTankSpawn;
+    public GameObject FuelTankParent;
     void Update()
     {
-        if (PickPower == true)
+    }
+    public void StartGolf(float RotateValue, float RotateMin, float PowerValue, float PowMin, float FuelReq)
+    {
+        //check that we don't already have a ball out then activate our layout stuffs
+        TravelBall BallCheck = GetComponentInChildren<TravelBall>();
+        if (BallCheck == null)
         {
-            if (Input.GetMouseButtonDown(0))
-                PowerAmount = 0;
+            Edge1.SetActive(true);
+            Edge2.SetActive(true);
+            PowerSlider.SetActive(true);
+            rotationAmount = RangeMax;
 
-            if (Input.GetMouseButton(0))
-            {
-                PowerAmount += PowerSpeed * Time.deltaTime;
-
-                //bounce between high and low power
-                if (PowerAmount > PowerMax)
-                {
-                    PowerSpeed = PowerSpeed * -1;
-                    PowerMax = PowerMax * 0.98f;
-                    PowerAmount = PowerMax;
-                }
-                if (PowerAmount < PowerMin)
-                {
-                    PowerSpeed = PowerSpeed * -1;
-                    PowerAmount = PowerMin;
-                }
-                ScaleIt();
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                RotateIt(rotationAmount);
-                StoredPower = PowerAmount;
-                SpawnBeacon();
-            }
-
+            RangeMax = RotateValue;
+            RangeMin = RotateMin;
+            PickRange = true;
+            PowerAmount = 0;
+            PowerMax = PowerValue;
+            PowerMin = PowMin;
+            FuelUsage = FuelReq;
+            //scale the edges to show how far a thing goes
+            Edge1.transform.localScale = new Vector3(PowerMin, 1, 1);
+            Edge1b.transform.localScale = new Vector3((PowerMax - PowerMin) / PowerMin, 1, 1);
+            Edge2.transform.localScale = new Vector3(PowerMin, 1, 1);
+            Edge2b.transform.localScale = new Vector3((PowerMax - PowerMin) / PowerMin, 1, 1);
+            StartCoroutine(PickPosition());
+            RotateIt(rotationAmount);
         }
-        if (PickRange == true)
+    }
+    IEnumerator PickPosition()
+    {
+        while (true)
         {
-            if (Input.GetMouseButtonDown(0))
-                RangeSpeed = Mathf.Abs(RangeSpeed);
-            if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+            RotateIt(RangeMax);
+            if (Input.GetMouseButtonDown(1))
             {
-                //Move the range around
-                rotationAmount = Mathf.Clamp(rotationAmount + RangeSpeed * Time.deltaTime, 0, RangeMax);
-                if (rotationAmount == RangeMax || rotationAmount == 0)
-                    RangeSpeed = RangeSpeed * -1;
-                RotateIt(rotationAmount);
+                EndGolf();
+                yield break;
             }
-            if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
-                PickRange = false;
-                PickPower = true;
-                StoredSpread = rotationAmount;
-                PowerSlider.SetActive(true);
-                RotateIt(rotationAmount);
+                SelectPower();
+                yield break;
             }
+            yield return null;
         }
-        if (Input.GetMouseButtonDown(1))
-            EndGolf();
     }
 
     void RotateIt(float rotationValue)
@@ -111,32 +106,30 @@ public class Golf : MonoBehaviour
         StoredForward = Quaternion.AngleAxis(angle, Vector3.forward).eulerAngles.z;
     }
 
-    void ScaleIt()
+
+    public void SelectPower()
     {
+        if (FuelUsage > 0)
+        {
+            FuelUsage -= 1;
+            Debug.Log("Spawn a fuel tank");
+            Instantiate(FuelTankSpawn, FuelTankParent.transform);
+        }
+        else
+            SpawnBeacon();
         PowerSlider.transform.localScale = new Vector3(PowerAmount, 1, 1);
+
+    }
+    //after we do each fuel check if we need to do another
+    public void FeedFuelValue(float fuelOffset)
+    {
+        SelectPower();
     }
 
-    public void StartGolf(float RotateValue, float RotateMin, float PowerValue, float PowMin, float FuelReq)
-    {
-        //check that we don't already have a ball out then activate our layout stuffs
-        TravelBall BallCheck = GetComponentInChildren<TravelBall>();
-        if (BallCheck == null)
-        {
-            Edge1.SetActive(true);
-            Edge2.SetActive(true);
-            rotationAmount = 0;
-            RangeMax = RotateValue;
-            RangeMin = RotateMin;
-            PickRange = true;
-            PowerAmount = 0;
-            PowerMax = PowerValue;
-            PowerMin = PowMin;
-            FuelUsage = FuelReq;
-        }
-    }
 
     void EndGolf()
     {
+        ReadyClickArea();
         Edge1.SetActive(false);
         Edge2.SetActive(false);
         PowerSlider.SetActive(false);
@@ -144,7 +137,15 @@ public class Golf : MonoBehaviour
         PickRange = false;
         PickPower = false;
     }
-
+    void ReadyClickArea()
+    {
+        // Iterate through all children of the target GameObject
+        for (int i = FuelTankParent.transform.childCount - 1; i >= 0; i--)
+        {
+            // Destroy each child GameObject
+            Destroy(FuelTankParent.transform.GetChild(i).gameObject);
+        }
+    }
     void SpawnBeacon()
     {
         GameObject NewBeacon = Instantiate(BeaconBall, transform.position, transform.rotation, transform);
@@ -169,4 +170,6 @@ public class Golf : MonoBehaviour
         // Scale direction by distance, normalize to 1 first
         return direction.normalized * distance + transform.position;
     }
+
+
 }

@@ -13,6 +13,7 @@ public class DriveSelection : MonoBehaviour
 
     public void StartGolfButton()
     {
-        Golf.StartGolf(RotateValue, RotateMin, PowerValue, PowerMin, FuelRequired);
+        Golf GolfReference = GetComponentInParent<GenericManager>().GolfReference;
+        GolfReference.StartGolf(RotateValue, RotateMin, PowerValue, PowerMin, FuelRequired);
     }
 }
