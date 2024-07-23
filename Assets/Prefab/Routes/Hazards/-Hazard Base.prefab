@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8433021748623206790}
   - component: {fileID: 7466475863680411827}
   m_Layer: 0
-  m_Name: Hazard Prefab
+  m_Name: -Hazard Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -19,7 +19,8 @@ public class TravelBall : MonoBehaviour
     void Start()
     {
         Vector3 direction = TargetLocation - transform.position;
-
+        //we should add some initial rotation offset to this?
+/*
         // Calculate the angle in degrees
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
@@ -28,7 +29,7 @@ public class TravelBall : MonoBehaviour
 
         // Apply the rotation to the object
         transform.rotation = rotation;
-
+*/
         StartCoroutine(MoveToTargetWithDecay(startDelay));
 
     }
