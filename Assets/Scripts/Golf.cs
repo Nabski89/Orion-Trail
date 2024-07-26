@@ -116,10 +116,13 @@ public class Golf : MonoBehaviour
         SelectPower();
     }
 
-
+    public ButtonCoverPress CoverButton;
     void EndGolf()
     {
         ReadyClickArea();
+        //reset the fuel button cover
+        if (CoverButton != null)
+            CoverButton.PressButton();
         Edge1.SetActive(false);
         Edge2.SetActive(false);
         PowerSlider.SetActive(false);
@@ -144,8 +147,15 @@ public class Golf : MonoBehaviour
         {
             StoredSpread = StoredSpread * 2;
             StoredPower = StoredPower / 2;
+
+            //TODO play an error sound when we have no fuel
         }
-        NewBeacon.GetComponent<TravelBall>().TargetLocation = SelectRandomPositionWithinCone(StoredSpread, StoredForward, StoredPower);
+        //push forward our values then activate the ball
+        TravelBall TheBeacon = NewBeacon.GetComponent<TravelBall>();
+        TheBeacon.TargetLocation = SelectRandomPositionWithinCone(StoredSpread, StoredForward, StoredPower);
+        TheBeacon.initialSpeed = PowerAmount;
+        TheBeacon.ActivateBeacon();
+
         EndGolf();
     }
 

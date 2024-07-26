@@ -16,7 +16,7 @@ public class TravelBall : MonoBehaviour
     public float startDelay = 0.5f;
     public float TravelTime = 4f;
 
-    void Start()
+    public void ActivateBeacon()
     {
         Vector3 direction = TargetLocation - transform.position;
         //we should add some initial rotation offset to this?
@@ -33,6 +33,7 @@ public class TravelBall : MonoBehaviour
         StartCoroutine(MoveToTargetWithDecay(startDelay));
 
     }
+
 
     IEnumerator MoveToTargetWithDecay(float delay)
     {

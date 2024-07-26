@@ -104,8 +104,24 @@ public class ShipController : MonoBehaviour
             }
         }
     }
+    public GameObject WarpSoundEffect;
+    public GameObject ShipWarpDepart;
+    public GameObject ShipWarpLand;
     public void WarpShip(Vector3 NewLocation)
     {
+        GameObject ButtonCoverMove = Instantiate(WarpSoundEffect);
+        GameObject WarpEffect1 = Instantiate(ShipWarpDepart, transform.position - Vector3.forward, Quaternion.identity);
+        GameObject WarpEffect2 = Instantiate(ShipWarpLand, NewLocation - Vector3.forward, Quaternion.identity);
+
+        Destroy(ButtonCoverMove, 1.5f);
+        Destroy(WarpEffect1, 1);
+        Destroy(WarpEffect2, 1);
+        StartCoroutine(MoveToTargetWithDelay(NewLocation));
+
+    }
+    IEnumerator MoveToTargetWithDelay(Vector3 NewLocation)
+    {
+        yield return new WaitForSeconds(0.5f);
         transform.position = NewLocation;
     }
 }
