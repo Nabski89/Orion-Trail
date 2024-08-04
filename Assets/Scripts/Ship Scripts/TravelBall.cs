@@ -39,13 +39,13 @@ public class TravelBall : MonoBehaviour
     {
         // Delay before starting the motion
         yield return new WaitForSeconds(delay);
-        float Power = initialSpeed;
+        //The initial speed is based off our fuel usage and is nice small whole numbers so if we don't chop it we ZOOM
+        float Power = initialSpeed / 4;
         float TimeElapsed = 0;
         float SpinAngleUsed = 0;
         while (TravelTime > TimeElapsed)
         {
-            transform.position = transform.position + transform.right * Time.deltaTime * (2 - (TimeElapsed / TravelTime));
-            Power -= 1 * Time.deltaTime;
+            transform.position = transform.position + Power * transform.right * Time.deltaTime * (2 - (TimeElapsed / TravelTime));
             TimeElapsed += Time.deltaTime;
             if (TimeElapsed < TravelTime / 2)
                 SpinAngleUsed += Time.deltaTime * SpinAngle / TravelTime;

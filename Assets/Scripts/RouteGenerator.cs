@@ -32,7 +32,7 @@ public class RouteGenerator : MonoBehaviour
         }
         GameObject RouteEndPoint = Instantiate(RouteEnd[Random.Range(0, RouteEnd.Length)], SpawnNextItem, Quaternion.identity, transform);
     //The times forward is to control the y location which helps figure out how far ahead it is
-        Instantiate(StoryElements[StoryEvent], RouteEndPoint.transform.position + Vector3.forward * -0.5f, Quaternion.identity, RouteEndPoint.transform);
+        Instantiate(StoryElements[StoryEvent], RouteEndPoint.transform.position, Quaternion.identity, RouteEndPoint.transform);
         SpawnNextItem += Vector3.right * 1;
     }
 }
