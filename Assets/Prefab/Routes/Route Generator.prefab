@@ -47,11 +47,15 @@ MonoBehaviour:
   RoutesToSpawn: 0
   SpawnNextItem: {x: 0, y: 0, z: 0}
   RouteStart:
-  - {fileID: 1121724467271954556, guid: 9151c3a2df5961e4bb8d0c322d5258fd, type: 3}
-  - {fileID: 6897445970258258770, guid: 010d788ace1999f47be08858c6fb62a1, type: 3}
+  - {fileID: 2776538284028064519, guid: dd11d8db374fa0742a0882acc98152c0, type: 3}
+  - {fileID: 4233207251909580268, guid: d490436542d1ce249986ef99a119b2e8, type: 3}
   - {fileID: 8315200642722885202, guid: 3e6366cbc23ee4b4083a3f5322324781, type: 3}
   - {fileID: 4233207251909580268, guid: d490436542d1ce249986ef99a119b2e8, type: 3}
+  - {fileID: 1121724467271954556, guid: 9151c3a2df5961e4bb8d0c322d5258fd, type: 3}
+  - {fileID: 6897445970258258770, guid: 010d788ace1999f47be08858c6fb62a1, type: 3}
   - {fileID: 5737686295767984100, guid: 505d1e098f731d9458f4df139b5935cd, type: 3}
+  - {fileID: 7588824377538129129, guid: bf7f303fcc5374d4888faa510dbf7b88, type: 3}
+  - {fileID: 1541936064092124110, guid: 7426abd980dea6a4eb7de11b96c5a399, type: 3}
   - {fileID: 4007001899295638180, guid: 36f94f184458a8348b68034c983969f2, type: 3}
   RouteMid: []
   RouteEnd:
@@ -62,3 +66,4 @@ MonoBehaviour:
   - {fileID: 7703211935381942511, guid: da8a2b6ff4ec97749a29368387245783, type: 3}
   - {fileID: 6147897193913311902, guid: 88b244ade9833df42834bcdff98c5062, type: 3}
   Hazards: []
+  StoryElements: []

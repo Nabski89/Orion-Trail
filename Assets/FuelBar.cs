@@ -8,7 +8,7 @@ public class FuelBar : MonoBehaviour
     public RectTransform Fuel;
     public Vector3 FullPosition; // The up position
     public Vector3 EmptyPosition; // The down position
-    public float FillSpeed = 2;
+    public float FillSpeed = 2; //how long it takes to get to the top
     public float MaxFill = 80;
     public float MalfChance = 10;
     // Start is called before the first frame update
@@ -61,7 +61,7 @@ public class FuelBar : MonoBehaviour
                 FuelAmount();
                 yield break;
             }
-            Fuel.localPosition = Vector3.Lerp(FullPosition, EmptyPosition, elapsedTime / (FillSpeed / 4));
+            Fuel.localPosition = Vector3.Lerp(FullPosition, EmptyPosition, elapsedTime / (FillSpeed / 10));
             elapsedTime += Time.deltaTime;
             yield return null;
         }
