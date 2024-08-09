@@ -5,6 +5,7 @@ using UnityEngine;
 public class TravelBall : MonoBehaviour
 {
     public Vector3 TargetLocation;
+    public ShipController TheShip;
     // Speed of the golf ball
     public float initialSpeed = 5.0f;
     public float decelerationRate = 0.1f;
@@ -20,16 +21,16 @@ public class TravelBall : MonoBehaviour
     {
         Vector3 direction = TargetLocation - transform.position;
         //we should add some initial rotation offset to this?
-/*
-        // Calculate the angle in degrees
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        /*
+                // Calculate the angle in degrees
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Create a rotation with the angle around the Z axis
-        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+                // Create a rotation with the angle around the Z axis
+                Quaternion rotation = Quaternion.Euler(0, 0, angle);
 
-        // Apply the rotation to the object
-        transform.rotation = rotation;
-*/
+                // Apply the rotation to the object
+                transform.rotation = rotation;
+        */
         StartCoroutine(MoveToTargetWithDecay(startDelay));
 
     }
@@ -55,7 +56,7 @@ public class TravelBall : MonoBehaviour
             transform.Rotate(0, 0, SpinAngleUsed * Time.deltaTime, Space.World);
             yield return null;
         }
-        GetComponentInParent<ShipController>().WarpShip(transform.position);
+        TheShip.WarpShip(transform.position);
         Destroy(gameObject);
         /*
                 // Calculate initial direction and distance

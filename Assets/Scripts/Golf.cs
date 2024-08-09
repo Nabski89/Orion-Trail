@@ -140,7 +140,7 @@ public class Golf : MonoBehaviour
     }
     void SpawnBeacon()
     {
-        GameObject NewBeacon = Instantiate(BeaconBall, transform.position, PowerSlider.transform.rotation, transform);
+        GameObject NewBeacon = Instantiate(BeaconBall, transform.position, PowerSlider.transform.rotation);
         //use up our fuel, and if we don't have enough our shot goes wide AND only half as far
         TheSupplies.Fuel = Mathf.Max(0, TheSupplies.Fuel - FuelUsage);
         if (TheSupplies.Fuel == 0)
@@ -154,6 +154,7 @@ public class Golf : MonoBehaviour
         TravelBall TheBeacon = NewBeacon.GetComponent<TravelBall>();
         TheBeacon.TargetLocation = SelectRandomPositionWithinCone(StoredSpread, StoredForward, StoredPower);
         TheBeacon.initialSpeed = PowerAmount;
+        TheBeacon.TheShip = GetComponentInParent<ShipController>();
         TheBeacon.ActivateBeacon();
 
         EndGolf();
