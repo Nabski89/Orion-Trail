@@ -11,6 +11,7 @@ public class FuelBar : MonoBehaviour
     public float FillSpeed = 2; //how long it takes to get to the top
     public float MaxFill = 80;
     public float MalfChance = 10;
+    bool Malfunction = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,19 +31,26 @@ public class FuelBar : MonoBehaviour
                 FuelAmount();
                 yield break;
             }
+            //if the pump is malfunctioning it goes twice as fast
+            if (Malfunction == true)
+                elapsedTime += Time.deltaTime;
             Fuel.localPosition = Vector3.Lerp(EmptyPosition, FullPosition, elapsedTime / FillSpeed);
             elapsedTime += Time.deltaTime;
 
-            if (Random.Range(0, 100) < MalfChance)
+            if (Random.Range(0, 100) < MalfChance * Time.deltaTime)
             {
-                Fuel.localPosition = Vector3.Lerp(EmptyPosition, FullPosition, elapsedTime / FillSpeed);
-                elapsedTime += Time.deltaTime;
+                Malfunction = true;
+                Invoke("MalfunctionClear", Random.Range(0.1f, 0.3f));
             }
             yield return null;
         }
         Fuel.localPosition = FullPosition;
         StartCoroutine(Drain());
 
+    }
+    public void MalfunctionClear()
+    {
+        Malfunction = false;
     }
     IEnumerator Drain()
     {

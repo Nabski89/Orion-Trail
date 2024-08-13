@@ -230,7 +230,7 @@ MonoBehaviour:
   EmptyPosition: {x: 0, y: 0, z: 0}
   FillSpeed: 2
   MaxFill: 90
-  MalfChance: 10
+  MalfChance: 2
 --- !u!1 &3964792184472913605
 GameObject:
   m_ObjectHideFlags: 0

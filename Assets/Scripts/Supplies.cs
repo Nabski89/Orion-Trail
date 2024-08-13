@@ -15,4 +15,9 @@ public class Supplies : MonoBehaviour
     public int RepairElectronic = 1;
     //Engine Parts
     public int RepairEngine = 1;
+
+    public void SubtractFuel(float fuelDown)
+    {
+        Fuel -= fuelDown;
+    }
 }

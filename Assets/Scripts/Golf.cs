@@ -22,7 +22,7 @@ public class Golf : MonoBehaviour
     //used for the ball
     public GameObject BeaconBall;
     public ShipController TheShip;
-    public Supplies TheSupplies;
+    Supplies TheSupplies;
     public float FuelUsage;
 
     //end location
@@ -30,9 +30,11 @@ public class Golf : MonoBehaviour
     public float StoredSpread;
     public float StoredPower;
     public GameObject FuelTankSpawn;
+    public GameObject BrokenTankSpawn;
     public GameObject FuelTankParent;
-    void Update()
+    public void Start()
     {
+        TheSupplies = GetComponentInParent<Supplies>();
     }
     public void StartGolf(float RotateValue, float FuelFree, float FuelReq)
     {
@@ -103,7 +105,16 @@ public class Golf : MonoBehaviour
         {
             FuelUsage -= 1;
             Debug.Log("Spawn a fuel tank");
-            Instantiate(FuelTankSpawn, FuelTankParent.transform);
+            //if we have fuel, use it otherwise use a shitty broken fuel
+            //TODO make lacking fuel more punishing
+            if (TheSupplies.Fuel > 0)
+            {
+                TheSupplies.SubtractFuel(1);
+                Instantiate(FuelTankSpawn, FuelTankParent.transform);
+            }
+            else
+                Instantiate(BrokenTankSpawn, FuelTankParent.transform);
+
         }
         else
             SpawnBeacon();
