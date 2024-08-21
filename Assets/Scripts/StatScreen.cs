@@ -5,44 +5,24 @@ using TMPro;
 
 public class StatScreen : MonoBehaviour
 {
-    private Vector3 scaleChange;
-    public bool WindowEnable;
+    public Vector3 scaleChange;
     public CharacterManager Character;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        scaleChange = new Vector3(1f, 1f, 1f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        if (WindowEnable == true && Character != null)
-        {
-            if (transform.localScale.y < 0.97f)
-                transform.localScale += scaleChange * Time.deltaTime;
-            else
-                transform.localScale = Vector3.one;
-        }
-        //     sphere.transform.position += positionChange;
-        else
-        {
-            if (transform.localScale.y > 0.01f)
-                transform.localScale -= scaleChange * Time.deltaTime;
-            else
-                transform.localScale = Vector3.zero;
-        }
-    }
     public TextMeshProUGUI NameUI;
     public TextMeshProUGUI StatusUI;
     public TextMeshProUGUI SkillUI;
+
+    public void CharacterStatSelect(CharacterManager CharacterToUI)
+    {
+        if (transform.localScale.x < 0.5)
+            Maximize(CharacterToUI);
+        else
+        {
+            StartCoroutine(Hotswap(CharacterToUI));
+        }
+    }
     public void Maximize(CharacterManager CharacterToUI)
     {
         Character = CharacterToUI;
-        WindowEnable = true;
 
         NameUI.text = Character.CharName;
         StatusUI.text = Character.HP.ToString()
@@ -57,12 +37,41 @@ public class StatScreen : MonoBehaviour
         + "\n" + Character.Kinesthetics.ToString()
         + "\n" + Character.Luck.ToString()
         ;
-
+        StartCoroutine(Maxi());
+    }
+    IEnumerator Maxi()
+    {
+        while (transform.localScale.y < 0.97f)
+        {
+            transform.localScale += scaleChange * Time.deltaTime;
+            yield return null;
+        }
+        transform.localScale = Vector3.one;
     }
     public void Minimize()
     {
-        WindowEnable = false;
+        StartCoroutine(Mini());
     }
+    IEnumerator Mini()
+    {
+        while (transform.localScale.y > 0.01f)
+        {
+            transform.localScale -= scaleChange * Time.deltaTime;
+            yield return null;
+        }
+        transform.localScale = Vector3.zero;
+
+    }
+    IEnumerator Hotswap(CharacterManager CharacterToUI)
+    {
+        while (transform.localScale.y > 0.01f)
+        {
+            transform.localScale -= scaleChange * Time.deltaTime;
+            yield return null;
+        }
+        Maximize(CharacterToUI);
+    }
+
     public Transform EquipmentManager;
     public void Equip(GameObject ToEquip)
     {

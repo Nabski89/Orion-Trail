@@ -8,4 +8,5 @@ public class GenericManager : MonoBehaviour
     public DialogText MainTextReference;
     public Transform CombatLog;
     public Golf GolfReference;
+    public PopupUI MouseOver;
 }

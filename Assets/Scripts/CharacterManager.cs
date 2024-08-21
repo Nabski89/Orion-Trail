@@ -66,7 +66,7 @@ public class CharacterManager : MonoBehaviour
     public void BringUpStats()
     {
         CharacterShip Ship = transform.GetComponentInParent<CharacterShip>();
-        Ship.StatUI.Maximize(this);
+        Ship.StatUI.CharacterStatSelect(this);
     }
 
     public void Equip()
