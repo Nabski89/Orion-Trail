@@ -93,7 +93,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 903377653229437032, guid: 8f8d78751cd6bcd4bbc9ffddfd4da740, type: 3}
       propertyPath: m_Name
-      value: Pilot
+      value: 4. Pilot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3519156068046729222, guid: 8f8d78751cd6bcd4bbc9ffddfd4da740, type: 3}
+      propertyPath: SkillNum
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3618711352354857161, guid: 8f8d78751cd6bcd4bbc9ffddfd4da740, type: 3}
       propertyPath: m_Sprite

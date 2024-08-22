@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrewSkillManager : MonoBehaviour
 {
     public CharacterSkillController[] SkillHolder;
+    public GameObject[] Skill;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,11 +14,14 @@ public class CrewSkillManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void SkillUsed()
+    public void SkillUsed(int SkillNum)
     {
         for (int i = 0; i < SkillHolder.Length; i++)
         {
             SkillHolder[i].CallForSkills();
         }
+        //I numbered my things badly but don't want to fix it
+        Skill[SkillNum - 1].GetComponent<ISkillMinigame>().ActivateSkill();
+        Debug.Log("Used Skill " + SkillNum);
     }
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SkillUsed : MonoBehaviour
 {
+    public int SkillNum;
     public void Pushed()
     {
-        GetComponentInParent<CrewSkillManager>().SkillUsed();
+        
+        GetComponentInParent<CrewSkillManager>().SkillUsed(SkillNum);
 
     }
 }
