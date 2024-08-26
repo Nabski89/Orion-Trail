@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepairMinigame : MonoBehaviour
+public class PilotMinigame : MonoBehaviour
 {
     public float SkillModifier { get; }
     public GameObject MinigameHolder;
@@ -11,15 +11,9 @@ public class RepairMinigame : MonoBehaviour
     {
         crewSkillManager = GetComponentInParent<GenericManager>().ShipReference.GetComponent<CrewSkillManager>();
     }
-
     public void ActivateSkill()
     {
-        MinigameHolder.SetActive(true);
-        GetComponentInChildren<PipeRepair>().RandomizeAllPipe();
-    }
-    public void EndSkill()
-    {
-        MinigameHolder.SetActive(false);
-        crewSkillManager.SkillCompleted();
+        GetComponent<DockingShip>().Reset();
+        GetComponent<DockingGround>().Reset();
     }
 }

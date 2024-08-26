@@ -13,8 +13,20 @@ public class PipeRepair : MonoBehaviour
         public RectTransform Pipe;
         public int PipeValue;
     }
-    void Start()
+    public void Start()
     {
+        RandomizeAllPipe();
+
+    }
+    public void RandomizeAllPipe()
+    {
+        //starting with the SECOND pipe, randomize the offset
+        for (int i = 1; i < ShipPart.Length; i++)
+        {
+            Vector2 newPosition = new Vector2(ShipPart[i].Pipe.anchoredPosition.x, 0);
+            newPosition.y = ShipPart[i - 1].Pipe.anchoredPosition.y + Random.Range(-PipeImage.Length + 1, PipeImage.Length);
+            ShipPart[i].Pipe.anchoredPosition = newPosition;
+        }
         UpdatePipe();
     }
     void UpdatePipe()
@@ -55,5 +67,10 @@ public class PipeRepair : MonoBehaviour
 
         newPosition.y += Strength * DirectionalMult;
         ShipPart[PipeMove].Pipe.anchoredPosition = newPosition;
+    }
+
+    public void EndSkill()
+    {
+        GetComponentInParent<RepairMinigame>().EndSkill();
     }
 }

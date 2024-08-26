@@ -5,9 +5,15 @@ using UnityEngine;
 public class HealMinigame : MonoBehaviour, ISkillMinigame
 {
     public float SkillModifier { get; }
-
+    public GameObject MinigameHolder;
+    public CrewSkillManager crewSkillManager;
+    void Start()
+    {
+        crewSkillManager = GetComponentInParent<GenericManager>().ShipReference.GetComponent<CrewSkillManager>();
+    }
     public void ActivateSkill()
     {
+        MinigameHolder.SetActive(true);
         StartUp();
     }
 
@@ -22,6 +28,7 @@ public class HealMinigame : MonoBehaviour, ISkillMinigame
             StartMoving(i);
         }
         Invoke("StartMoving", 2.0f);
+        Invoke("EndSkill", 5.0f);
     }
     void StartMoving(int UIOrder)
     {
@@ -49,9 +56,9 @@ public class HealMinigame : MonoBehaviour, ISkillMinigame
         transform.position = target;
     }
 
-
-    public void CloseOut()
+    public void EndSkill()
     {
-
+        MinigameHolder.SetActive(false);
+        crewSkillManager.SkillCompleted();
     }
 }

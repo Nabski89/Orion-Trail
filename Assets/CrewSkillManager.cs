@@ -16,12 +16,20 @@ public class CrewSkillManager : MonoBehaviour
     // Update is called once per frame
     public void SkillUsed(int SkillNum)
     {
+        Debug.Log("Used Skill " + SkillNum);
         for (int i = 0; i < SkillHolder.Length; i++)
         {
-            SkillHolder[i].CallForSkills();
+            SkillHolder[i].CullSkills();
         }
         //I numbered my things badly but don't want to fix it
         Skill[SkillNum - 1].GetComponent<ISkillMinigame>().ActivateSkill();
         Debug.Log("Used Skill " + SkillNum);
+    }
+    public void SkillCompleted()
+    {
+        for (int i = 0; i < SkillHolder.Length; i++)
+        {
+            SkillHolder[i].CallForSkills();
+        }
     }
 }
