@@ -5,8 +5,8 @@ using TMPro;
 
 public class FoodUI : MonoBehaviour
 {
-    private TextMeshProUGUI textMesh;
-    private Supplies SupplyScript;
+    public TextMeshProUGUI textMesh;
+    public Supplies SupplyScript;
     // Start is called before the first frame update
     void Start()
     {

@@ -97,7 +97,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3519156068046729222, guid: 8f8d78751cd6bcd4bbc9ffddfd4da740, type: 3}
       propertyPath: SkillNum
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3618711352354857161, guid: 8f8d78751cd6bcd4bbc9ffddfd4da740, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 594c9430d66369e45a624f473ad922c5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f8d78751cd6bcd4bbc9ffddfd4da740, type: 3}

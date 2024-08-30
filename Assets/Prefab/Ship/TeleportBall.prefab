@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetLocation: {x: 0, y: 0, z: 0}
+  TheShip: {fileID: 0}
   initialSpeed: 5
   decelerationRate: 0.1
   minDistance: 0.01

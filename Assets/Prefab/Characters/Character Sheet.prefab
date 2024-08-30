@@ -1472,7 +1472,6 @@ GameObject:
   - component: {fileID: 2301486453384805672}
   - component: {fileID: 3423709898250627431}
   - component: {fileID: 5832470312221219155}
-  - component: {fileID: 5526444735949157999}
   m_Layer: 5
   m_Name: Kill
   m_TagString: Untagged
@@ -1522,14 +1521,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.16470589}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90d64f44c7d7dad4ab4ff1b072164cd6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1583,7 +1582,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5526444735949157999}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Kill, Assembly-CSharp
         m_MethodName: KillCharacter
         m_Mode: 1
@@ -1595,18 +1594,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5526444735949157999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5779691919111026300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba40581feb98c34e9487858f602d591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6143689452703957312
 GameObject:
   m_ObjectHideFlags: 0

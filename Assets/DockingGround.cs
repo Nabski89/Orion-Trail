@@ -28,7 +28,7 @@ public class DockingGround : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (GroundMovement.localPosition.y < 600)
+        if (GroundMovement.localPosition.y < 400)
         {
             Move();
         }

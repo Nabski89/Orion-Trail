@@ -18,10 +18,11 @@ public class PipeRepair : MonoBehaviour
         RandomizeAllPipe();
 
     }
+    //the -1 is because we have the end component for our length, starting at 1 is so we don't move the first pipe
     public void RandomizeAllPipe()
     {
         //starting with the SECOND pipe, randomize the offset
-        for (int i = 1; i < ShipPart.Length; i++)
+        for (int i = 1; i < ShipPart.Length - 1; i++)
         {
             Vector2 newPosition = new Vector2(ShipPart[i].Pipe.anchoredPosition.x, 0);
             newPosition.y = ShipPart[i - 1].Pipe.anchoredPosition.y + Random.Range(-PipeImage.Length + 1, PipeImage.Length);
@@ -29,9 +30,11 @@ public class PipeRepair : MonoBehaviour
         }
         UpdatePipe();
     }
+
+
     void UpdatePipe()
     {
-        for (int i = 0; i < ShipPart.Length; i++)
+        for (int i = 0; i < ShipPart.Length - 1; i++)
         {
             //Distance between the two pipes, if the number is negative the scale is negative so the part is flipped
             int PipeDistance = Mathf.RoundToInt(ShipPart[i].Pipe.anchoredPosition.y - ShipPart[i + 1].Pipe.anchoredPosition.y);
@@ -41,6 +44,19 @@ public class PipeRepair : MonoBehaviour
                 ShipPart[i].Pipe.localScale = Vector3.one;
 
             ShipPart[i].Pipe.GetComponent<Image>().sprite = PipeImage[Mathf.Abs(PipeDistance)];
+
+            //turn on the other end of the pipe
+            Transform PipeChild = ShipPart[i].Pipe.transform.GetChild(0);
+            if (Mathf.Abs(PipeDistance) > PipeImage.Length - 2)
+            {
+                PipeChild.gameObject.SetActive(true);
+                //         ShipPart[i].Pipe.transform.GetChild(0).RectTransform.anchoredPosition = new Vector2(0, PipeDistance);
+            }
+            else
+            {
+                PipeChild.gameObject.SetActive(false);
+            }
+            Debug.Log("We have completed pipe " + i);
         }
     }
 

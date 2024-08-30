@@ -117,6 +117,8 @@ public class ShipController : MonoBehaviour
         Destroy(WarpEffect1, 1);
         Destroy(WarpEffect2, 1);
         StartCoroutine(MoveToTargetWithDelay(NewLocation));
+        //reload the skills
+        GetComponentInParent<GenericManager>().ShipReference.GetComponent<CrewSkillManager>().SkillCompleted();
 
     }
     IEnumerator MoveToTargetWithDelay(Vector3 NewLocation)

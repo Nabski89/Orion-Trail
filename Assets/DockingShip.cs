@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +22,11 @@ public class DockingShip : MonoBehaviour
     public float ThrustPower;
     void Start()
     {
+        // Get the Emission module of the Particle System
+        emissionModule = particleSystem.emission;
+        emissionModule2 = particleSystem2.emission;
+        emissionModuleBack = particleSystemBack.emission;
+
         // Save the original position of the canvas
         originalPosition = Ship.localPosition;
 
@@ -34,6 +39,7 @@ public class DockingShip : MonoBehaviour
 
         thrusterSlider.onValueChanged.AddListener(ActivateThruster);
         // Set initial rotation based on the slider's starting value
+        MoveCanvas(thrusterSlider.value);
         UpdateRotation(rotationSlider.value);
     }
     public void Reset()
@@ -47,6 +53,13 @@ public class DockingShip : MonoBehaviour
 
         // Apply the new position to the canvas object
         Ship.localPosition = newPosition;
+
+        // Calculate the new emission rate (0 to 15 based on the slider value)
+        float emissionRate = Mathf.Lerp(0f, 30f, value);
+        // Update the emission rate of the Particle System
+        var rateOverTime = emissionModule.rateOverTime;
+        rateOverTime.constant = emissionRate;
+        emissionModuleBack.rateOverTime = rateOverTime;
     }
 
     void UpdateRotation(float value)
@@ -60,5 +73,25 @@ public class DockingShip : MonoBehaviour
     void ActivateThruster(float value)
     {
         ThrustPower = value;
+
+        // Calculate the new emission rate (0 to 15 based on the slider value)
+        float emissionRate = Mathf.Lerp(0f, 30f, value);
+
+        // Update the emission rate of the Particle System
+        var rateOverTime = emissionModule.rateOverTime;
+        rateOverTime.constant = emissionRate;
+        emissionModule.rateOverTime = rateOverTime;
+        emissionModule2.rateOverTime = rateOverTime;
+
+
     }
+
+
+    public ParticleSystem particleSystem;  // Reference to the Particle System
+    private ParticleSystem.EmissionModule emissionModule;
+    public ParticleSystem particleSystem2;
+    private ParticleSystem.EmissionModule emissionModule2;
+
+    public ParticleSystem particleSystemBack;
+    private ParticleSystem.EmissionModule emissionModuleBack;
 }

@@ -5,8 +5,16 @@ using UnityEngine;
 public class HealMinigame : MonoBehaviour, ISkillMinigame
 {
     public float SkillModifier { get; }
-    public GameObject MinigameHolder;
-    public CrewSkillManager crewSkillManager;
+//this is supposed let me set my interfaced theing through the inspector
+    [SerializeField]
+    public GameObject HoldMinigame;
+
+    public GameObject MinigameHolder
+    {
+        get { return HoldMinigame; }
+        set { HoldMinigame = value; }
+    }
+    public CrewSkillManager crewSkillManager { get; set; }
     void Start()
     {
         crewSkillManager = GetComponentInParent<GenericManager>().ShipReference.GetComponent<CrewSkillManager>();
@@ -58,7 +66,6 @@ public class HealMinigame : MonoBehaviour, ISkillMinigame
 
     public void EndSkill()
     {
-        MinigameHolder.SetActive(false);
-        crewSkillManager.SkillCompleted();
+        crewSkillManager.GetComponent<CrewSkillManager>().SkillCompleted();
     }
 }
