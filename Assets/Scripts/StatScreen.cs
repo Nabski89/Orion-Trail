@@ -25,8 +25,9 @@ public class StatScreen : MonoBehaviour
         Character = CharacterToUI;
 
         NameUI.text = Character.CharName;
-        StatusUI.text = Character.HP.ToString()
-        + "\n" + Character.Hunger.ToString()
+        StatusUI.text =
+        // Character.HP.ToString()+
+         "\n" + Character.Hunger.ToString()
         + "\n" + Character.Morale.ToString()
         + "\n" + Character.Bullets.ToString()
         ;

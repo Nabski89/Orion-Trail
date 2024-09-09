@@ -9,8 +9,9 @@ public class CharacterManager : MonoBehaviour
 
     public Sprite CharacterPicture;
     public string CharName;
-    public int HP = 50;
+    /*public int HP = 50;
     public TextMeshProUGUI HPUI;
+    */
     public int Morale = 50;
     public TextMeshProUGUI MoraleUI;
     public int Hunger = 0;
@@ -41,20 +42,15 @@ public class CharacterManager : MonoBehaviour
         Kinesthetics = Random.Range(-1, 6);
         Luck = Random.Range(-1, 6);
         Bullets = Random.Range(0, 4);
-        HP = Random.Range(4, 9) + Survival * 4 + Kinesthetics;
+        //    HP = Random.Range(4, 9) + Survival * 4 + Kinesthetics;
     }
 
     // Update is called once per frame
     void Update()
     {
-        HPUI.text = HP.ToString();
+        //     HPUI.text = HP.ToString();
         MoraleUI.text = Morale.ToString();
         HungerUI.text = Hunger.ToString();
-
-        if (HP < 1)
-        {
-            //       Die();
-        }
     }
     public void Die()
     {
@@ -82,4 +78,5 @@ public class CharacterManager : MonoBehaviour
         public string AttackText;
     }
     public Attacks[] Attack;
+    public Color[] CharacterColor;
 }
