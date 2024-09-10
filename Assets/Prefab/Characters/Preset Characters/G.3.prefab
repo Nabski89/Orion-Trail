@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3658780485320044239
+--- !u!1001 &1791385124888827955
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -93,12 +93,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 903377653229437032, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_Name
-      value: Cat
+      value: G.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharName
+      value: Heedal
       objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterPicture
       value: 
-      objectReference: {fileID: 21300000, guid: 481d88011e6c6d14285847ff4c31b176, type: 3}
-    m_RemovedComponents:
-    - {fileID: 7626726618726606192, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      objectReference: {fileID: 21300000, guid: 3c64378179200fb4fb0f5857955e122f, type: 3}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[0].b
+      value: 0.58431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[0].g
+      value: 0.3372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[0].r
+      value: 0.11764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[1].b
+      value: 0.63529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[1].g
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[1].r
+      value: 0.21568629
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123585006920976685, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 72ff4be18229f0e4784abb41034421ec, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}

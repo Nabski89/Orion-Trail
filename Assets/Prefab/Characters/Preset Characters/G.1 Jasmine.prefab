@@ -93,11 +93,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 903377653229437032, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_Name
-      value: Alien
+      value: G.1 Jasmine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharName
+      value: Jasmine
       objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterPicture
       value: 
-      objectReference: {fileID: 21300000, guid: 646ca9f882dc06f42b94ed7caf3415f5, type: 3}
+      objectReference: {fileID: 21300000, guid: b0140be6ce128064c937e16eec6fb48f, type: 3}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[0].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[0].g
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[0].r
+      value: 0.09019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[1].b
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[1].g
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterColor.Array.data[1].r
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123585006920976685, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 711283c2491c3c44bb98cd414f34cc43, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
