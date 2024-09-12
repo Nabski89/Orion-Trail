@@ -13,7 +13,9 @@ public class CharacterShip : MonoBehaviour
     {
         Reference = GetComponentInParent<GenericManager>();
         LoadCustomCrew();
-        SetEngineUIBlack();
+        DamageEngine(3);
+        DamageEngine(2);
+        DamageEngine(1);
     }
     public void LoadCustomCrew()
     {
@@ -64,22 +66,30 @@ public class CharacterShip : MonoBehaviour
         }
     }
 
-    public void CrewMoraleChange(int HowSad, bool IsRandom)
+    public void CrewMoraleChange(int MoraleChange, bool IsRandom)
     {
-        if (HowSad != 0)
+        if (MoraleChange != 0)
         {
             CharacterManager[] characterManagers = GetComponentsInChildren<CharacterManager>();
             if (IsRandom == false)
                 foreach (CharacterManager characterManager in characterManagers)
                 {
-                    characterManager.Morale += HowSad;
-                    Reference.MainTextReference.TEXTBOX += "<br>The entire crew is sad.";
+                    characterManager.Morale += MoraleChange;
+                    if (MoraleChange < 0)
+                        Reference.MainTextReference.TEXTBOX += "<br>The entire crew is sad.";
+
+                    else
+                        Reference.MainTextReference.TEXTBOX += "<br>Everyone Liked that";
                 }
             else
             {
                 int SadCharacter = Random.Range(0, characterManagers.Length);
-                characterManagers[SadCharacter].Morale += HowSad;
-                Reference.MainTextReference.TEXTBOX += "<br>" + characterManagers[SadCharacter].CharName + " is sad.";
+                characterManagers[SadCharacter].Morale += MoraleChange;
+                if (MoraleChange < 0)
+                    Reference.MainTextReference.TEXTBOX += "<br>" + characterManagers[SadCharacter].CharName + " feels worse.";
+                else
+                    Reference.MainTextReference.TEXTBOX += "<br>" + characterManagers[SadCharacter].CharName + " feels better.";
+
             }
         }
     }
@@ -95,13 +105,47 @@ public class CharacterShip : MonoBehaviour
     }
     public Engine[] ShipPart;
     public Color[] EngineStatusColor;
-    public void SetEngineUIBlack()
+    public void DamageEngine(int DamageAmount)
+    {
+        int PartToDamage = Random.Range(0, ShipPart.Length);
+        int i = 0;
+        while (ShipPart[PartToDamage].Integrity == 0 && i < 5)
+        {
+            PartToDamage = Random.Range(0, ShipPart.Length);
+            i++;
+        }
+        //TODO make it cause an accident if it tries 4 times to damage something and can't
+        ShipPart[PartToDamage].Integrity = Mathf.Max(0, ShipPart[PartToDamage].Integrity - DamageAmount);
+        if (i == 5)
+        {
+            Debug.Log("Everything is probably damaged already, maybe");
+        }
+        SetEngineUI();
+    }
+    public void RepairEngine()
+    {
+        /**
+        int lowestIntegrity = integrityArray[0];
+        int lowestIndex = 0;
+
+        for (int i = 1; i < integrityArray.Length; i++)
+        {
+            if (integrityArray[i] < lowestIntegrity)
+            {
+                lowestIntegrity = integrityArray[i];
+                lowestIndex = i;
+            }
+        }
+
+        Debug.Log("Item with the lowest integrity: " + lowestIntegrity + " at index " + lowestIndex);
+        **/
+    }
+    public void SetEngineUI()
     {
         int EngieLoop = 0;
         while (EngieLoop < ShipPart.Length)
         {
-            ShipPart[EngieLoop].EngineUI.color = EngineStatusColor[0];
-            ShipPart[EngieLoop].Integrity = 4;
+            ShipPart[EngieLoop].EngineUI.color = EngineStatusColor[ShipPart[EngieLoop].Integrity];
             EngieLoop += 1;
         }
     }
@@ -112,6 +156,5 @@ public class CharacterShip : MonoBehaviour
             ShipPart[Part].EngineUI.color = EngineStatusColor[2];
         if (ShipPart[Part].Integrity < 3)
             ShipPart[Part].EngineUI.color = EngineStatusColor[1];
-
     }
 }

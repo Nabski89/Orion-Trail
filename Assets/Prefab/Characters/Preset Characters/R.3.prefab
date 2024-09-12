@@ -41,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 731268733738665983, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 70
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 731268733738665983, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_LocalPosition.x
@@ -103,6 +103,11 @@ PrefabInstance:
       propertyPath: CharacterPicture
       value: 
       objectReference: {fileID: 21300000, guid: 97d74f40e1ffb6345a65aece1da5b8f3, type: 3}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterLore.Array.data[0]
+      value: A lower tech background just makes her all the better at fixing the
+        tools of the frontier.
+      objectReference: {fileID: 0}
     - target: {fileID: 8123585006920976685, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_Sprite
       value: 

@@ -74,5 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0b8ba3969e68146ab599069eb939bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoraleChange: -5
+  MoraleChange: 5
   IsRandom: 1

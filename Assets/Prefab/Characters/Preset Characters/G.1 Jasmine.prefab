@@ -41,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 731268733738665983, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 70
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 731268733738665983, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_LocalPosition.x
@@ -104,6 +104,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b0140be6ce128064c937e16eec6fb48f, type: 3}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterLore.Array.data[0]
+      value: The life of a colonist is not for everyone, but Jasmine knows a better
+        world is out there.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterColor.Array.data[0].b
       value: 1
       objectReference: {fileID: 0}
@@ -117,15 +122,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterColor.Array.data[1].b
-      value: 0.6509804
+      value: 0.12941177
       objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterColor.Array.data[1].g
-      value: 0.6509804
+      value: 0.25490198
       objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterColor.Array.data[1].r
-      value: 0.6509804
+      value: 0.48627454
       objectReference: {fileID: 0}
     - target: {fileID: 8123585006920976685, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_Sprite

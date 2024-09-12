@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InitialCrewButtons : MonoBehaviour
 {
     public Image BigPicture;
+    public TextMeshProUGUI CharacterTextBox;
     public bool[] CrewClearCheck;
     public GameObject[] CrewArray;
     public CrewSelect CrewSelect;
@@ -16,7 +18,8 @@ public class InitialCrewButtons : MonoBehaviour
     {
         if (CrewClearCheck[Selected] == false)
         {
-            CharacterManager CharMan = CrewArray[Selected].GetComponent<CharacterManager>();
+            GameObject CrewGameObject = CrewArray[Selected];
+            CharacterManager CharMan = CrewGameObject.GetComponent<CharacterManager>();
 
             //fill the first unfilled character slot
             int CrewSlotNum = 0;
@@ -41,10 +44,51 @@ public class InitialCrewButtons : MonoBehaviour
 
             //set the big picture info
             BigPicture.sprite = CharMan.CharacterPicture;
+            CharacterTextBox.text = CharMan.CharacterLore[0];
 
+            //spawn the skills 
+            ShowOffSkills(CrewGameObject);
             //set the carry over crew
-            CrewCarryOver.Crew[CrewSlotNum] = CrewArray[Selected];
+            CrewCarryOver.Crew[CrewSlotNum] = CrewGameObject;
             CrewClearCheck[Selected] = true;
+        }
+    }
+    public Transform BigSkillHolder;
+    public GameObject SkillImage;
+    void ShowOffSkills(GameObject Crew)
+    {
+        foreach (Transform child in BigSkillHolder.transform)
+        {
+            Destroy(child.gameObject);  // Destroy each child GameObject
+        }
+
+        SkillUsed[] skillUsedComponents = Crew.GetComponentsInChildren<SkillUsed>();
+
+        foreach (SkillUsed skillUsed in skillUsedComponents)
+        {
+            // Instantiate the new prefab
+            GameObject newObject = Instantiate(SkillImage, BigSkillHolder);
+
+            // Get the Image component from the new prefab
+            Image newImage = newObject.GetComponent<Image>();
+            if (newImage != null)
+            {
+                // Get the Image component from the SkillUsed script
+                Image skillImage = skillUsed.GetComponent<Image>();
+                if (skillImage != null)
+                {
+                    // Set the new prefab's image to the skill's image
+                    newImage.sprite = skillImage.sprite;
+                }
+                else
+                {
+                    Debug.LogError("SkillUsed does not have an Image component.");
+                }
+            }
+            else
+            {
+                Debug.LogError("NewPrefab does not have an Image component.");
+            }
         }
     }
 }

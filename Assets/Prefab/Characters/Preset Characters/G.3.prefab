@@ -41,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 731268733738665983, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 70
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 731268733738665983, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_LocalPosition.x
@@ -104,6 +104,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 3c64378179200fb4fb0f5857955e122f, type: 3}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterLore.Array.data[0]
+      value: Law to this lawless land, Lawyer Heedal will take the case.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterColor.Array.data[0].b
       value: 0.58431375
       objectReference: {fileID: 0}
@@ -117,15 +121,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterColor.Array.data[1].b
-      value: 0.63529414
+      value: 0.9568628
       objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterColor.Array.data[1].g
-      value: 0.3019608
+      value: 0.9176471
       objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharacterColor.Array.data[1].r
-      value: 0.21568629
+      value: 0.9450981
       objectReference: {fileID: 0}
     - target: {fileID: 8123585006920976685, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_Sprite

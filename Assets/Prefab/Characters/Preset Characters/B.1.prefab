@@ -41,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 731268733738665983, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 70
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 731268733738665983, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 903377653229437032, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_Name
-      value: Heir
+      value: B.1
       objectReference: {fileID: 0}
     - target: {fileID: 5228635401641029879, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: Name
@@ -121,6 +121,10 @@ PrefabInstance:
       propertyPath: CharacterPicture
       value: 
       objectReference: {fileID: 21300000, guid: 83f55c6920f76804fa752312b3cf3c07, type: 3}
+    - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: CharacterLore.Array.data[0]
+      value: Heir to a corporate empire, it's time to expand
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7626726618726606192, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}

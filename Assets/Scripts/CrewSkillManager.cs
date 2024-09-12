@@ -7,7 +7,7 @@ public class CrewSkillManager : MonoBehaviour
     public CharacterSkillController[] SkillHolder;
     public GameObject[] Skill;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Find all CharacterSkillController components in children and store them in SkillHolder
         SkillHolder = GetComponentsInChildren<CharacterSkillController>();

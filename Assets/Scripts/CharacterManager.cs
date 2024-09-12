@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class CharacterManager : MonoBehaviour
 {
-
+    //By default show 1/2, 1/3 on completed run, then 1/3/4, then 1/3/5 if you finished their quest.
+    public string[] CharacterLore;
     public Sprite CharacterPicture;
     public string CharName;
     /*public int HP = 50;

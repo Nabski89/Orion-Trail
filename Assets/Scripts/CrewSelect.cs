@@ -9,16 +9,6 @@ public class CrewSelect : MonoBehaviour
     public Image[] CharacterImage;
     public CustomCrew CrewCarryOver;
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void ClearCrew(int Number)
     {
         // Set the alpha channel to 0 (completely transparent)
