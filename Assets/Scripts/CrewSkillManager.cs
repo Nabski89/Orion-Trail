@@ -6,16 +6,10 @@ public class CrewSkillManager : MonoBehaviour
 {
     public CharacterSkillController[] SkillHolder;
     public GameObject[] Skill;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        // Find all CharacterSkillController components in children and store them in SkillHolder
-        SkillHolder = GetComponentsInChildren<CharacterSkillController>();
-    }
-
-    // Update is called once per frame
     public void SkillUsed(int SkillNum)
     {
+        if (SkillHolder[0] == null)
+            SkillHolder = GetComponentsInChildren<CharacterSkillController>();
         Debug.Log("Used Skill " + SkillNum);
         Skill[SkillNum].GetComponent<ISkillMinigame>().ActivateSkill();
         for (int i = 0; i < SkillHolder.Length; i++)
