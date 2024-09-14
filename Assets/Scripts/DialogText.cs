@@ -31,8 +31,8 @@ public class DialogText : MonoBehaviour
             if (displayedCharacters + 100 <= TEXTBOX.Length)
                 displayedCharacters += 1;
             displayedCharacters += 1;
-            GameObject SoundBlip = Instantiate(SoundEffect);
-            Destroy(SoundBlip, .05f);
+            Instantiate(SoundEffect);
+
         }
     }
     //this is a certified ChatGPT moment because I would have done this in update instead of as a co-routine

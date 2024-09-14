@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class SlotMachineRoll : MonoBehaviour
 {
+    public Image ColorImage1;
+    public Image ColorImage2;
     public RectTransform SlotWheel;
     public float rollSpeed = 1f;
     public float rollSpeedDefault = 500;
@@ -23,25 +25,9 @@ public class SlotMachineRoll : MonoBehaviour
             combinedHeight += child.rect.height;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Move the RectTransform up
-        Vector2 newPosition = SlotWheel.anchoredPosition;
-        newPosition.y += rollSpeed * Time.deltaTime;
-        // Reset the Y position if it exceeds the combined height
-        if (newPosition.y > 40)
-        {
-            newPosition.y -= 40;
-            transform.GetChild(0).SetAsLastSibling();
-        }
-        SlotWheel.anchoredPosition = newPosition;
-    }
-
     public void StartRouletteButton()
     {
-        rollSpeed = rollSpeedDefault + Random.Range(-rollSpeedDefault / 3, rollSpeedDefault / 3);
+        StartCoroutine(SpinningSlots());
     }
     public void StopRouletteButton(float Delay)
     {
@@ -51,6 +37,25 @@ public class SlotMachineRoll : MonoBehaviour
     void Pain()
     {
         StartCoroutine(StopRoulette());
+    }
+    IEnumerator SpinningSlots()
+    {
+        rollSpeed = rollSpeedDefault + Random.Range(-rollSpeedDefault / 3, rollSpeedDefault / 3);
+        Vector2 newPosition = SlotWheel.anchoredPosition;
+        while (rollSpeed > 0)
+        {
+            // Move the RectTransform up
+
+            newPosition.y += rollSpeed * Time.deltaTime;
+            // Reset the Y position if it exceeds the combined height
+            if (newPosition.y > 40)
+            {
+                newPosition.y -= 40;
+                transform.GetChild(0).SetAsLastSibling();
+            }
+            SlotWheel.anchoredPosition = newPosition;
+            yield return null;
+        }
     }
     IEnumerator StopRoulette()
     {
@@ -70,7 +75,16 @@ public class SlotMachineRoll : MonoBehaviour
             SlotWheel.anchoredPosition = Vector3.MoveTowards(SlotWheel.anchoredPosition, targetPosition, FinishingTime * Time.deltaTime);
             yield return null;
         }
-
         SlotWheel.anchoredPosition = targetPosition;
+        //if it has anything over the max, fix it
+        if (targetPosition.y > 0)
+        {
+            Vector2 newPosition = SlotWheel.anchoredPosition;
+            newPosition.y = 0;
+            transform.GetChild(0).SetAsLastSibling();
+            SlotWheel.anchoredPosition = newPosition;
+        }
+
+
     }
 }

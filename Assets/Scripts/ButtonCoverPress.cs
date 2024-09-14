@@ -24,8 +24,7 @@ public class ButtonCoverPress : MonoBehaviour
         float elapsedTime = 0f;
         if (ClickSound != null)
         {
-            GameObject ButtonCoverMove = Instantiate(ClickSound);
-            Destroy(ButtonCoverMove, 0.5f);
+            Instantiate(ClickSound);
         }
         while (elapsedTime < moveDuration)
         {
