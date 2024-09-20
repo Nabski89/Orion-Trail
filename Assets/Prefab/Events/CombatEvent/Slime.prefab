@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: Attack.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: Attack.Array.data[0].DamageMax
@@ -52,21 +52,85 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[2].DamageMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[2].DamageMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[3].DamageMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[3].DamageMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[4].DamageMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[4].DamageMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[5].DamageMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[5].DamageMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: Attack.Array.data[0].AttackText
-      value: Blorbles
+      value: Sizzles
       objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: Attack.Array.data[1].AttackText
       value: Sloshes
       objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[2].AttackText
+      value: Hardens
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[3].AttackText
+      value: Hardens
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[4].AttackText
+      value: Grows
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[5].AttackText
+      value: Grows
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: Attack.Array.data[0].eventObject
       value: 
-      objectReference: {fileID: 5213917668638145289, guid: c4149a0b191952048aec76eaf64fa4e9, type: 3}
+      objectReference: {fileID: 778043076864859225, guid: 441d107860e61b849b381353d893a15e, type: 3}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: Attack.Array.data[1].eventObject
       value: 
-      objectReference: {fileID: 5213917668638145289, guid: c4149a0b191952048aec76eaf64fa4e9, type: 3}
+      objectReference: {fileID: 778043076864859225, guid: 441d107860e61b849b381353d893a15e, type: 3}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[2].eventObject
+      value: 
+      objectReference: {fileID: 3472523885515542225, guid: 5e2aef1d6066e2646a5d66e6bbb2870c, type: 3}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[3].eventObject
+      value: 
+      objectReference: {fileID: 3472523885515542225, guid: 5e2aef1d6066e2646a5d66e6bbb2870c, type: 3}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[4].eventObject
+      value: 
+      objectReference: {fileID: 4032709733906773130, guid: bbd175bf7cb8cff4eab046afdf484e9b, type: 3}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: Attack.Array.data[5].eventObject
+      value: 
+      objectReference: {fileID: 4032709733906773130, guid: bbd175bf7cb8cff4eab046afdf484e9b, type: 3}
     - target: {fileID: 2198101151093646160, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Sprite
       value: 

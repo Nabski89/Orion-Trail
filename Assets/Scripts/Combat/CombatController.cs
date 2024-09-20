@@ -6,13 +6,11 @@ using TMPro;
 public class CombatController : MonoBehaviour
 {
     LootController LootManager;
-    public Transform CombatLog;
     public RectTransform CombatUIBar;
     private Move MoveScript;
     public int[] CharAtkType;
+    public EnemyUI[] EnemyUI;
     public EnemyCombatScript Enemy;
-    public GameObject[] TransitionBlocker;
-    public Transform TransitionBlockerParent;
     public DialogText TextBoxUI;
     //holds all the crewmembers, used to select who is in the fight
     public Transform Crew;
@@ -21,6 +19,7 @@ public class CombatController : MonoBehaviour
     public CombatLockdown[] CombatLockdowns;
     void Start()
     {
+        EnemyUI = GetComponentsInChildren<EnemyUI>();
         CombatLockdowns = GetComponentsInChildren<CombatLockdown>();
         LootManager = GetComponent<LootController>();
         MoveScript = GetComponentInChildren<Move>();
@@ -37,30 +36,7 @@ public class CombatController : MonoBehaviour
     {
         if (Enemy != null && CombatStarted == true)
         {
-            UpdateCrewActionBar();
-            UpdateEnemyActionBar();
             EndCombat();
-        }
-    }
-    public void UpdateCrewActionBar()
-    {
-        for (int i = 0; i < CrewList.Length; i++)
-        {
-            CrewList[i].AtkCooldown = Mathf.Clamp(CrewList[i].AtkCooldown - Time.deltaTime, 0, 10);
-            //change the multiplier for the speed and the 127 for offsets            
-            float yPos = Mathf.Clamp(CrewList[i].AtkCooldown * 19f - 127, -127f, 127f);
-            CrewList[i].ActionBar.localPosition = Vector3.up * yPos;
-        }
-    }
-    public Transform EnemyActionBar;
-    public float EnemyAttackCooldown = 2;
-    void UpdateEnemyActionBar()
-    {
-        EnemyActionBar.transform.localScale = new Vector3(Mathf.Min(EnemyActionBar.transform.localScale.x + Time.deltaTime / EnemyAttackCooldown, 1), 1, 1);
-        if (EnemyActionBar.transform.localScale == Vector3.one)
-        {
-            EnemyActionBar.transform.localScale = new Vector3(0, 1, 1);
-            EnemyAttack();
         }
     }
     public void InitiateCombat()
@@ -84,6 +60,12 @@ public class CombatController : MonoBehaviour
             CrewList[i].GetComponent<CharacterCombatController>().StartCombat();
         }
         Debug.Log("Combat was started");
+        //set up the enemy UI
+        for (int i = 0; i < EnemyUI.Length; i++)
+        {
+            EnemyUI[i].PopulateAttacks(Enemy);
+        }
+
         //close off other random UI elements
         foreach (CombatLockdown lockdown in CombatLockdowns)
         {
@@ -91,13 +73,9 @@ public class CombatController : MonoBehaviour
         }
 
         StartCoroutine(SetUpScreen());
-
-
-
     }
     IEnumerator SetUpScreen()
     {
-        Instantiate(TransitionBlocker[Random.Range(0, TransitionBlocker.Length)], TransitionBlockerParent);
         yield return new WaitForSeconds(1);
         MinMaxScreen(1);
         CleanUpEnemyHP();
@@ -161,6 +139,10 @@ public class CombatController : MonoBehaviour
             }
         }
     }
+    public void EngageCombatRound()
+    {
+        EnemyAttack();
+    }
     void EnemyAttack()
     {
         //  int         Charisma = Random.Range(0, Enemy.attack.AttackText.length); 
@@ -187,5 +169,31 @@ public class CombatController : MonoBehaviour
     void MinMaxScreen(int Viewable)
     {
         CombatOverlay.localScale = Vector3.one * Viewable;
+    }
+
+
+
+
+
+    public void UpdateCrewActionBar()
+    {
+        for (int i = 0; i < CrewList.Length; i++)
+        {
+            CrewList[i].AtkCooldown = Mathf.Clamp(CrewList[i].AtkCooldown - Time.deltaTime, 0, 10);
+            //change the multiplier for the speed and the 127 for offsets            
+            float yPos = Mathf.Clamp(CrewList[i].AtkCooldown * 19f - 127, -127f, 127f);
+            CrewList[i].ActionBar.localPosition = Vector3.up * yPos;
+        }
+    }
+    public Transform EnemyActionBar;
+    public float EnemyAttackCooldown = 2;
+    void UpdateEnemyActionBar()
+    {
+        EnemyActionBar.transform.localScale = new Vector3(Mathf.Min(EnemyActionBar.transform.localScale.x + Time.deltaTime / EnemyAttackCooldown, 1), 1, 1);
+        if (EnemyActionBar.transform.localScale == Vector3.one)
+        {
+            EnemyActionBar.transform.localScale = new Vector3(0, 1, 1);
+            EnemyAttack();
+        }
     }
 }

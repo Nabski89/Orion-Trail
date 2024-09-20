@@ -7,11 +7,13 @@ public class SlotMachineManager : MonoBehaviour
 {
     public SlotMachineRoll[] slotMachineRolls;
     public GenericManager genericManager;
+    public CombatController combatController;
     void Start()
     {
         genericManager = GetComponentInParent<GenericManager>();
+        combatController = GetComponentInParent<CombatController>();
         // Get all SlotMachineRoll components in the children
-
+        CrewShipReference = genericManager.GetComponentInChildren<CharacterBulkManager>();
         slotMachineRolls = GetComponentsInChildren<SlotMachineRoll>();
     }
     public CharacterBulkManager CrewShipReference;
@@ -24,11 +26,6 @@ public class SlotMachineManager : MonoBehaviour
             slotMachineRolls[i].ColorImage1.color = characterManagers[i].CharacterColor[0];
             slotMachineRolls[i].ColorImage2.color = characterManagers[i].CharacterColor[1];
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
     public void StartRoll()
     {
@@ -66,7 +63,9 @@ public class SlotMachineManager : MonoBehaviour
                 Special += Read.Buff;
 
             }
+
             genericManager.MainTextReference.TEXTBOX += "<br>Attack for " + Atk + ". Block for " + Block + ". Special count of " + Special;
+            combatController.EngageCombatRound();
         }
     }
 }
