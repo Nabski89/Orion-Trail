@@ -5,32 +5,43 @@ using UnityEngine.UI;
 
 public class CombatLockdown : MonoBehaviour
 {
-    public float duration = 1.0f;
+    public float Delay = 0;
+    public float ReverseDelay = 0;
+    public float Duration = 1.0f;
+    public float ReverseDuration = 1.0f;
     // Target scale factor
+    public bool Scale;
     public float targetScale = 0.9f;
-    public float targetCoverSize = 70;
-    public RectTransform ExtraCover;
-
+    public bool Move;
+    public Vector3 InitialPosition;
+    public Vector3 FinalPosition;
     // Reference to the RectTransform
     private RectTransform rectTransform;
     // Start is called before the first frame update
     void Start()
     {
-
         rectTransform = GetComponent<RectTransform>();
     }
 
     public void Lockdown()
     {
-        StartCoroutine(ScaleCoroutineDown());
+        if (Scale == true)
+            StartCoroutine(ScaleCoroutineDown());
+        if (Move == true)
+            StartCoroutine(Move1());
+
     }
     public void UnLockdown()
     {
-        StartCoroutine(CoverOpen());
+        if (Scale == true)
+            ScaleCoroutineUp();
+        if (Move == true)
+            StartCoroutine(Move2());
     }
 
     IEnumerator ScaleCoroutineDown()
     {
+        yield return new WaitForSeconds(Delay);
         // Store the original scale and pivot
         Vector3 originalScale = rectTransform.localScale;
 
@@ -39,10 +50,10 @@ public class CombatLockdown : MonoBehaviour
 
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < Duration)
         {
             // Interpolate the scale
-            rectTransform.localScale = Vector3.Lerp(originalScale, targetScaleVector, elapsedTime / duration);
+            rectTransform.localScale = Vector3.Lerp(originalScale, targetScaleVector, elapsedTime / Duration);
 
             // Increment elapsed time
             elapsedTime += Time.deltaTime;
@@ -53,54 +64,10 @@ public class CombatLockdown : MonoBehaviour
 
         // Ensure the final scale is set
         rectTransform.localScale = targetScaleVector;
-        StartCoroutine(CoverClose());
-    }
-
-    IEnumerator CoverClose()
-    {
-
-        float YValue = ExtraCover.sizeDelta.y;
-
-        float elapsedTime = 0f;
-        float CoverSpeed = targetCoverSize / duration;
-
-        while (elapsedTime < duration)
-        {
-            ExtraCover.sizeDelta = new Vector2(Mathf.Min(Time.deltaTime * CoverSpeed + ExtraCover.sizeDelta.x, targetCoverSize), YValue);
-            // Increment elapsed time
-            elapsedTime += Time.deltaTime;
-
-            // Wait for the next frame
-            yield return null;
-        }
-
-        // Ensure the final scale is set
-        ExtraCover.sizeDelta = new Vector2(targetCoverSize, YValue);
-    }
-    IEnumerator CoverOpen()
-    {
-
-        float YValue = ExtraCover.sizeDelta.y;
-
-        float elapsedTime = 0f;
-        float CoverSpeed = targetCoverSize / duration;
-
-        while (elapsedTime < duration)
-        {
-            ExtraCover.sizeDelta = new Vector2(Mathf.Min(-Time.deltaTime * CoverSpeed + ExtraCover.sizeDelta.x, 0), YValue);
-            // Increment elapsed time
-            elapsedTime += Time.deltaTime;
-
-            // Wait for the next frame
-            yield return null;
-        }
-
-        // Ensure the final scale is set
-        ExtraCover.sizeDelta = new Vector2(0, YValue);
-        StartCoroutine(ScaleCoroutineUp());
     }
     IEnumerator ScaleCoroutineUp()
     {
+        yield return new WaitForSeconds(ReverseDelay);
         // Store the original scale and pivot
         Vector3 originalScale = rectTransform.localScale;
 
@@ -109,10 +76,10 @@ public class CombatLockdown : MonoBehaviour
 
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < ReverseDuration)
         {
             // Interpolate the scale
-            rectTransform.localScale = Vector3.Lerp(originalScale, targetScaleVector, elapsedTime / duration);
+            rectTransform.localScale = Vector3.Lerp(originalScale, targetScaleVector, elapsedTime / ReverseDuration);
 
             // Increment elapsed time
             elapsedTime += Time.deltaTime;
@@ -123,5 +90,45 @@ public class CombatLockdown : MonoBehaviour
 
         // Ensure the final scale is set
         rectTransform.localScale = targetScaleVector;
+    }
+    IEnumerator Move1()
+    {
+        yield return new WaitForSeconds(Delay);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < Duration)
+        {
+            // Interpolate the scale
+            rectTransform.localPosition = Vector3.Lerp(InitialPosition, FinalPosition, elapsedTime / Duration);
+
+            // Increment elapsed time
+            elapsedTime += Time.deltaTime;
+
+            // Wait for the next frame
+            yield return null;
+        }
+
+        // Ensure the final scale is set
+        rectTransform.localPosition = FinalPosition;
+    }
+    IEnumerator Move2()
+    {
+        yield return new WaitForSeconds(ReverseDelay);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < ReverseDuration)
+        {
+            // Interpolate the scale
+            rectTransform.localPosition = Vector3.Lerp(FinalPosition, InitialPosition, elapsedTime / ReverseDuration);
+
+            // Increment elapsed time
+            elapsedTime += Time.deltaTime;
+
+            // Wait for the next frame
+            yield return null;
+        }
+
+        // Ensure the final scale is set
+        rectTransform.localPosition = InitialPosition;
     }
 }

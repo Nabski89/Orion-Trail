@@ -24,6 +24,10 @@ public class SlotMachineRoll : MonoBehaviour
         {
             combinedHeight += child.rect.height;
         }
+
+        //automatically get the images
+        ColorImage1 = transform.parent.parent.GetComponent<Image>();
+        ColorImage2 = transform.parent.GetComponent<Image>();
     }
     public void StartRouletteButton()
     {
