@@ -39,9 +39,10 @@ public class CombatController : MonoBehaviour
             EndCombat();
         }
     }
+    public SlotMachineManager slotMachineManager;
     public void InitiateCombat()
     {
-        //GPT debug logging
+        //GPT debug logging, doing some crew UI
         if (Crew == null)
         {
             Debug.LogWarning("Crew Transform is not assigned.");
@@ -55,10 +56,10 @@ public class CombatController : MonoBehaviour
         CrewList = Crew.GetComponentsInChildren<CharacterManager>();
         for (int i = 0; i < CrewList.Length; i++)
         {
-            CrewList[i].CharAtkOverlay.SetActive(true);
-            CrewList[i].AtkCooldown = 7 - CrewList[i].Kinesthetics;
             CrewList[i].GetComponent<CharacterCombatController>().StartCombat();
         }
+
+        slotMachineManager.ActivateSlots();
         Debug.Log("Combat was started");
         //set up the enemy UI
         for (int i = 0; i < EnemyUI.Length; i++)
@@ -127,7 +128,6 @@ public class CombatController : MonoBehaviour
             // Find the LootController script and loot
             for (int i = 0; i < CrewList.Length; i++)
             {
-                CrewList[i].CharAtkOverlay.SetActive(false);
                 CrewList[i].GetComponent<CharacterCombatController>().EndCombat();
             }
             LootManager.LootScreen.gameObject.SetActive(true);
@@ -145,14 +145,21 @@ public class CombatController : MonoBehaviour
     }
     void EnemyAttack()
     {
-        //  int         Charisma = Random.Range(0, Enemy.attack.AttackText.length); 
-        int randomIndex = Random.Range(0, Enemy.Attack.Length);
-        //the position is minus the offset so that when it reaches 0 it will actually activate the thing HARDCODE ALERT, THE STARTING POSITION
-        Instantiate(Enemy.Attack[randomIndex].eventObject, CombatUIBar.position, CombatUIBar.rotation, CombatUIBar);
-        TextBoxUI.TEXTBOX += "<br>The" + Enemy.transform.name + " " + Enemy.Attack[randomIndex].AttackText + " for 1 damage";
-        Debug.Log("Enemy.attack");
-
-        //    Debug.Log("Enemy HP: " + Enemy.HP+ Enemy.attack.Length);
+        for (int i = 0; i < EnemyUI.Length; i++)
+        {
+            int BlockAmount = 0;
+            int AttackAmount = 0;
+            if (EnemyUI[i].isActiveAndEnabled)
+            {
+                EnemyUI[i].Attack();
+                BlockAmount += EnemyUI[i].Block;
+                AttackAmount += EnemyUI[i].Atk;
+            }
+            int randomIndex = Random.Range(0, Enemy.Attack.Length);
+            Instantiate(Enemy.Attack[randomIndex].eventObject, CombatUIBar.position, CombatUIBar.rotation, CombatUIBar);
+            TextBoxUI.TEXTBOX += "<br>The" + Enemy.transform.name + " " + Enemy.Attack[randomIndex].AttackText + " for " + AttackAmount + " damage and blocks " + BlockAmount;
+            Debug.Log("Enemy.attack");
+        }
     }
     public Transform EnemyHPBarEmpty;
     public Transform EnemyHPBar;
@@ -169,31 +176,5 @@ public class CombatController : MonoBehaviour
     void MinMaxScreen(int Viewable)
     {
         CombatOverlay.localScale = Vector3.one * Viewable;
-    }
-
-
-
-
-
-    public void UpdateCrewActionBar()
-    {
-        for (int i = 0; i < CrewList.Length; i++)
-        {
-            CrewList[i].AtkCooldown = Mathf.Clamp(CrewList[i].AtkCooldown - Time.deltaTime, 0, 10);
-            //change the multiplier for the speed and the 127 for offsets            
-            float yPos = Mathf.Clamp(CrewList[i].AtkCooldown * 19f - 127, -127f, 127f);
-            CrewList[i].ActionBar.localPosition = Vector3.up * yPos;
-        }
-    }
-    public Transform EnemyActionBar;
-    public float EnemyAttackCooldown = 2;
-    void UpdateEnemyActionBar()
-    {
-        EnemyActionBar.transform.localScale = new Vector3(Mathf.Min(EnemyActionBar.transform.localScale.x + Time.deltaTime / EnemyAttackCooldown, 1), 1, 1);
-        if (EnemyActionBar.transform.localScale == Vector3.one)
-        {
-            EnemyActionBar.transform.localScale = new Vector3(0, 1, 1);
-            EnemyAttack();
-        }
     }
 }

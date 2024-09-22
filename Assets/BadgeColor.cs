@@ -8,6 +8,7 @@ public class BadgeColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Image>().color = GetComponentInParent<CharacterManager>().CharacterColor[BadgeNumber];
+        if (GetComponentInParent<CharacterManager>() != null)
+            GetComponent<Image>().color = GetComponentInParent<CharacterManager>().CharacterColor[BadgeNumber];
     }
 }

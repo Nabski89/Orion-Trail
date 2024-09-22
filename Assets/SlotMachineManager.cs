@@ -8,6 +8,7 @@ public class SlotMachineManager : MonoBehaviour
     public SlotMachineRoll[] slotMachineRolls;
     public GenericManager genericManager;
     public CombatController combatController;
+    public CharCombUI[] CharUI;
     void Start()
     {
         genericManager = GetComponentInParent<GenericManager>();
@@ -15,9 +16,10 @@ public class SlotMachineManager : MonoBehaviour
         // Get all SlotMachineRoll components in the children
         CrewShipReference = genericManager.GetComponentInChildren<CharacterBulkManager>();
         slotMachineRolls = GetComponentsInChildren<SlotMachineRoll>();
+        CharUI = GetComponentsInChildren<CharCombUI>();
     }
     public CharacterBulkManager CrewShipReference;
-    void ActivateSlots()
+    public void ActivateSlots()
     {
         CharacterManager[] characterManagers = CrewShipReference.GetComponentsInChildren<CharacterManager>();
         // Perform an action for each element in the array
@@ -25,33 +27,51 @@ public class SlotMachineManager : MonoBehaviour
         {
             slotMachineRolls[i].ColorImage1.color = characterManagers[i].CharacterColor[0];
             slotMachineRolls[i].ColorImage2.color = characterManagers[i].CharacterColor[1];
+            //haha I got this order wrong
+            CharUI[i].BadgeEdges[1].GetComponent<Image>().color = characterManagers[i].CharacterColor[0];
+            CharUI[i].BadgeEdges[0].GetComponent<Image>().color = characterManagers[i].CharacterColor[1];
+            CharUI[i].BadgeFace.GetComponent<Image>().sprite = characterManagers[i].GetComponentInChildren<BadgeFace>().GetComponent<Image>().sprite;
+            
         }
     }
     public void StartRoll()
     {
-        ActivateSlots();
-        Selectable = 1;
-        Atk = 0;
-        Block = 0;
-        Special = 0;
-        foreach (SlotMachineRoll roll in slotMachineRolls)
-            roll.StartRouletteButton();
+        if (Selectable == 0)
+        {
+            //reset our attack values
+            Atk = 0;
+            Block = 0;
+            Special = 0;
+            foreach (SlotMachineRoll roll in slotMachineRolls)
+                roll.StartRouletteButton();
+        }
     }
     public void StopRoll()
     {
-        float delay = 0;
-        foreach (SlotMachineRoll roll in slotMachineRolls)
+        //hacky way to make sure it is spinning
+        if (slotMachineRolls[0].rollSpeed > 0)
         {
-            delay += 0.25f;
-            roll.StopRouletteButton(delay);
+            float delay = 0;
+            foreach (SlotMachineRoll roll in slotMachineRolls)
+            {
+                delay += 0.25f;
+                roll.StopRouletteButton(delay);
+            }
+            //make it so we can actually attack
+            Selectable = 1;
         }
     }
     public int Atk;
     public int Block;
     public int Special;
-    public int Selectable = 1;
+    public int Selectable = 0;
+
+    //this is used for the crew to attack
     public void Select(int Selected)
     {
+        Atk = 0;
+        Block = 0;
+        Special = 0;
         if (Selectable > 0)
         {
             Selectable -= 1;

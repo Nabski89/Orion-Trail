@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: Buff
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5303100054976999511, guid: 441d107860e61b849b381353d893a15e, type: 3}
+      propertyPath: Attack
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6788066539822891263, guid: 441d107860e61b849b381353d893a15e, type: 3}
       propertyPath: m_Sprite
       value: 

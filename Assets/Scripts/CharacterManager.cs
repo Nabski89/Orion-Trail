@@ -27,8 +27,6 @@ public class CharacterManager : MonoBehaviour
     public int Bullets;
     public GameObject Equipment;
     //attack info
-    public GameObject CharAtkOverlay;
-    public Transform ActionBar;
     public float AtkCooldown;
     // Start is called before the first frame update
     void Start()
