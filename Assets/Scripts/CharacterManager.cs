@@ -31,8 +31,9 @@ public class CharacterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //get our name from the randomizer
-        CharName = GetComponentInChildren<CrewNameRandomizer>().Name;
+        //get our name from the randomizer if we don't have a preset one
+        if (CharName == null)
+            CharName = GetComponentInChildren<CrewNameRandomizer>().Name;
 
         //randomize our stats
         Charisma = Random.Range(-1, 6);

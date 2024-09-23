@@ -53,10 +53,13 @@ public class CombatController : MonoBehaviour
             Debug.LogWarning("EnemyCombat script is not assigned.");
             return;
         }
+        CombatLocationsManager CrewLayout = GetComponentInChildren<CombatLocationsManager>();
+        CrewLayout.MoveOutCrew();
         CrewList = Crew.GetComponentsInChildren<CharacterManager>();
         for (int i = 0; i < CrewList.Length; i++)
         {
             CrewList[i].GetComponent<CharacterCombatController>().StartCombat();
+            CrewLayout.DropInCrew(CrewList[i]);
         }
 
         slotMachineManager.ActivateSlots();
