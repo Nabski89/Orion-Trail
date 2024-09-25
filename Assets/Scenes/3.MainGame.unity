@@ -2318,6 +2318,7 @@ GameObject:
   - component: {fileID: 187399975}
   - component: {fileID: 187399974}
   - component: {fileID: 187399976}
+  - component: {fileID: 187399977}
   m_Layer: 0
   m_Name: Rank1
   m_TagString: Untagged
@@ -2399,6 +2400,62 @@ MonoBehaviour:
   Rank: 0
   Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
   CrewInLocation: {fileID: 0}
+--- !u!114 &187399977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187399972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 187399974}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 212081105}
+        m_TargetAssemblyTypeName: CombatLocationsManager, Assembly-CSharp
+        m_MethodName: MoveToEmpty
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 187399976}
+          m_ObjectArgumentAssemblyTypeName: CombatCrewLocation, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &212081101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -293}
+  m_AnchoredPosition: {x: 0, y: -579}
   m_SizeDelta: {x: 754, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &212081103
@@ -2498,6 +2555,8 @@ MonoBehaviour:
   - {fileID: 467235216}
   - {fileID: 1104975059}
   - {fileID: 404880832}
+  MoveableObject: {fileID: 4080818700521431188, guid: c8d27198b5868344c9e132b5377c2e00, type: 3}
+  Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
 --- !u!114 &212081106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2518,7 +2577,7 @@ MonoBehaviour:
   targetScale: 0.9
   Move: 1
   InitialPosition: {x: 0, y: -293, z: 0}
-  FinalPosition: {x: 0, y: -246, z: 0}
+  FinalPosition: {x: 0, y: -250, z: 0}
 --- !u!1 &213135822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3963,6 +4022,7 @@ GameObject:
   - component: {fileID: 343628299}
   - component: {fileID: 343628298}
   - component: {fileID: 343628300}
+  - component: {fileID: 343628301}
   m_Layer: 0
   m_Name: Rank1
   m_TagString: Untagged
@@ -3987,7 +4047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 122.79999, y: 129.9}
+  m_AnchoredPosition: {x: 122.80005, y: 129.89996}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343628298
@@ -4044,6 +4104,62 @@ MonoBehaviour:
   Rank: 0
   Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
   CrewInLocation: {fileID: 0}
+--- !u!114 &343628301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343628296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 343628298}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 212081105}
+        m_TargetAssemblyTypeName: CombatLocationsManager, Assembly-CSharp
+        m_MethodName: MoveToEmpty
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 343628300}
+          m_ObjectArgumentAssemblyTypeName: CombatCrewLocation, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &352955165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4513,6 +4629,7 @@ GameObject:
   - component: {fileID: 404880831}
   - component: {fileID: 404880830}
   - component: {fileID: 404880832}
+  - component: {fileID: 404880833}
   m_Layer: 0
   m_Name: Rank3
   m_TagString: Untagged
@@ -4594,6 +4711,62 @@ MonoBehaviour:
   Rank: 0
   Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
   CrewInLocation: {fileID: 0}
+--- !u!114 &404880833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404880828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 404880830}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 212081105}
+        m_TargetAssemblyTypeName: CombatLocationsManager, Assembly-CSharp
+        m_MethodName: MoveToEmpty
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 404880832}
+          m_ObjectArgumentAssemblyTypeName: CombatCrewLocation, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &407400433
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,8 +5549,9 @@ GameObject:
   - component: {fileID: 467235215}
   - component: {fileID: 467235214}
   - component: {fileID: 467235216}
+  - component: {fileID: 467235217}
   m_Layer: 0
-  m_Name: Rank2
+  m_Name: Rank3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5396,11 +5570,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1403017555}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 322.8, y: 149.9}
+  m_AnchoredPosition: {x: 322.80005, y: 149.9}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467235214
@@ -5457,6 +5631,62 @@ MonoBehaviour:
   Rank: 0
   Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
   CrewInLocation: {fileID: 0}
+--- !u!114 &467235217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467235212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 467235214}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 212081105}
+        m_TargetAssemblyTypeName: CombatLocationsManager, Assembly-CSharp
+        m_MethodName: MoveToEmpty
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 467235216}
+          m_ObjectArgumentAssemblyTypeName: CombatCrewLocation, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &471891071
 GameObject:
   m_ObjectHideFlags: 0
@@ -21827,8 +22057,9 @@ GameObject:
   - component: {fileID: 1104975058}
   - component: {fileID: 1104975057}
   - component: {fileID: 1104975059}
+  - component: {fileID: 1104975060}
   m_Layer: 0
-  m_Name: Rank3
+  m_Name: Rank2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21847,7 +22078,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1403017555}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21908,6 +22139,62 @@ MonoBehaviour:
   Rank: 0
   Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
   CrewInLocation: {fileID: 0}
+--- !u!114 &1104975060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104975055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1104975057}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 212081105}
+        m_TargetAssemblyTypeName: CombatLocationsManager, Assembly-CSharp
+        m_MethodName: MoveToEmpty
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1104975059}
+          m_ObjectArgumentAssemblyTypeName: CombatCrewLocation, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1105108084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24844,6 +25131,7 @@ GameObject:
   - component: {fileID: 1259647264}
   - component: {fileID: 1259647263}
   - component: {fileID: 1259647265}
+  - component: {fileID: 1259647266}
   m_Layer: 0
   m_Name: Rank2
   m_TagString: Untagged
@@ -24868,7 +25156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 222.79999, y: 139.9}
+  m_AnchoredPosition: {x: 222.80005, y: 139.9}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1259647263
@@ -24925,6 +25213,62 @@ MonoBehaviour:
   Rank: 0
   Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
   CrewInLocation: {fileID: 0}
+--- !u!114 &1259647266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259647261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1259647263}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 212081105}
+        m_TargetAssemblyTypeName: CombatLocationsManager, Assembly-CSharp
+        m_MethodName: MoveToEmpty
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1259647265}
+          m_ObjectArgumentAssemblyTypeName: CombatCrewLocation, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1272676881
 GameObject:
   m_ObjectHideFlags: 0
@@ -27009,8 +27353,8 @@ RectTransform:
   - {fileID: 343628297}
   - {fileID: 187399973}
   - {fileID: 1259647262}
-  - {fileID: 467235213}
   - {fileID: 1104975056}
+  - {fileID: 467235213}
   - {fileID: 404880829}
   m_Father: {fileID: 212081102}
   m_RootOrder: 0

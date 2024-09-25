@@ -20,6 +20,17 @@ public class CombatCrewLocation : MonoBehaviour
         CrewPicture.sprite = crewInLocation.CharacterPicture;
         Filled = true;
     }
+    public void FillInDelayed(CharacterManager crewInLocation)
+    {
+        CrewInLocation = crewInLocation;
+        CrewPicture.sprite = Blank;
+        Filled = true;
+        Invoke("FillInDelayCall", 0.5f);
+    }
+    public void FillInDelayCall()
+    {
+        CrewPicture.sprite = CrewInLocation.CharacterPicture;
+    }
     public void MoveOut()
     {
         Filled = false;

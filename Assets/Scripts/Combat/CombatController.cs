@@ -56,6 +56,7 @@ public class CombatController : MonoBehaviour
         CombatLocationsManager CrewLayout = GetComponentInChildren<CombatLocationsManager>();
         CrewLayout.MoveOutCrew();
         CrewList = Crew.GetComponentsInChildren<CharacterManager>();
+        CrewLayout.ClearOutForNewCombat();
         for (int i = 0; i < CrewList.Length; i++)
         {
             CrewList[i].GetComponent<CharacterCombatController>().StartCombat();
