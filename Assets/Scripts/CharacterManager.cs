@@ -10,9 +10,7 @@ public class CharacterManager : MonoBehaviour
     public string[] CharacterLore;
     public Sprite CharacterPicture;
     public string CharName;
-    /*public int HP = 50;
-    public TextMeshProUGUI HPUI;
-    */
+    public int HP = 50;
     public int Morale = 50;
     public TextMeshProUGUI MoraleUI;
     public int Hunger = 0;
@@ -36,19 +34,18 @@ public class CharacterManager : MonoBehaviour
             CharName = GetComponentInChildren<CrewNameRandomizer>().Name;
 
         //randomize our stats
-        Charisma = Random.Range(-1, 6);
-        Survival = Random.Range(-1, 6);
-        Engineering = Random.Range(-1, 6);
-        Kinesthetics = Random.Range(-1, 6);
-        Luck = Random.Range(-1, 6);
+        Charisma = Random.Range(0, 6);
+        Survival = Random.Range(0, 6);
+        Engineering = Random.Range(0, 6);
+        Kinesthetics = Random.Range(0, 6);
+        Luck = Random.Range(0, 6);
         Bullets = Random.Range(0, 4);
-        //    HP = Random.Range(4, 9) + Survival * 4 + Kinesthetics;
+        HP = Random.Range(4, 9) + Survival * 2 + Kinesthetics;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //     HPUI.text = HP.ToString();
         MoraleUI.text = Morale.ToString();
         HungerUI.text = Hunger.ToString();
     }

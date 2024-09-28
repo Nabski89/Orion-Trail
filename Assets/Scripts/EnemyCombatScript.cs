@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyCombatScript : MonoBehaviour
 {
@@ -9,11 +10,10 @@ public class EnemyCombatScript : MonoBehaviour
     public float MaxHP = 5;
     public GameObject EmptyHP;
     public GameObject[] HPAmount;
+    public Sprite UnitSprite;
     void Start()
     {
-
         CombatController Controller = GetComponentInParent<CombatController>();
-        Controller.Enemy = this;
         Controller.InitiateCombat();
     }
 

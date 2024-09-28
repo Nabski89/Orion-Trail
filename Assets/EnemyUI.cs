@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyUI : MonoBehaviour
 {
     public ShuffleChildren AttackSelectorHolder;
     public Transform AttackHolder;
+    public DialogText TextBoxUI;
     void Start()
     {
         AttackSelectorHolder = GetComponentInChildren<ShuffleChildren>();
@@ -44,6 +46,7 @@ public class EnemyUI : MonoBehaviour
     public int Atk;
     public int Block;
     public int Buff;
+
     public void Attack()
     {
         Atk = 0;
@@ -54,20 +57,17 @@ public class EnemyUI : MonoBehaviour
         // Loop through each AttackActive component in the array
         for (int i = 0; i < AttackSelectorHolder.ActiveCheck.Length; i++)
         {
-            Debug.Log("Time to check if " + i + " is active.");
+        //    Debug.Log("Time to check if " + i + " is active.");
             // Check if the Active property is set to true
             if (AttackSelectorHolder.ActiveCheck[i].Active == true)
             {
-                Debug.Log("AttackActive at index " + i + " is active.");
-                SlotValue ThisAttack = AttackHolder.GetChild(i).GetComponent<SlotValue>();
-                if (ThisAttack.Attack > 0 && Buff > 0)
-                {
-                    ThisAttack.Attack += Buff;
-                    Buff = 0;
-                }
-                Atk += ThisAttack.Attack;
-                Block += ThisAttack.Block;
-                Buff += ThisAttack.Buff;
+               Transform NewThing = Instantiate(AttackHolder.GetChild(i), transform);
+               NewThing.GetComponent<EnemyAttack>().enabled = true;
+               NewThing.GetComponent<AudioSource>().enabled = true;
+          //      Debug.Log("AttackActive at index " + i + " is active.");
+                TextBoxUI.TEXTBOX += "<br>COSMIC BLAST FROM "+ transform.name;
+                //Enemy[i].transform.name + " " + Enemy[i].Attack[randomIndex].AttackText + " for " + AttackAmount + " damage and blocks " + BlockAmount;
+
             }
         }
         //randomize the next attack

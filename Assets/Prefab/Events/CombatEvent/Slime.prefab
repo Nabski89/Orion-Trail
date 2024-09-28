@@ -32,6 +32,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: UnitSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b8d2613a78d184843b6fafaa15ea4f6b, type: 3}
+    - target: {fileID: 2148835106835880646, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: Attack.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -249,6 +253,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+--- !u!1 &5813483140430859125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3646817120629541474, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+  m_PrefabInstance: {fileID: 7075644039826325783}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7492031526908976856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813483140430859125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61527bb3dfd1a9a41a396cd5735c4bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 4
+  MaxHP: 6
+  EmptyHP: {fileID: 778043076864859225, guid: 37eaee8137b26764b99a4b5fca183591, type: 3}
+  HPAmount:
+  - {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
+  - {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
+  - {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
+  - {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
+  - {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
+  UnitSprite: {fileID: 21300000, guid: b8d2613a78d184843b6fafaa15ea4f6b, type: 3}
+  Attack:
+  - eventObject: {fileID: 778043076864859225, guid: 441d107860e61b849b381353d893a15e, type: 3}
+    AttackText: Sizzles
+    DamageMin: 1
+    DamageMax: 1
+  - eventObject: {fileID: 778043076864859225, guid: 441d107860e61b849b381353d893a15e, type: 3}
+    AttackText: Sloshes
+    DamageMin: 1
+    DamageMax: 1
+  - eventObject: {fileID: 3472523885515542225, guid: 5e2aef1d6066e2646a5d66e6bbb2870c, type: 3}
+    AttackText: Hardens
+    DamageMin: 1
+    DamageMax: 1
+  - eventObject: {fileID: 3472523885515542225, guid: 5e2aef1d6066e2646a5d66e6bbb2870c, type: 3}
+    AttackText: Hardens
+    DamageMin: 1
+    DamageMax: 1
+  - eventObject: {fileID: 4032709733906773130, guid: bbd175bf7cb8cff4eab046afdf484e9b, type: 3}
+    AttackText: Grows
+    DamageMin: 1
+    DamageMax: 1
+  - eventObject: {fileID: 4032709733906773130, guid: bbd175bf7cb8cff4eab046afdf484e9b, type: 3}
+    AttackText: Grows
+    DamageMin: 1
+    DamageMax: 1
 --- !u!1 &7310413838820384010 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 523106278286318621, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}

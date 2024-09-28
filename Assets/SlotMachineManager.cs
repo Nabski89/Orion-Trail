@@ -19,9 +19,10 @@ public class SlotMachineManager : MonoBehaviour
         CharUI = GetComponentsInChildren<CharCombUI>();
     }
     public CharacterBulkManager CrewShipReference;
+    CharacterManager[] characterManagers;
     public void ActivateSlots()
     {
-        CharacterManager[] characterManagers = CrewShipReference.GetComponentsInChildren<CharacterManager>();
+        characterManagers = CrewShipReference.GetComponentsInChildren<CharacterManager>();
         // Perform an action for each element in the array
         for (int i = 0; i < slotMachineRolls.Length; i++)
         {
@@ -31,7 +32,6 @@ public class SlotMachineManager : MonoBehaviour
             CharUI[i].BadgeEdges[1].GetComponent<Image>().color = characterManagers[i].CharacterColor[0];
             CharUI[i].BadgeEdges[0].GetComponent<Image>().color = characterManagers[i].CharacterColor[1];
             CharUI[i].BadgeFace.GetComponent<Image>().sprite = characterManagers[i].GetComponentInChildren<BadgeFace>().GetComponent<Image>().sprite;
-            
         }
     }
     public void StartRoll()
@@ -87,5 +87,13 @@ public class SlotMachineManager : MonoBehaviour
             genericManager.MainTextReference.TEXTBOX += "<br>Attack for " + Atk + ". Block for " + Block + ". Special count of " + Special;
             combatController.EngageCombatRound();
         }
+    }
+    public void UpdateHP()
+    {
+        for (int i = 0; i < slotMachineRolls.Length; i++)
+        {
+            CharUI[i].textMeshPro.text = characterManagers[i].HP.ToString();
+        }
+
     }
 }
