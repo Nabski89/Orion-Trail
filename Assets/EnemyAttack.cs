@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public bool Rank1;
-    public bool Rank2;
-    public bool Rank3;
+    public int Rank;
 
     public int DamageAmount;
 
@@ -16,33 +15,60 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         CrewLayout = GetComponentInParent<CombatController>().CrewLayout;
-        if (Rank1 == true)
+        GoAttacking();
+    }
+    void GoAttacking()
+    {
+        CrewLayout = GetComponentInParent<CombatController>().CrewLayout;
+        if (Rank == 0)
         {
-            StartCoroutine(FlashColor(CrewLayout.Location[0].transform));
             DamageCharacter(0, 1);
-            StartCoroutine(FlashColor(CrewLayout.Location[1].transform));
             DamageCharacter(1, 1);
         }
-        if (Rank2 == true)
+        if (Rank == 1)
         {
-            StartCoroutine(FlashColor(CrewLayout.Location[2].transform));
             DamageCharacter(2, 1);
-            StartCoroutine(FlashColor(CrewLayout.Location[3].transform));
             DamageCharacter(3, 1);
         }
-        if (Rank3 == true)
+        if (Rank == 2)
         {
-            StartCoroutine(FlashColor(CrewLayout.Location[4].transform));
             DamageCharacter(4, 1);
-            StartCoroutine(FlashColor(CrewLayout.Location[5].transform));
             DamageCharacter(5, 1);
         }
     }
 
+    //okay I'm going to get lost in the if else statements here.
+    //take our rank, double it because we have 2 possible enemies per rank, then maybe add 1 to pick which one we randomly hit
+    //if there is no one in that spot then we gotta figure out which spot we weren't in and check the other one
+    //if there is still no one in that one then we go onto the next rank, trying it again
+    //if we tried and failed all 3 ranks then we give up
     void DamageCharacter(int location, int DamageAmount)
     {
-        if (CrewLayout.Location[location].CrewInLocation != null)
-            CrewLayout.Location[location].CrewInLocation.HP -= DamageAmount;
+        int HitSpot = (2 * location + Random.Range(0, 2));
+
+        if (CrewLayout.Location[HitSpot].CrewInLocation != null)
+            CrewLayout.Location[HitSpot].CrewInLocation.HP -= DamageAmount;
+        else
+        {
+            if (IsEven(HitSpot))
+            {
+                HitSpot += 1;
+                if (CrewLayout.Location[HitSpot].CrewInLocation != null)
+                    CrewLayout.Location[HitSpot].CrewInLocation.HP -= DamageAmount;
+                else
+                    MoveOnToNextRank(location, DamageAmount);
+            }
+            else
+            {
+                HitSpot -= 1;
+                if (CrewLayout.Location[HitSpot].CrewInLocation != null)
+                    CrewLayout.Location[HitSpot].CrewInLocation.HP -= DamageAmount;
+                else
+                    MoveOnToNextRank(location, DamageAmount);
+
+            }
+        }
+        StartCoroutine(FlashColor(CrewLayout.Location[location].transform));
     }
     IEnumerator FlashColor(Transform Element)
     {
@@ -54,5 +80,23 @@ public class EnemyAttack : MonoBehaviour
         SetMe.color = new Color(1, .5f, .5f, 1);
         yield return new WaitForSeconds(0.05f);
         SetMe.color = Color.white;
+    }
+    //for readability purposes
+    bool IsEven(int num)
+    {
+        return num % 2 == 0;
+    }
+    void MoveOnToNextRank(int location, int DamageAmount)
+    {
+        if (location < 2)
+        {
+            location += 1;
+            DamageCharacter(location, DamageAmount);
+        }
+        else
+        {
+            location = 1;
+            DamageCharacter(location, DamageAmount);
+        }
     }
 }

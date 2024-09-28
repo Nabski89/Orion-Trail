@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class CombatLocationsManager : MonoBehaviour
 {
     public CombatCrewLocation[] Location;
     public CombatEnemyLocation[] EnemyLocation;
+    public Color[] EnemyLocationHighlights;
     // Update is called once per frame
     public void ClearOutForNewCombat()
     {
@@ -18,6 +18,7 @@ public class CombatLocationsManager : MonoBehaviour
         for (int i = 0; i < EnemyLocation.Length; i++)
         {
             EnemyLocation[i].Filled = false;
+            EnemyLocation[i].transform.parent.GetComponent<Image>().color = Color.white;
             EnemyLocation[i].MoveOut();
         }
     }
@@ -31,11 +32,12 @@ public class CombatLocationsManager : MonoBehaviour
         else
             Debug.Log("All locations are filled.");
     }
-    public void DropInEnemy(EnemyCombatScript EnemyMate)
+    public void DropInEnemy(EnemyCombatScript EnemyMate, int colortracker)
     {
         CombatEnemyLocation randomUnfilledLocation = GetRandomUnfilledEnemyLocation();
         if (randomUnfilledLocation != null)
         {
+            randomUnfilledLocation.transform.parent.GetComponent<Image>().color = EnemyLocationHighlights[colortracker];
             randomUnfilledLocation.FillIn(EnemyMate);
         }
         else
@@ -140,15 +142,15 @@ public class CombatLocationsManager : MonoBehaviour
         {
             DamageEnemy(4, 1 + Bonus);
             DamageEnemy(5, 1 + Bonus);
-
         }
     }
     void DamageEnemy(int location, int DamageAmount)
     {
-        Debug.Log(EnemyLocation[location].EnemyInLocation);
+        Debug.Log("the enemy we are trying to hit is " + EnemyLocation[location].EnemyInLocation + " in slot " + location);
         if (EnemyLocation[location].EnemyInLocation != null)
         {
-            EnemyLocation[location].EnemyInLocation.GetAttacked();
+            EnemyLocation[location].EnemyInLocation.GetAttacked(DamageAmount);
+            Debug.Log("okay we did it reddit is " + EnemyLocation[location].EnemyInLocation + " in slot " + location);
         }
     }
 }

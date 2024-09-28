@@ -66,7 +66,7 @@ public class CombatController : MonoBehaviour
                 EnemyUI[i].gameObject.SetActive(false);
                 if (Enemy.Length > i)
                 {
-                    CrewLayout.DropInEnemy(Enemy[i]);
+                    CrewLayout.DropInEnemy(Enemy[i], i);
                     EnemyUI[i].gameObject.SetActive(true);
                     EnemyUI[i].PopulateAttacks(Enemy[i]);
                 }
@@ -87,7 +87,7 @@ public class CombatController : MonoBehaviour
         CleanUpEnemyHP();
         yield return new WaitForSeconds(1.25f);
         for (int i = 0; i < Enemy.Length; i++)
-            StartCoroutine(SetUpEnemyHP(i));
+            StartCoroutine(SetUpEnemy(i));
         yield return null;
     }
     void CleanUpEnemyHP()
@@ -108,8 +108,9 @@ public class CombatController : MonoBehaviour
             }
         }
     }
-    IEnumerator SetUpEnemyHP(int SetMeUp)
+    IEnumerator SetUpEnemy(int SetMeUp)
     {
+        Enemy[SetMeUp].EnemyNumber = SetMeUp;
         //then spawn new empty hp amounts AND filled
         for (int i = 0; i < Enemy[SetMeUp].MaxHP; i++)
         {
@@ -150,7 +151,7 @@ public class CombatController : MonoBehaviour
     public void EngageCombatRound(int Rank, int Bonus)
     {
         //    EndCombat();
-        CrewLayout.AttackEnemy(Rank, Bonus);
+        CrewAttack(Rank, Bonus);
         //   StartCoroutine(CrewAttack(Rank, Bonus));
         StartCoroutine(EnemyAttack());
     }
@@ -161,6 +162,7 @@ public class CombatController : MonoBehaviour
 
     IEnumerator EnemyAttack()
     {
+        yield return new WaitForSeconds(.25f);
         // Debug.Log("How Many Enemy " + EnemyUI.Length);
         for (int i = 0; i < EnemyUI.Length; i++)
         {

@@ -6,15 +6,18 @@ using UnityEngine.UI;
 public class EnemyCombatScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int EnemyNumber;
     public int HP = 5;
     public int MaxHP = 5;
     public GameObject EmptyHP;
     public GameObject[] HPAmount;
     public Sprite UnitSprite;
     public EnemyUI enemyUI;
+    public Transform HPBar;
+    CombatController Controller;
     void Start()
     {
-        CombatController Controller = GetComponentInParent<CombatController>();
+        Controller = GetComponentInParent<CombatController>();
         Controller.InitiateCombat();
     }
 
@@ -34,14 +37,25 @@ public class EnemyCombatScript : MonoBehaviour
         public int DamageMax;
     }
     public Attacks[] Attack;
-    public void GetAttacked()
+    public void GetAttacked(int IncomingDamage)
     {
         Debug.LogWarning("Enemy Under Attack");
-        HP -= 1;
+        if (IncomingDamage > 0)
+        {
+            IncomingDamage -= 1;
+            HP -= 1;
+            Invoke("DestroyHP", 0.1f * IncomingDamage);
+            GetAttacked(IncomingDamage);
+        }
         if (HP < 1)
         {
-             enemyUI.gameObject.SetActive(false);
+            enemyUI.gameObject.SetActive(false);
         }
+    }
+    void DestroyHP()
+    {
+        Debug.Log(Controller.EnemyHPBar[EnemyNumber].GetChild(0).gameObject);
+        Destroy(HPBar.GetChild(0).gameObject);
     }
     public void WinCombat()
     {
