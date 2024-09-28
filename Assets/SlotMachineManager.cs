@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -72,6 +73,10 @@ public class SlotMachineManager : MonoBehaviour
         Atk = 0;
         Block = 0;
         Special = 0;
+        int[] tempArray = new int[3];
+        tempArray[0] = 0;
+        tempArray[1] = 0;
+        tempArray[2] = 0;
         if (Selectable > 0)
         {
             Selectable -= 1;
@@ -81,11 +86,31 @@ public class SlotMachineManager : MonoBehaviour
                 Atk += Read.Attack;
                 Block += Read.Block;
                 Special += Read.Buff;
-
+                if (Read.Rank1 == true)
+                    tempArray[0] += 1;
+                if (Read.Rank2 == true)
+                    tempArray[1] += 1;
+                if (Read.Rank3 == true)
+                    tempArray[2] += 1;
             }
+            //check who is the largest guy to hit
+            int HitMe = 0;
+            if (tempArray[0] >= tempArray[1] && tempArray[0] >= tempArray[2])
+                HitMe = 0;
+            else if (tempArray[1] >= tempArray[0] && tempArray[1] >= tempArray[2])
+                HitMe = 1;
+            else
+                HitMe = 2;
 
-            genericManager.MainTextReference.TEXTBOX += "<br>Attack for " + Atk + ". Block for " + Block + ". Special count of " + Special;
-            combatController.EngageCombatRound();
+
+            genericManager.MainTextReference.TEXTBOX += "<br>Attack for " + Atk + ". Block for " + Block + ". Special count of " + Special + " and it is going to hit in rank " + HitMe;
+            if (tempArray[HitMe] == 4)
+                genericManager.MainTextReference.TEXTBOX += " 1 Bonus";
+            if (tempArray[HitMe] == 5)
+                genericManager.MainTextReference.TEXTBOX += " 2 Bonus";
+
+                //initiate an attack hitting a RANK for some bonus damage
+            combatController.EngageCombatRound(HitMe, Mathf.Max(1, tempArray[HitMe] - 3));
         }
     }
     public void UpdateHP()

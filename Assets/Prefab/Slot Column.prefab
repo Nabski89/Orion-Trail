@@ -169,6 +169,9 @@ MonoBehaviour:
   Attack: 0
   Block: 1
   Buff: 0
+  Rank1: 0
+  Rank2: 1
+  Rank3: 0
 --- !u!1 &1587935289926080642
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +265,9 @@ MonoBehaviour:
   Attack: 1
   Block: 0
   Buff: 0
+  Rank1: 1
+  Rank2: 0
+  Rank3: 0
 --- !u!1 &1587935290359233228
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +361,9 @@ MonoBehaviour:
   Attack: 2
   Block: 0
   Buff: 0
+  Rank1: 1
+  Rank2: 0
+  Rank3: 0
 --- !u!1 &1587935290524590252
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +457,9 @@ MonoBehaviour:
   Attack: 0
   Block: 2
   Buff: 0
+  Rank1: 0
+  Rank2: 1
+  Rank3: 0
 --- !u!1 &1587935290832427275
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +553,9 @@ MonoBehaviour:
   Attack: 0
   Block: 0
   Buff: 1
+  Rank1: 0
+  Rank2: 0
+  Rank3: 1
 --- !u!1 &1587935291281019906
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +649,9 @@ MonoBehaviour:
   Attack: 3
   Block: 0
   Buff: 0
+  Rank1: 1
+  Rank2: 0
+  Rank3: 0
 --- !u!1 &1587935291478564123
 GameObject:
   m_ObjectHideFlags: 0

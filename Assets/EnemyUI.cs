@@ -39,7 +39,7 @@ public class EnemyUI : MonoBehaviour
             int randomIndex = Random.Range(0, AttackHolder.childCount);
 
             var child = AttackHolder.GetChild(randomIndex);
-            child.parent = null;
+            child.SetParent(null);
             Destroy(child.gameObject);
         }
     }

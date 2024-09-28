@@ -121,4 +121,34 @@ public class CombatLocationsManager : MonoBehaviour
         ToMove.GetComponent<Image>().sprite = Blank;
         Destroy(ToMove.gameObject);
     }
+
+
+    public void AttackEnemy(int Rank, int Bonus)
+    {
+
+        if (Rank == 0)
+        {
+            DamageEnemy(0, 1 + Bonus);
+            DamageEnemy(1, 1 + Bonus);
+        }
+        if (Rank == 1)
+        {
+            DamageEnemy(2, 1 + Bonus);
+            DamageEnemy(3, 1 + Bonus);
+        }
+        if (Rank == 2)
+        {
+            DamageEnemy(4, 1 + Bonus);
+            DamageEnemy(5, 1 + Bonus);
+
+        }
+    }
+    void DamageEnemy(int location, int DamageAmount)
+    {
+        Debug.Log(EnemyLocation[location].EnemyInLocation);
+        if (EnemyLocation[location].EnemyInLocation != null)
+        {
+            EnemyLocation[location].EnemyInLocation.GetAttacked();
+        }
+    }
 }

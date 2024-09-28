@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 20512226}
   - component: {fileID: 20512228}
   m_Layer: 0
-  m_Name: Image (3)
+  m_Name: Rank 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7737,7 +7737,7 @@ GameObject:
   - component: {fileID: 659402256}
   - component: {fileID: 659402258}
   m_Layer: 0
-  m_Name: Image (1)
+  m_Name: Rank 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9074,7 +9074,7 @@ GameObject:
   - component: {fileID: 723845510}
   - component: {fileID: 723845512}
   m_Layer: 0
-  m_Name: Image (6)
+  m_Name: Rank 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9151,7 +9151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Filled: 0
-  Rank: 0
+  Rank: 2
   Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
   EnemyInLocation: {fileID: 0}
 --- !u!224 &724290284 stripped
@@ -21426,7 +21426,7 @@ GameObject:
   - component: {fileID: 976989070}
   - component: {fileID: 976989072}
   m_Layer: 0
-  m_Name: Image (4)
+  m_Name: Rank 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21503,7 +21503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Filled: 0
-  Rank: 0
+  Rank: 2
   Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
   EnemyInLocation: {fileID: 0}
 --- !u!224 &977730996 stripped
@@ -27038,7 +27038,7 @@ GameObject:
   - component: {fileID: 1368458939}
   - component: {fileID: 1368458941}
   m_Layer: 0
-  m_Name: Image (2)
+  m_Name: Rank 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27115,7 +27115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Filled: 0
-  Rank: 0
+  Rank: 1
   Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
   EnemyInLocation: {fileID: 0}
 --- !u!1001 &1374632144
@@ -37912,7 +37912,7 @@ GameObject:
   - component: {fileID: 2122665632}
   - component: {fileID: 2122665634}
   m_Layer: 0
-  m_Name: Image (5)
+  m_Name: Rank 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37989,7 +37989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Filled: 0
-  Rank: 0
+  Rank: 1
   Blank: {fileID: 21300000, guid: 95387640e305fac47a18ba6d4faaf008, type: 3}
   EnemyInLocation: {fileID: 0}
 --- !u!224 &2128695132 stripped

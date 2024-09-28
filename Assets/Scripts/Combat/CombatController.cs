@@ -97,13 +97,13 @@ public class CombatController : MonoBehaviour
             while (EnemyHPBarEmpty[i].childCount > 0)
             {
                 var child = EnemyHPBarEmpty[i].GetChild(0);
-                child.parent = null;
+                child.SetParent(null);
                 Destroy(child.gameObject);
             }
             while (EnemyHPBar[i].childCount > 0)
             {
                 var child = EnemyHPBar[i].GetChild(0);
-                child.parent = null;
+                child.SetParent(null);
                 Destroy(child.gameObject);
             }
         }
@@ -147,20 +147,29 @@ public class CombatController : MonoBehaviour
             }
         }
     }
-    public void EngageCombatRound()
+    public void EngageCombatRound(int Rank, int Bonus)
     {
+        //    EndCombat();
+        CrewLayout.AttackEnemy(Rank, Bonus);
+        //   StartCoroutine(CrewAttack(Rank, Bonus));
         StartCoroutine(EnemyAttack());
-        slotMachineManager.UpdateHP();
     }
+    public void CrewAttack(int Rank, int Bonus)
+    {
+        CrewLayout.AttackEnemy(Rank, Bonus);
+    }
+
     IEnumerator EnemyAttack()
     {
-        Debug.Log("How Many Enemy " + EnemyUI.Length);
+        // Debug.Log("How Many Enemy " + EnemyUI.Length);
         for (int i = 0; i < EnemyUI.Length; i++)
         {
-            Debug.Log("Time for Enemy # " + i);
+            //      Debug.Log("Time for Enemy # " + i);
             if (EnemyUI[i].isActiveAndEnabled)
             {
+                Enemy[i].enemyUI = EnemyHPBarEmpty[i].GetComponentInParent<EnemyUI>();
                 EnemyUI[i].Attack();
+                slotMachineManager.UpdateHP();
                 yield return new WaitForSeconds(.25f);
             }
             yield return new WaitForSeconds(.50f);

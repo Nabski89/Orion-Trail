@@ -41,6 +41,7 @@ public class ShuffleChildren : MonoBehaviour
     public void ReturnWhoIsActive()
     {
         ActiveCheck = GetComponentsInChildren<AttackActive>();
+        /* This was sanity checking
         // Loop through each AttackActive component in the array
         for (int i = 0; i < ActiveCheck.Length; i++)
         {
@@ -50,5 +51,6 @@ public class ShuffleChildren : MonoBehaviour
                 Debug.Log("AttackActive at index " + i + " is active.");
             }
         }
+        */
     }
 }
