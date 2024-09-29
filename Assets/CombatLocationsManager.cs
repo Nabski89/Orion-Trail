@@ -18,7 +18,6 @@ public class CombatLocationsManager : MonoBehaviour
         for (int i = 0; i < EnemyLocation.Length; i++)
         {
             EnemyLocation[i].Filled = false;
-            EnemyLocation[i].transform.parent.GetComponent<Image>().color = Color.white;
             EnemyLocation[i].MoveOut();
         }
     }
@@ -149,8 +148,20 @@ public class CombatLocationsManager : MonoBehaviour
         Debug.Log("the enemy we are trying to hit is " + EnemyLocation[location].EnemyInLocation + " in slot " + location);
         if (EnemyLocation[location].EnemyInLocation != null)
         {
+            StartCoroutine(FlashColor(EnemyLocation[location].transform));
             EnemyLocation[location].EnemyInLocation.GetAttacked(DamageAmount);
             Debug.Log("okay we did it reddit is " + EnemyLocation[location].EnemyInLocation + " in slot " + location);
         }
+    }
+    IEnumerator FlashColor(Transform Element)
+    {
+        Image SetMe = Element.GetComponent<Image>();
+        SetMe.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        SetMe.color = new Color(1, .25f, .25f, 1);
+        yield return new WaitForSeconds(0.05f);
+        SetMe.color = new Color(1, .5f, .5f, 1);
+        yield return new WaitForSeconds(0.05f);
+        SetMe.color = Color.white;
     }
 }

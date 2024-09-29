@@ -44,7 +44,7 @@ public class EnemyAttack : MonoBehaviour
     //if we tried and failed all 3 ranks then we give up
     void DamageCharacter(int location, int DamageAmount)
     {
-        int HitSpot = (2 * location + Random.Range(0, 2));
+        int HitSpot = 2 * location + Random.Range(0, 2);
 
         if (CrewLayout.Location[HitSpot].CrewInLocation != null)
             CrewLayout.Location[HitSpot].CrewInLocation.HP -= DamageAmount;
@@ -90,13 +90,11 @@ public class EnemyAttack : MonoBehaviour
     {
         if (location < 2)
         {
-            location += 1;
-            DamageCharacter(location, DamageAmount);
+            DamageCharacter(location+1, DamageAmount);
         }
         else
         {
-            location = 1;
-            DamageCharacter(location, DamageAmount);
+            DamageCharacter(0, DamageAmount);
         }
     }
 }
