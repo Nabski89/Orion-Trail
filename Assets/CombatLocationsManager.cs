@@ -31,14 +31,11 @@ public class CombatLocationsManager : MonoBehaviour
         else
             Debug.Log("All locations are filled.");
     }
-    public void DropInEnemy(EnemyCombatScript EnemyMate, int colortracker)
+    public void DropInEnemy(EnemyCombatScript EnemyMate, int EnemyNum)
     {
         CombatEnemyLocation randomUnfilledLocation = GetRandomUnfilledEnemyLocation();
         if (randomUnfilledLocation != null)
-        {
-            randomUnfilledLocation.transform.parent.GetComponent<Image>().color = EnemyLocationHighlights[colortracker];
-            randomUnfilledLocation.FillIn(EnemyMate);
-        }
+            randomUnfilledLocation.FillIn(EnemyMate, EnemyNum);
         else
             Debug.Log("All locations are filled.");
     }
@@ -67,24 +64,18 @@ public class CombatLocationsManager : MonoBehaviour
     }
     CombatEnemyLocation GetRandomUnfilledEnemyLocation()
     {
-        // Create a list to hold unfilled locations
+        //same as above but for enemies, see the comments there
         List<CombatEnemyLocation> unfilledLocations = new List<CombatEnemyLocation>();
-        // Loop through each location in the array
         for (int i = 0; i < EnemyLocation.Length; i++)
         {
-            // Check if the Filled property is false
             if (EnemyLocation[i].Filled == false)
-            {
                 unfilledLocations.Add(EnemyLocation[i]);
-            }
         }
-        // Return a random unfilled location if any exist
         if (unfilledLocations.Count > 0)
         {
             int randomIndex = Random.Range(0, unfilledLocations.Count);
             return unfilledLocations[randomIndex];
         }
-        // Return null if no unfilled location is found
         return null;
     }
     public void MoveToEmpty(CombatCrewLocation CrewHere)
@@ -104,6 +95,27 @@ public class CombatLocationsManager : MonoBehaviour
         //start the actual moving section
         StartCoroutine(Move(CrewHere.transform.localPosition, EmptySpot.transform.localPosition, CrewMover.GetComponent<RectTransform>()));
     }
+    //currently this is triggered by a button when you click on an enemy
+    //same as above except the last line
+    public void MoveEnemyToEmpty(CombatEnemyLocation EnemyHere)
+    {
+        if (EnemyHere.EnemyInLocation == null)
+            Debug.LogWarning("Tried to move an enemy without an enemy actually in the location");
+        else
+        {
+            CombatEnemyLocation EmptySpot = null;
+            EmptySpot = GetRandomUnfilledEnemyLocation();
+            EmptySpot.FillInDelayed(EnemyHere.EnemyInLocation);
+            Debug.Log(EnemyHere.transform.localPosition);
+            GameObject CrewMover = Instantiate(MoveableObject, EnemyHere.transform.localPosition, Quaternion.identity, transform);
+            CrewMover.GetComponent<Image>().sprite = EnemyHere.EnemyPicture.sprite;
+            EnemyHere.MoveOut();
+            RectTransform Start = EnemyHere.GetComponent<RectTransform>();
+            RectTransform End = EmptySpot.GetComponent<RectTransform>();
+            //the parent and plus ten are because there's bases for these that the non enemies don't have
+            StartCoroutine(Move(EnemyHere.transform.parent.localPosition + Vector3.up * 10, EmptySpot.transform.parent.localPosition + Vector3.up * 10, CrewMover.GetComponent<RectTransform>()));
+        }
+    }
     public GameObject MoveableObject;
 
     public Sprite Blank;
@@ -113,7 +125,7 @@ public class CombatLocationsManager : MonoBehaviour
         //slowly smoothly move to the target location
         while (elapsedTime < 0.5f)
         {
-            ToMove.localPosition = Vector3.Lerp(InitialPosition - Vector3.up * 41, FinalPosition - Vector3.up * 41, elapsedTime / 0.5f);
+            ToMove.localPosition = Vector3.Lerp(InitialPosition, FinalPosition, elapsedTime / 0.5f);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -122,8 +134,6 @@ public class CombatLocationsManager : MonoBehaviour
         ToMove.GetComponent<Image>().sprite = Blank;
         Destroy(ToMove.gameObject);
     }
-
-
     public void AttackEnemy(int Rank, int Bonus)
     {
 
