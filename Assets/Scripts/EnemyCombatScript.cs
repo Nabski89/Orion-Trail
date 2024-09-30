@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,19 +17,12 @@ public class EnemyCombatScript : MonoBehaviour
     public EnemyUI enemyUI;
     public Transform HPBar;
     CombatController Controller;
+    public CombatEnemyLocation Location;
     void Start()
     {
         Controller = GetComponentInParent<CombatController>();
         Controller.InitiateCombat();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    //   public GameObject Enemy;
-
     [System.Serializable]
     public class Attacks
     {
@@ -39,30 +34,30 @@ public class EnemyCombatScript : MonoBehaviour
     public Attacks[] Attack;
     public void GetAttacked(int IncomingDamage)
     {
-        Debug.LogWarning("Enemy Under Attack");
-        if (IncomingDamage > 0)
+        while (IncomingDamage > 0)
         {
             IncomingDamage -= 1;
             HP -= 1;
-            Invoke("DestroyHP", 0.1f * IncomingDamage);
-            GetAttacked(IncomingDamage);
+            DestroyHP();
         }
         if (HP < 1)
-        {
-            enemyUI.gameObject.SetActive(false);
-        }
+            Defeated();
     }
     void DestroyHP()
     {
-        Debug.Log(Controller.EnemyHPBar[EnemyNumber].GetChild(0).gameObject);
-        Destroy(HPBar.GetChild(0).gameObject);
+        if (HPBar.GetChild(0) != null)
+        {
+            Debug.Log("Enemy number " + EnemyNumber + " was dealt damage which should remove a " + Controller.EnemyHPBar[EnemyNumber].GetChild(0).gameObject);
+            Transform child = HPBar.GetChild(0);
+            child.SetParent(null);
+            Destroy(child.gameObject);
+        }
     }
-    public void WinCombat()
+    void Defeated()
     {
-
-    }
-    public void LoseComabt()
-    {
-
+        enemyUI.TextBoxUI.TEXTBOX += "<br>" + transform.name + " has been defeated.";
+        Location.MoveOut();
+        enemyUI.gameObject.SetActive(false);
+        Controller.CheckEndCombat();
     }
 }

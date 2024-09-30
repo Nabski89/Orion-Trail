@@ -7,6 +7,7 @@ public class DamageEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponentInParent<CombatController>().EnemyDamage(1, 1);
+        //todo maybe undepreciate this
+   //     GetComponentInParent<CombatController>().EnemyDamage(1, 1);
     }
 }

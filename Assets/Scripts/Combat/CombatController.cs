@@ -111,6 +111,8 @@ public class CombatController : MonoBehaviour
     IEnumerator SetUpEnemy(int SetMeUp)
     {
         Enemy[SetMeUp].EnemyNumber = SetMeUp;
+        //TODO WHY DIDN"T THIS DO IT!?
+        Enemy[SetMeUp].HPBar = EnemyHPBar[SetMeUp];
         //then spawn new empty hp amounts AND filled
         for (int i = 0; i < Enemy[SetMeUp].MaxHP; i++)
         {
@@ -128,8 +130,8 @@ public class CombatController : MonoBehaviour
     {
         //  if (EnemyHPBar.childCount == 0)
         {
-            TextBoxUI.TEXTBOX += "<br>" + Enemy[1].transform.name + " been defeated";
-            Destroy(Enemy[1].transform.gameObject);
+            TextBoxUI.TEXTBOX += "<br>" + Enemy[0].transform.name + "You Won The Fight";
+            Destroy(Enemy[0].transform.gameObject);
             MinMaxScreen(0);
             //TODO make enemies black on defeat again
             //     MoveScript.DarkenEnemy();
@@ -150,16 +152,13 @@ public class CombatController : MonoBehaviour
     }
     public void EngageCombatRound(int Rank, int Bonus)
     {
-        //    EndCombat();
-        CrewAttack(Rank, Bonus);
-        //   StartCoroutine(CrewAttack(Rank, Bonus));
+
+        Debug.Log("Crew is Attacking Rank: " + Rank + " for " + Bonus);
+        //the crew attacks
+        CrewLayout.AttackEnemy(Rank, Bonus);
+        //the enemies attack
         StartCoroutine(EnemyAttack());
     }
-    public void CrewAttack(int Rank, int Bonus)
-    {
-        CrewLayout.AttackEnemy(Rank, Bonus);
-    }
-
     IEnumerator EnemyAttack()
     {
         yield return new WaitForSeconds(.25f);
@@ -180,19 +179,18 @@ public class CombatController : MonoBehaviour
     }
     public Transform[] EnemyHPBarEmpty;
     public Transform[] EnemyHPBar;
-
-    public void EnemyDamage(int DamageAmount, int EnemyHit)
-    {
-        //todo make it so you can hit more than one enemy
-        Enemy[1].HP -= DamageAmount;
-        int HPBars = EnemyHPBar[EnemyHit].childCount;
-        Destroy(EnemyHPBar[EnemyHit].GetChild(HPBars - 1).gameObject);
-        if (HPBars > 0)
-            Destroy(EnemyHPBar[EnemyHit].GetChild(HPBars - 1));
-    }
     public Transform CombatOverlay;
     void MinMaxScreen(int Viewable)
     {
         CombatOverlay.localScale = Vector3.one * Viewable;
+    }
+    public void CheckEndCombat()
+    {
+        for (int i = 0; i < Enemy.Length; i++)
+        {
+            if (Enemy[i].HP > 0)
+                return;
+        }
+        EndCombat();
     }
 }

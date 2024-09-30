@@ -9,7 +9,7 @@ public class CombatCrewLocation : MonoBehaviour
     public int Rank;
     public Sprite Blank;
     public CharacterManager CrewInLocation;
-    Image CrewPicture;
+    public Image CrewPicture;
     void Start()
     {
         CrewPicture = GetComponent<Image>();
@@ -22,9 +22,8 @@ public class CombatCrewLocation : MonoBehaviour
     }
     public void FillInDelayed(CharacterManager crewInLocation)
     {
-        CrewInLocation = crewInLocation;
+        FillIn(crewInLocation);
         CrewPicture.sprite = Blank;
-        Filled = true;
         Invoke("FillInDelayCall", 0.5f);
     }
     public void FillInDelayCall()

@@ -9,22 +9,25 @@ public class CombatEnemyLocation : MonoBehaviour
     public int Rank;
     public Sprite Blank;
     public EnemyCombatScript EnemyInLocation;
-    Image EnemyPicture;
+    public Image EnemyPicture;
+    CombatLocationsManager ComLocManager;
     void Start()
     {
+        ComLocManager = GetComponentInParent<CombatLocationsManager>();
         EnemyPicture = GetComponent<Image>();
     }
-    public void FillIn(EnemyCombatScript InLocation)
+    public void FillIn(EnemyCombatScript InLocation, int EnemyNumber)
     {
+        transform.parent.GetComponent<Image>().color = ComLocManager.EnemyLocationHighlights[EnemyNumber];
         EnemyInLocation = InLocation;
+        InLocation.Location = this;
         EnemyPicture.sprite = InLocation.UnitSprite;
         Filled = true;
     }
     public void FillInDelayed(EnemyCombatScript crewInLocation)
     {
-        EnemyInLocation = crewInLocation;
+        FillIn(crewInLocation, crewInLocation.EnemyNumber);
         EnemyPicture.sprite = Blank;
-        Filled = true;
         Invoke("FillInDelayCall", 0.5f);
     }
     public void FillInDelayCall()
@@ -33,6 +36,7 @@ public class CombatEnemyLocation : MonoBehaviour
     }
     public void MoveOut()
     {
+        transform.parent.GetComponent<Image>().color = Color.white;
         Filled = false;
         EnemyPicture.sprite = Blank;
         EnemyInLocation = null;
