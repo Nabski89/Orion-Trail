@@ -204,6 +204,7 @@ MonoBehaviour:
   - Completed the personal quest
   CharacterPicture: {fileID: 0}
   CharName: 
+  HP: 50
   Morale: 50
   MoraleUI: {fileID: 3619734691015111941}
   Hunger: 0
@@ -215,8 +216,6 @@ MonoBehaviour:
   Luck: 0
   Bullets: 0
   Equipment: {fileID: 0}
-  CharAtkOverlay: {fileID: 382608172347412724}
-  ActionBar: {fileID: 4895674077981731170}
   AtkCooldown: 0
   Attack:
   - CharacterAtkObject: {fileID: 8724979559908978090, guid: b6d67b65642fe3c45b19c11d1cda1735, type: 3}

@@ -30,8 +30,18 @@ public class CharacterManager : MonoBehaviour
     void Start()
     {
         //get our name from the randomizer if we don't have a preset one
-        if (CharName == null)
-            CharName = GetComponentInChildren<CrewNameRandomizer>().Name;
+        if (CharName != null)
+        {
+
+            CrewNameRandomizer Namer = GetComponentInChildren<CrewNameRandomizer>();
+            Namer.Name = CharName;
+            Debug.Log("We are trying to set a custom name");
+            Namer.SetName();
+        }
+        else
+        {
+            GetComponentInChildren<CrewNameRandomizer>().RandomizeTextValue();
+        }
 
         //randomize our stats
         Charisma = Random.Range(0, 6);

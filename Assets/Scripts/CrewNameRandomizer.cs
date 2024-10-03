@@ -8,28 +8,21 @@ public class CrewNameRandomizer : MonoBehaviour
     public string[] textArray;
     public string Name;
     // Start is called before the first frame update
-    private void Start()
-    {
-        if (textMesh == null || textArray.Length == 0)
-        {
-            Debug.LogError("TextMeshPro or textArray not set.");
-            return;
-        }
-
-        RandomizeTextValue();
-    }
-
     public void RandomizeTextValue()
     {
         if (textArray.Length > 0)
         {
             int randomIndex = Random.Range(0, textArray.Length);
             textMesh.text = textArray[randomIndex];
-            Name = textMesh.text;
+            SetName();
         }
         else
         {
             Debug.LogWarning("Text array is empty.");
         }
+    }
+    public void SetName()
+    {
+        textMesh.text = Name;
     }
 }
