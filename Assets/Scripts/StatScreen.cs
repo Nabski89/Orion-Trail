@@ -6,18 +6,25 @@ using UnityEngine.UI;
 
 public class StatScreen : MonoBehaviour
 {
-    public Vector3 scaleChange;
     public CharacterManager Character;
     public TextMeshProUGUI NameUI;
     public TextMeshProUGUI StatusUI;
     public TextMeshProUGUI SkillUI;
-
+    StatScreenMover UIMover;
+    void Start()
+    {
+        UIMover = GetComponent<StatScreenMover>();
+    }
     public void CharacterStatSelect(CharacterManager CharacterToUI)
     {
-        if (transform.localScale.x < 0.5)
+        if (UIMover.MainScreen.sizeDelta.x < UIMover.MainScreenWidthGoal / 2)
+        {
+            UIMover.UnLockdown();
             Maximize(CharacterToUI);
+        }
         else
         {
+            UIMover.ChangeType();
             StartCoroutine(Hotswap(CharacterToUI));
         }
     }
@@ -42,38 +49,15 @@ public class StatScreen : MonoBehaviour
         CharPicture();
         ClearSkills();
         CharSkills();
-        StartCoroutine(Maxi());
-    }
-    IEnumerator Maxi()
-    {
-        while (transform.localScale.y < 0.97f)
-        {
-            transform.localScale += scaleChange * Time.deltaTime;
-            yield return null;
-        }
-        transform.localScale = Vector3.one;
     }
     public void Minimize()
     {
-        StartCoroutine(Mini());
-    }
-    IEnumerator Mini()
-    {
-        while (transform.localScale.y > 0.01f)
-        {
-            transform.localScale -= scaleChange * Time.deltaTime;
-            yield return null;
-        }
-        transform.localScale = Vector3.zero;
-
+        UIMover.Lockdown();
     }
     IEnumerator Hotswap(CharacterManager CharacterToUI)
     {
-        while (transform.localScale.y > 0.01f)
-        {
-            transform.localScale -= scaleChange * Time.deltaTime;
-            yield return null;
-        }
+        //todo make this delay the sum of the delays in the statscreenmover
+        yield return new WaitForSeconds(UIMover.MainScreenDuration / 2);
         Maximize(CharacterToUI);
     }
 
@@ -101,7 +85,7 @@ public class StatScreen : MonoBehaviour
         while (SkillHolder.childCount > 0)
         {
             var child = SkillHolder.GetChild(0);
-            child.SetParent(null); 
+            child.SetParent(null);
             Destroy(child.gameObject);
         }
     }
