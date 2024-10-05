@@ -40,6 +40,7 @@ public class StatScreen : MonoBehaviour
         + "\n" + Character.Luck.ToString()
         ;
         CharPicture();
+        ClearSkills();
         CharSkills();
         StartCoroutine(Maxi());
     }
@@ -94,6 +95,16 @@ public class StatScreen : MonoBehaviour
     public ITrait[] ActiveCheck;
     public GameObject SkillUIItem;
     public Transform SkillHolder;
+    void ClearSkills()
+    {
+        //destroy all children in the skill UI to clear it out for a new character
+        while (SkillHolder.childCount > 0)
+        {
+            var child = SkillHolder.GetChild(0);
+            child.SetParent(null); 
+            Destroy(child.gameObject);
+        }
+    }
     void CharSkills()
     {
         ActiveCheck = Character.GetComponentsInChildren<ITrait>();
@@ -101,10 +112,14 @@ public class StatScreen : MonoBehaviour
         for (int i = 0; i < ActiveCheck.Length; i++)
         {
             GameObject SkillIcon = Instantiate(SkillUIItem, SkillHolder);
-
-            SkillIcon.GetComponent<MouseOverText>().infoText140max = ActiveCheck[i].TraitDescription;
-            SkillIcon.GetComponent<Image>().sprite = ActiveCheck[i].TraitIcon;
+            if (ActiveCheck[i].TraitDescription != null)
+                SkillIcon.GetComponent<MouseOverText>().infoText140max = ActiveCheck[i].TraitDescription;
+            else
+                Debug.LogWarning("You have a skill without a description");
+            if (ActiveCheck[i].TraitIcon != null)
+                SkillIcon.GetComponent<Image>().sprite = ActiveCheck[i].TraitIcon;
+            else
+                Debug.LogWarning("You have a skill without a icon");
         }
-
     }
 }
