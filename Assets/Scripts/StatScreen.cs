@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class StatScreen : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class StatScreen : MonoBehaviour
         + "\n" + Character.Kinesthetics.ToString()
         + "\n" + Character.Luck.ToString()
         ;
+        CharPicture();
+        CharSkills();
         StartCoroutine(Maxi());
     }
     IEnumerator Maxi()
@@ -82,6 +85,26 @@ public class StatScreen : MonoBehaviour
         //create a new copy of our equipment, and destroy the old one
         Character.Equipment = Instantiate(ToEquip, Character.transform);
         Destroy(ToEquip);
+    }
+    public Image CrewPicture;
+    void CharPicture()
+    {
+        CrewPicture.sprite = Character.CharacterPicture;
+    }
+    public ITrait[] ActiveCheck;
+    public GameObject SkillUIItem;
+    public Transform SkillHolder;
+    void CharSkills()
+    {
+        ActiveCheck = Character.GetComponentsInChildren<ITrait>();
+        Debug.Log(ActiveCheck.Length);
+        for (int i = 0; i < ActiveCheck.Length; i++)
+        {
+            GameObject SkillIcon = Instantiate(SkillUIItem, SkillHolder);
+
+            SkillIcon.GetComponent<MouseOverText>().infoText140max = ActiveCheck[i].TraitDescription;
+            SkillIcon.GetComponent<Image>().sprite = ActiveCheck[i].TraitIcon;
+        }
 
     }
 }
