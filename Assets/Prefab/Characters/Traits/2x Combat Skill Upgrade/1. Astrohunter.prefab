@@ -22,7 +22,8 @@ PrefabInstance:
     - target: {fileID: -2449806737065827398, guid: b6628e4979ad76644b762200615b42e9, type: 3}
       propertyPath: traitDescription
       value: If it's in your sights then it is already dead. MORE LINES MORE LINES
-        MORE LINES MORE LINES MORE LINES MORE LINES MORE LINES MORE TEXT AW YEAH
+        MORE LINES MOAstrohunting in the fine art of dominating the native fauna
+        of the stars. This character knows that well.
       objectReference: {fileID: 0}
     - target: {fileID: 3145635753992755119, guid: b6628e4979ad76644b762200615b42e9, type: 3}
       propertyPath: m_Name
