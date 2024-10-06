@@ -2213,7 +2213,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4155000112212725187, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
       propertyPath: infoText140max
-      value: 123456
+      value: Bodies, like starships need fuel too. Otherwise the hunger will seek
+        elsewhere.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
@@ -3687,6 +3688,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4155000112212725187, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
+      propertyPath: infoText140max
+      value: Supernatural control real or imagined over chance itself.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
 --- !u!1 &268440042
@@ -4085,6 +4090,10 @@ PrefabInstance:
     - target: {fileID: 4155000112212725186, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155000112212725187, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
+      propertyPath: infoText140max
+      value: Pain tolerance, fortitude, digestion, ect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
@@ -32564,8 +32573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4155000112212725187, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
       propertyPath: infoText140max
-      value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-        interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat. '
+      value: A measure of this crewmember's dedication to the cause.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
@@ -37035,6 +37043,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4155000112212725187, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
+      propertyPath: infoText140max
+      value: The things ranged weapons typically need.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
 --- !u!4 &1909276302 stripped
@@ -37212,6 +37224,10 @@ PrefabInstance:
     - target: {fileID: 4155000112212725186, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155000112212725187, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
+      propertyPath: infoText140max
+      value: Knowledge of several practical fields to ultimately improve living standards.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
@@ -39148,6 +39164,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4155000112212725187, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
+      propertyPath: infoText140max
+      value: Wield the most ancient of weapons, your body.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
 --- !u!1 &2056318238
@@ -40275,6 +40295,10 @@ PrefabInstance:
     - target: {fileID: 4155000112212725186, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155000112212725187, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
+      propertyPath: infoText140max
+      value: The understanding and exploitation of human interaction.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447495135c21bc443a09f6ab1150d0ad, type: 3}
