@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3791803449610749251, guid: e2a2dc643578d434da251d3de493412b, type: 3}
       propertyPath: traitDescription
-      value: There is profit to be had, and it will be ours
+      value: Fortune favors the bold, even when that boldness defies law.
       objectReference: {fileID: 0}
     - target: {fileID: 5622921435938727747, guid: e2a2dc643578d434da251d3de493412b, type: 3}
       propertyPath: m_RootOrder

@@ -17,8 +17,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3791803449610749251, guid: e2a2dc643578d434da251d3de493412b, type: 3}
       propertyPath: traitDescription
-      value: They have a monopoly on violence on earth and wants to extend it to
-        the stars
+      value: Security. Protect the weak, punish the guilty. Or do the opposite for
+        personal gain.
       objectReference: {fileID: 0}
     - target: {fileID: 5622921435938727747, guid: e2a2dc643578d434da251d3de493412b, type: 3}
       propertyPath: m_RootOrder
