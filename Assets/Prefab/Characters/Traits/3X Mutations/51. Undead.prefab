@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 220779829757069786, guid: a24785c87ca823346b1e2a5a7700e70d, type: 3}
       propertyPath: m_Name
-      value: 28. Undead
+      value: 51. Undead
       objectReference: {fileID: 0}
     - target: {fileID: 1860062227011938690, guid: a24785c87ca823346b1e2a5a7700e70d, type: 3}
       propertyPath: m_RootOrder
@@ -58,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 2867558958823355042, guid: a24785c87ca823346b1e2a5a7700e70d, type: 3}
       propertyPath: traitIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 1fdcf3f65299980409618ee73874d314, type: 3}
+      objectReference: {fileID: 21300000, guid: 5c9f13b3d93b2d1479f8a3ee15bc15b1, type: 3}
     - target: {fileID: 2867558958823355042, guid: a24785c87ca823346b1e2a5a7700e70d, type: 3}
       propertyPath: traitName
       value: Undead
