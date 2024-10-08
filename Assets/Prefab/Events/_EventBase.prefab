@@ -208,6 +208,7 @@ MonoBehaviour:
   Subevent2: {fileID: 0}
   EventText: []
   Options: []
+  PossibleResponses: []
 --- !u!114 &3582856109082147167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,8 +221,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61527bb3dfd1a9a41a396cd5735c4bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyNumber: 0
   HP: 5
   MaxHP: 5
+  EmptyHP: {fileID: 0}
+  HPAmount: []
+  UnitSprite: {fileID: 0}
+  enemyUI: {fileID: 0}
+  HPBar: {fileID: 0}
+  Location: {fileID: 0}
   Attack: []
 --- !u!114 &2443790618931969910
 MonoBehaviour:
@@ -532,7 +540,24 @@ MonoBehaviour:
   Subevent2: {fileID: 0}
   EventText:
   - Texto
-  Options: []
+  Options:
+  - 
+  PossibleResponses:
+  - DevNote: Government
+    Dialog: 
+    TraitInt: 1
+  - DevNote: Security
+    Dialog: 
+    TraitInt: 2
+  - DevNote: Criminal
+    Dialog: 
+    TraitInt: 3
+  - DevNote: 
+    Dialog: 
+    TraitInt: 4
+  - DevNote: 
+    Dialog: 
+    TraitInt: 4
 --- !u!222 &828715249927136663
 CanvasRenderer:
   m_ObjectHideFlags: 0

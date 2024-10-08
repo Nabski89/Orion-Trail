@@ -10,24 +10,8 @@ public class ShipController : MonoBehaviour
     public Vector2 TargetPosition;
     public float moveSpeed = 1.0f; // Adjust the speed as needed
     public Move MoveManager;
-    public GameObject BackingUpSound;
-    public GameObject EngineForwardSound;
-    public ShipJiggle ShipJiggler;
-    void Update()
-    {
-        // Check for mouse click
-        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            //            SetMouseClickTarget();
-        }
-        CheckMoveSpeed();
-        if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            TargetPosition = TargetPositionSet;
-        }
 
-        AreWeThereYet();
-    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collided object has the EventLocation script
@@ -51,6 +35,52 @@ public class ShipController : MonoBehaviour
     }
 
 
+
+    public GameObject WarpSoundEffect;
+    public GameObject ShipWarpDepart;
+    public GameObject ShipWarpLand;
+    public void WarpShip(Vector3 NewLocation)
+    {
+        GameObject ButtonCoverMove = Instantiate(WarpSoundEffect);
+        GameObject WarpEffect1 = Instantiate(ShipWarpDepart, transform.position - Vector3.forward, Quaternion.identity);
+        GameObject WarpEffect2 = Instantiate(ShipWarpLand, NewLocation - Vector3.forward, Quaternion.identity);
+
+        Destroy(ButtonCoverMove, 1.5f);
+        Destroy(WarpEffect1, 1);
+        Destroy(WarpEffect2, 1);
+        StartCoroutine(MoveToTargetWithDelay(NewLocation));
+        //reload the skills
+        GetComponentInParent<GenericManager>().ShipReference.GetComponent<CrewSkillManager>().SkillCompleted();
+
+    }
+    IEnumerator MoveToTargetWithDelay(Vector3 NewLocation)
+    {
+        yield return new WaitForSeconds(0.5f);
+        transform.position = NewLocation;
+    }
+
+
+
+    /*
+
+        public GameObject BackingUpSound;
+    public GameObject EngineForwardSound;
+    public ShipJiggle ShipJiggler;
+    void Update()
+    {
+        // Check for mouse click
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            //            SetMouseClickTarget();
+        }
+        CheckMoveSpeed();
+        if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            TargetPosition = TargetPositionSet;
+        }
+        AreWeThereYet();
+    }
+
     void SetMouseClickTarget()
     {
         // Get the mouse position in screen space
@@ -62,6 +92,22 @@ public class ShipController : MonoBehaviour
         // Print the target position to the console
         Debug.Log("Target Position: " + targetPosition);
         moveSpeed += 3 * Time.deltaTime;
+    }
+
+        void AreWeThereYet()
+    {
+        if (TargetPosition != Vector2.zero)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, TargetPosition, moveSpeed * Time.deltaTime);
+            if (Vector2.Distance(TargetPosition, transform.position) > 0.01f)
+                EngineSounds(TargetPosition);
+            else
+            {
+                EngineSoundsDisable();
+                moveSpeed = 0;
+                TargetPosition = Vector2.zero;
+            }
+        }
     }
     public void EngineSounds(Vector3 targetPosition)
     {
@@ -88,42 +134,5 @@ public class ShipController : MonoBehaviour
             moveSpeed = moveSpeed * (1 - 0.2f * Time.deltaTime) - 0.2f * Time.deltaTime; ;
 
     }
-
-    void AreWeThereYet()
-    {
-        if (TargetPosition != Vector2.zero)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, TargetPosition, moveSpeed * Time.deltaTime);
-            if (Vector2.Distance(TargetPosition, transform.position) > 0.01f)
-                EngineSounds(TargetPosition);
-            else
-            {
-                EngineSoundsDisable();
-                moveSpeed = 0;
-                TargetPosition = Vector2.zero;
-            }
-        }
-    }
-    public GameObject WarpSoundEffect;
-    public GameObject ShipWarpDepart;
-    public GameObject ShipWarpLand;
-    public void WarpShip(Vector3 NewLocation)
-    {
-        GameObject ButtonCoverMove = Instantiate(WarpSoundEffect);
-        GameObject WarpEffect1 = Instantiate(ShipWarpDepart, transform.position - Vector3.forward, Quaternion.identity);
-        GameObject WarpEffect2 = Instantiate(ShipWarpLand, NewLocation - Vector3.forward, Quaternion.identity);
-
-        Destroy(ButtonCoverMove, 1.5f);
-        Destroy(WarpEffect1, 1);
-        Destroy(WarpEffect2, 1);
-        StartCoroutine(MoveToTargetWithDelay(NewLocation));
-        //reload the skills
-        GetComponentInParent<GenericManager>().ShipReference.GetComponent<CrewSkillManager>().SkillCompleted();
-
-    }
-    IEnumerator MoveToTargetWithDelay(Vector3 NewLocation)
-    {
-        yield return new WaitForSeconds(0.5f);
-        transform.position = NewLocation;
-    }
+    */
 }

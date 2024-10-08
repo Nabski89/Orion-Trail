@@ -139,6 +139,46 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 558b43b491d1bd0408eeb087288f75e5, type: 3}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[0].Dialog
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[4].Dialog
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[3].DevNote
+      value: MINER
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[4].DevNote
+      value: Astrohunter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[4].TraitInt
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[0].ActionText
+      value: CATALOG
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[1].ActionText
+      value: SUPRESS
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[2].ActionText
+      value: CAPTURE
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[3].ActionText
+      value: CATCH
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[4].ActionText
+      value: POACH
+      objectReference: {fileID: 0}
     - target: {fileID: 3646817120629541474, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Name
       value: Slime
@@ -270,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61527bb3dfd1a9a41a396cd5735c4bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyNumber: 0
   HP: 4
   MaxHP: 6
   EmptyHP: {fileID: 778043076864859225, guid: 37eaee8137b26764b99a4b5fca183591, type: 3}
@@ -280,6 +321,9 @@ MonoBehaviour:
   - {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
   - {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
   UnitSprite: {fileID: 21300000, guid: b8d2613a78d184843b6fafaa15ea4f6b, type: 3}
+  enemyUI: {fileID: 0}
+  HPBar: {fileID: 0}
+  Location: {fileID: 0}
   Attack:
   - eventObject: {fileID: 778043076864859225, guid: 441d107860e61b849b381353d893a15e, type: 3}
     AttackText: Sizzles
