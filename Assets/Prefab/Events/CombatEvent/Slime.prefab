@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: PossibleResponses.Array.data[4].TraitInt
-      value: 11
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: PossibleResponses.Array.data[0].ActionText
@@ -169,15 +169,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: PossibleResponses.Array.data[2].ActionText
-      value: CAPTURE
+      value: POACH
       objectReference: {fileID: 0}
     - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: PossibleResponses.Array.data[3].ActionText
-      value: CATCH
+      value: TAME
       objectReference: {fileID: 0}
     - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: PossibleResponses.Array.data[4].ActionText
-      value: POACH
+      value: HUNT
       objectReference: {fileID: 0}
     - target: {fileID: 3646817120629541474, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Name

@@ -54,7 +54,7 @@ public class Event : MonoBehaviour
                     //Debug.Log("Checked A Trait");
                     if (PossibleResponses[i].TraitInt == trait.TraitNumber)
                     {
-                        //Debug.Log("We Found A Trait");
+                        Debug.Log("We Found A Trait we want to use and it is " + traitMonoBehaviour.transform.name);
                         EventActionButton Button = traitMonoBehaviour.GetComponentInParent<CharacterManager>().GetComponentInChildren<EventActionButton>();
                         Button.GetComponent<Image>().sprite = trait.TraitIcon;
                         Button.GetComponentInChildren<TextMeshProUGUI>().text = PossibleResponses[i].ActionText;
