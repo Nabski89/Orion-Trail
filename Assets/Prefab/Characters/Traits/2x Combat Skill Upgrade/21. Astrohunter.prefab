@@ -10,14 +10,24 @@ PrefabInstance:
     - target: {fileID: -2449806737065827398, guid: b6628e4979ad76644b762200615b42e9, type: 3}
       propertyPath: traitIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 971024d52c4618a4c91a1c332e6cb079, type: 3}
+      objectReference: {fileID: 21300000, guid: 9d49ba15070829b4ea0c1fcbae38d8d6, type: 3}
+    - target: {fileID: -2449806737065827398, guid: b6628e4979ad76644b762200615b42e9, type: 3}
+      propertyPath: traitName
+      value: Astrohunter
+      objectReference: {fileID: 0}
+    - target: {fileID: -2449806737065827398, guid: b6628e4979ad76644b762200615b42e9, type: 3}
+      propertyPath: traitNumber
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: -2449806737065827398, guid: b6628e4979ad76644b762200615b42e9, type: 3}
       propertyPath: traitDescription
-      value: Hit it right outta the park
+      value: If it's in your sights then it is already dead. MORE LINES MORE LINES
+        MORE LINES MOAstrohunting in the fine art of dominating the native fauna
+        of the stars. This character knows that well.
       objectReference: {fileID: 0}
     - target: {fileID: 3145635753992755119, guid: b6628e4979ad76644b762200615b42e9, type: 3}
       propertyPath: m_Name
-      value: 3. Slugger
+      value: 1. Astrohunter
       objectReference: {fileID: 0}
     - target: {fileID: 3559974168828540919, guid: b6628e4979ad76644b762200615b42e9, type: 3}
       propertyPath: m_RootOrder

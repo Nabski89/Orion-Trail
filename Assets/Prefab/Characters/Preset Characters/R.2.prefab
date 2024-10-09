@@ -95,6 +95,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: R.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2082544110015028740, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275651856662327116, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharName
       value: JoJo The Clown
@@ -107,6 +115,10 @@ PrefabInstance:
       propertyPath: CharacterLore.Array.data[0]
       value: Entertainment is required to keep sane on a long journey. Too bad no-one
         was entertaining this clown.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872166974751069759, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}

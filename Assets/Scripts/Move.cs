@@ -6,122 +6,12 @@ using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
-    /* Removed to do it in the event itself instead
-    public Image MainScreen;
-    public Image ColorLayer;
-    */
     public DialogText DialogBox;
-    public Supplies SupplyScript;
-    public CharacterShip CharacterHolder;
     public Transform[] StaticEvents;
-    public int StaticEventNumber;
     public float BreakDownTrack;
     public int EatTracker = 0;
-    void Start()
-    {
-        // Loop through the starscape children and add them to the StaticEvents array
-        int childCount = Starscape.transform.childCount;
-        StaticEvents = new Transform[childCount];
-        for (int i = 0; i < childCount; i++)
-        {
-            StaticEvents[i] = Starscape.transform.GetChild(i);
-        }
 
-        SupplyScript = GetComponentInParent<Supplies>();
-        //set the initial position of the stars and ship
-        StarInitialPosition = Starscape.localPosition;
-        StarTargetPosition = StarInitialPosition;
-
-        ShipInitialPosition = ShipScape.localPosition;
-        ShipTargetPosition = ShipInitialPosition;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (MoveSpeed != 0 && EventHolder.childCount == 0)
-        {
-            //get our crew members which will be used for food then morale
-            CharacterManager[] characterManagers = CharacterHolder.GetComponentsInChildren<CharacterManager>();
-            BreakDownTrack += Time.deltaTime;
-            //eatting is a subsystem of breaking down just so I don't have to have two timers
-            if (BreakDownTrack > 1)
-            {
-                EatTracker += 1;
-                BreakDownTrack = 0;
-                if (Random.Range(0, 60) < 2)
-                {
-                    SelectRandomEvent(BreakEvents);
-                }
-                //every ten second increase our crews hunger rate then eat food relative to how hungry they are
-                //if we have enough food the crew eats, starting with the captain, otherwise they just start to get CRANKY
-                if (EatTracker > 9)
-                {
-                    EatTracker = 0;
-                    CharacterHolder.CrewHunger();
-                    foreach (CharacterManager characterManager in characterManagers)
-                    {
-                        if (SupplyScript.Food >= characterManager.Hunger)
-                        {
-                            SupplyScript.Food -= characterManager.Hunger;
-                            characterManager.Hunger = 0;
-                        }
-                        else
-                            characterManager.Morale -= characterManager.Hunger;
-                    }
-                }
-            }
-
-
-            ShipScape.transform.position += Vector3.right * Time.deltaTime * MoveSpeed / 10;
-            Starscape.transform.position -= Vector3.right * Time.deltaTime * 3 / 10 * MoveSpeed;
-            SupplyScript.Fuel -= Time.deltaTime / 10;
-            if (SupplyScript.Fuel < 1)
-            {
-                SelectRandomEvent(NoFuelEvents);
-            }
-            CharacterManager SadCrewmate = null;
-
-            // Loop through each CharacterManager and subtract 1 from Morale
-            foreach (CharacterManager characterManager in characterManagers)
-            {
-                if (characterManager.Morale < 1)
-                    SadCrewmate = characterManager;
-            }
-            if (SadCrewmate != null)
-            {
-                SelectRandomEvent(MoraleEvents);
-            }
-            /*
-            if (ShipScape.transform.position.x > StaticEvents[StaticEventNumber].position.x - 33)
-            {
-                SelectNonRandomEvent();
-                MoveSpeed = 0;
-            }
-            */
-            ActivateEvent();
-        }
-    }
-    //variables related to moving the starscape
-    public float MoveSpeed = 10f;
-    public RectTransform Starscape;
-    private Vector3 StarInitialPosition;
-    private Vector3 StarTargetPosition;
-    public RectTransform ShipScape;
-    private Vector3 ShipInitialPosition;
-    private Vector3 ShipTargetPosition;
     public Transform EventHolder;
-    public int TravelLocation;
-    public void MoveShip()
-    {
-        if (MoveSpeed == 0 && EventHolder.childCount == 0)
-        {
-            MoveSpeed = 10f;
-
-        }
-    }
-
     public void TriggerEvent()
     {
         // Example of how to select a random event
@@ -135,9 +25,7 @@ public class Move : MonoBehaviour
         {
             // Do something with the selected event
             Debug.Log("Selected event: " + selectedEvent.name);
-
-            Event EventActivate = selectedEvent.GetComponent<Event>();
-
+            selectedEvent.CheckCrewResponses();
             //this used to set color layers but I would rather do it in the event itself
             /*
             MainScreen.sprite = EventActivate.EventPicture;
@@ -155,7 +43,7 @@ public class Move : MonoBehaviour
                 ColorLayer.color = new Color32(255, 255, 225, 0);
 */
             //set the textbox with a random text from the default types
-            DialogBox.TEXTBOX = EventActivate.EventText[Random.Range(0, EventActivate.EventText.Length)];
+            DialogBox.TEXTBOX = selectedEvent.EventText[Random.Range(0, selectedEvent.EventText.Length)];
             DialogBox.NewText();
         }
     }

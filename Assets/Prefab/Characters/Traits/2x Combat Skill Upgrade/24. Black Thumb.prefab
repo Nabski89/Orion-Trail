@@ -12,6 +12,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b6d36ccb77ca3c343a8a975487a232b0, type: 3}
     - target: {fileID: -2449806737065827398, guid: b6628e4979ad76644b762200615b42e9, type: 3}
+      propertyPath: traitNumber
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: -2449806737065827398, guid: b6628e4979ad76644b762200615b42e9, type: 3}
       propertyPath: traitDescription
       value: Everything you touch dies. Lets apply that to our enemies.
       objectReference: {fileID: 0}

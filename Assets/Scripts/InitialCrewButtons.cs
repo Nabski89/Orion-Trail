@@ -48,13 +48,15 @@ public class InitialCrewButtons : MonoBehaviour
 
             //spawn the skills 
             ShowOffSkills(CrewGameObject);
+            ShowOffTraits(CrewGameObject);
             //set the carry over crew
             CrewCarryOver.Crew[CrewSlotNum] = CrewGameObject;
             CrewClearCheck[Selected] = true;
         }
     }
     public Transform BigSkillHolder;
-    public GameObject SkillImage;
+    public Transform BigTraitHolder;
+    public GameObject BlankImage;
     void ShowOffSkills(GameObject Crew)
     {
         foreach (Transform child in BigSkillHolder.transform)
@@ -67,28 +69,50 @@ public class InitialCrewButtons : MonoBehaviour
         foreach (SkillUsed skillUsed in skillUsedComponents)
         {
             // Instantiate the new prefab
-            GameObject newObject = Instantiate(SkillImage, BigSkillHolder);
+            GameObject newObject = Instantiate(BlankImage, BigSkillHolder);
 
             // Get the Image component from the new prefab
             Image newImage = newObject.GetComponent<Image>();
             if (newImage != null)
             {
                 // Get the Image component from the SkillUsed script
-                Image skillImage = skillUsed.GetComponent<Image>();
-                if (skillImage != null)
+                Image BlankImage = skillUsed.GetComponent<Image>();
+                if (BlankImage != null)
                 {
                     // Set the new prefab's image to the skill's image
-                    newImage.sprite = skillImage.sprite;
+                    newImage.sprite = BlankImage.sprite;
                 }
                 else
                 {
                     Debug.LogError("SkillUsed does not have an Image component.");
                 }
             }
-            else
+        }
+    }
+
+    void ShowOffTraits(GameObject Crew)
+    {
+        //Clean Up
+        foreach (Transform child in BigTraitHolder.transform)
+            Destroy(child.gameObject);
+        ITrait[] TraitList = Crew.GetComponentsInChildren<ITrait>();
+
+        foreach (ITrait traitUsed in TraitList)
+        {
+            // Instantiate the new prefab and get its image component
+            GameObject newObject = Instantiate(BlankImage, BigTraitHolder);
+            Image newImage = newObject.GetComponent<Image>();
+
+            // Get the Image component from the New Trait script
+            Image Yeah = newObject.GetComponent<Image>();
+            if (Yeah != null)
             {
-                Debug.LogError("NewPrefab does not have an Image component.");
+                   Debug.Log("Spawn a trait.");
+                // Set the new prefab's image to the skill's image
+                newImage.sprite = traitUsed.TraitIcon;
             }
+            else
+                Debug.LogError("The Trait Here does not have a sprite component.");
         }
     }
 }

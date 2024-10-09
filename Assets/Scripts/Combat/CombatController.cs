@@ -18,7 +18,7 @@ public class CombatController : MonoBehaviour
     public CombatLocationsManager CrewLayout;
     void Start()
     {
-        CrewLayout = GetComponentInChildren<CombatLocationsManager>();
+        CrewLayout = GetComponentInChildren<CombatLocationsManager>(true);
         EnemyUI = GetComponentsInChildren<EnemyUI>();
         CombatLockdowns = GetComponentsInChildren<CombatLockdown>();
         LootManager = GetComponent<LootController>();

@@ -95,6 +95,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: M.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2082544110015028740, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749620542994951966, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275651856662327116, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7856608072269393231, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: CharName
       value: Stormbird
