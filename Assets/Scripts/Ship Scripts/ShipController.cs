@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ShipController : MonoBehaviour
 {
@@ -10,6 +11,19 @@ public class ShipController : MonoBehaviour
     public Vector2 TargetPosition;
     public float moveSpeed = 1.0f; // Adjust the speed as needed
     public Move MoveManager;
+    public SpriteRenderer ShipSprite;
+
+    void Start()
+    {
+        ShipSelect[] customCrews = FindObjectsOfType<ShipSelect>();
+
+        // Loop through each CustomCrew instance
+        foreach (ShipSelect CrewToLoad in customCrews)
+        {
+            Debug.Log("Load the ship");
+            ShipSprite.sprite = CrewToLoad.Ship;
+        }
+    }
 
 
     void OnTriggerEnter2D(Collider2D other)

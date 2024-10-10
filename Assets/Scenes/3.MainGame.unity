@@ -28634,7 +28634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8055995398912479683, guid: e44938804bf142443a5d033ae69abe21, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826035167261537068, guid: e44938804bf142443a5d033ae69abe21, type: 3}
       propertyPath: m_RootOrder
@@ -36695,6 +36695,7 @@ MonoBehaviour:
   TargetPosition: {x: 0, y: 0}
   moveSpeed: 0
   MoveManager: {fileID: 176487580}
+  ShipSprite: {fileID: 1405918978}
   WarpSoundEffect: {fileID: 6921898194830061262, guid: 662ad9cfa1114cb4586b288db0e59089, type: 3}
   ShipWarpDepart: {fileID: 5127509820771774885, guid: cfe033a99a8fd6d47a24ebd4a0a733ae, type: 3}
   ShipWarpLand: {fileID: 5127509820771774885, guid: 1b25b3e4b31b33f40b62beb58f655c3f, type: 3}
