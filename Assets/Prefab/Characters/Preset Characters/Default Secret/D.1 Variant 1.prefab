@@ -7,10 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2750060069053014172, guid: cd6463df2fb106d41bcf77beada5e872, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 94f3132e6abb7e74c89c972ca3d75002, type: 3}
     - target: {fileID: 3634024858286163709, guid: cd6463df2fb106d41bcf77beada5e872, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4296064472806032638, guid: cd6463df2fb106d41bcf77beada5e872, type: 3}
+      propertyPath: CharName
+      value: Gene Small
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296064472806032638, guid: cd6463df2fb106d41bcf77beada5e872, type: 3}
+      propertyPath: CharacterPicture
+      value: 
+      objectReference: {fileID: 21300000, guid: e9a9fbade15abb24aba7e51db321ed6d, type: 3}
     - target: {fileID: 5363864532522760117, guid: cd6463df2fb106d41bcf77beada5e872, type: 3}
       propertyPath: m_IsActive
       value: 0

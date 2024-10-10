@@ -37,7 +37,7 @@ public class CharacterShip : MonoBehaviour
 
                 // Instantiate copies of each game object in the Crew array
                 InstantiateCrewMembers(CrewToLoad.Crew);
-                Destroy(CrewToLoad.gameObject);
+             //   Destroy(CrewToLoad.gameObject);
             }
         }
     }

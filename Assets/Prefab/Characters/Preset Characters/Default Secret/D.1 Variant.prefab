@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2750060069053014172, guid: cd6463df2fb106d41bcf77beada5e872, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ca5c029927187e34b9ada2c482f56a21, type: 3}
+      objectReference: {fileID: 21300000, guid: 5167371332f80594db04dcd42a60a8ed, type: 3}
     - target: {fileID: 3294009642756063118, guid: cd6463df2fb106d41bcf77beada5e872, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -19,6 +19,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4296064472806032638, guid: cd6463df2fb106d41bcf77beada5e872, type: 3}
+      propertyPath: CharName
+      value: Gene Tall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296064472806032638, guid: cd6463df2fb106d41bcf77beada5e872, type: 3}
+      propertyPath: CharacterPicture
+      value: 
+      objectReference: {fileID: 21300000, guid: ddc3efabd606eac4dbb87f0bf83c4451, type: 3}
     - target: {fileID: 5363864532522760117, guid: cd6463df2fb106d41bcf77beada5e872, type: 3}
       propertyPath: m_IsActive
       value: 0
