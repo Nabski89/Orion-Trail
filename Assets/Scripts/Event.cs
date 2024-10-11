@@ -6,33 +6,13 @@ using UnityEngine.UI;
 using TMPro;
 public class Event : MonoBehaviour
 {
-    public Sprite EventPicture;
-    public Sprite EventPictureLayer2;
-    public Color[] Layer2Color;
-    public GameObject Subevent1;
-    public GameObject Subevent2;
     [TextArea]
     public string[] EventText;
     public string[] Options;
-    public Move MoveScript;
+    public EventManager Manager;
     void Start()
     {
-        MoveScript = GetComponentInParent<Move>();
-    }
-    public void TempEventDestro()
-    {
-        TriggerSubEvent1();
-        Destroy(gameObject);
-    }
-    public void TriggerSubEvent1()
-    {
-        //if the sub event exists, then unparent it from this,
-        if (Subevent1 != null)
-        {
-            Subevent1.transform.parent = transform.parent;
-            Subevent1.SetActive(true);
-            Destroy(gameObject);
-        }
+        Manager = GetComponentInParent<EventManager>();
     }
 
     public void CheckCrewResponses()
@@ -56,7 +36,13 @@ public class Event : MonoBehaviour
                     {
                         Debug.Log("We Found A Trait we want to use and it is " + traitMonoBehaviour.transform.name);
                         EventActionButton Button = traitMonoBehaviour.GetComponentInParent<CharacterManager>().GetComponentInChildren<EventActionButton>();
-                        Button.GetComponent<Image>().sprite = trait.TraitIcon;
+                        if (trait.TraitIcon != null)
+                        {
+                            Button.TraitResponseValue = trait.TraitNumber;
+                            Button.GetComponent<Image>().sprite = trait.TraitIcon;
+                        }
+                        else
+                            Debug.LogWarning("Failed to find a trait icon? Check out " + trait);
                         Button.GetComponentInChildren<TextMeshProUGUI>().text = PossibleResponses[i].ActionText;
                     }
                 }

@@ -10,7 +10,7 @@ public class ShipController : MonoBehaviour
     public Vector2 TargetPositionSet;
     public Vector2 TargetPosition;
     public float moveSpeed = 1.0f; // Adjust the speed as needed
-    public Move MoveManager;
+    public EventManager MoveManager;
     public SpriteRenderer ShipSprite;
 
     void Start()

@@ -141,11 +141,26 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 558b43b491d1bd0408eeb087288f75e5, type: 3}
     - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: PossibleResponses.Array.data[0].Dialog
-      value: 
+      value: You approach the slimes trying to not disturb them.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[1].Dialog
+      value: Destroying these single celled life forms is more the job for a janitor,
+        but they pop so nice.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[2].Dialog
+      value: Liquified slime goes for a pretty penny, but is illegal due to them
+        sometimes regrowing and infesting a new area.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: PossibleResponses.Array.data[3].Dialog
+      value: These things make for excellent waste disposal
       objectReference: {fileID: 0}
     - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: PossibleResponses.Array.data[4].Dialog
-      value: 
+      value: You're hoping you can take the record on slimes popped in your local
+        club
       objectReference: {fileID: 0}
     - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: PossibleResponses.Array.data[3].DevNote
@@ -183,6 +198,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 3798872301430259770, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a949357e2453b5e4482cdcad884b39ad, type: 3}
     - target: {fileID: 3966706418662314563, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: m_Sprite
       value: 

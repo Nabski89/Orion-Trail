@@ -814,7 +814,7 @@ GameObject:
   - component: {fileID: 5447853662315585034}
   - component: {fileID: 4194586506165749998}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Event Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2517,6 +2517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002ec1ef39acf5e49a169305c601335f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TraitResponseValue: 0
 --- !u!1 &8832537647625809427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,13 +2640,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8597297404403109712}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 7739264249792563355}
+        m_TargetAssemblyTypeName: EventActionButton, Assembly-CSharp
+        m_MethodName: PushedButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
