@@ -8,30 +8,41 @@ public class CrewSkillManager : MonoBehaviour
     public GameObject[] Skill;
     public void SkillUsed(int SkillNum)
     {
-        if (SkillHolder[0] == null)
-            SkillHolder = GetComponentsInChildren<CharacterSkillController>();
+        SkillSafetyCheck();
         Debug.Log("Used Skill " + SkillNum);
         Skill[SkillNum].GetComponent<ISkillMinigame>().ActivateSkill();
-        for (int i = 0; i < SkillHolder.Length; i++)
-        {
-            SkillHolder[i].CullSkills();
-        }
-        //I numbered my things badly but don't want to fix it
-
+        DisableSkillButtons();
     }
     public void SkillCompleted()
     {
         //refresh the icons to start a new minigame
-        for (int i = 0; i < SkillHolder.Length; i++)
-        {
-            SkillHolder[i].CallForSkills();
-        }
+        EnableSkillButtons();
         //disable all our skills minigames
         for (int i = 0; i < Skill.Length; i++)
         {
             if (Skill[i].GetComponent<ISkillMinigame>().MinigameHolder != null)
                 Skill[i].GetComponent<ISkillMinigame>().MinigameHolder.SetActive(false);
         }
-
+    }
+    public void DisableSkillButtons()
+    {
+        SkillSafetyCheck();
+        for (int i = 0; i < SkillHolder.Length; i++)
+        {
+            SkillHolder[i].CullSkills();
+        }
+    }
+    public void EnableSkillButtons()
+    {
+        SkillSafetyCheck();
+        for (int i = 0; i < SkillHolder.Length; i++)
+        {
+            SkillHolder[i].CallForSkills();
+        }
+    }
+    void SkillSafetyCheck()
+    {
+        if (SkillHolder[0] == null)
+            SkillHolder = GetComponentsInChildren<CharacterSkillController>();
     }
 }

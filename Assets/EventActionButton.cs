@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class EventActionButton : MonoBehaviour
 {
-    // Start is called before the first frame update
+    EventManager EventManager;
+    public int TraitResponseValue;
     void Start()
     {
-        
+        EventManager = GetComponentInParent<EventManager>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void PushedButton()
     {
-        
+        EventManager.CharacterResponse(TraitResponseValue);
     }
 }

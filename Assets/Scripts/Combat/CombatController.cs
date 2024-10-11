@@ -6,7 +6,7 @@ using TMPro;
 public class CombatController : MonoBehaviour
 {
     LootController LootManager;
-    private Move MoveScript;
+    private EventManager EventManager;
     public int[] CharAtkType;
     public EnemyUI[] EnemyUI;
     public EnemyCombatScript[] Enemy;
@@ -22,8 +22,8 @@ public class CombatController : MonoBehaviour
         EnemyUI = GetComponentsInChildren<EnemyUI>();
         CombatLockdowns = GetComponentsInChildren<CombatLockdown>();
         LootManager = GetComponent<LootController>();
-        MoveScript = GetComponentInChildren<Move>();
-        if (MoveScript == null)
+        EventManager = GetComponentInChildren<EventManager>();
+        if (EventManager == null)
         {
             Debug.LogWarning("Hey the move script is no longer in a child of the combat controller. Fix it or combat won't work.");
         }
