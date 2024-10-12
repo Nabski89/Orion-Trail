@@ -140,6 +140,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 558b43b491d1bd0408eeb087288f75e5, type: 3}
     - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: EventText.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: EventText.Array.data[0]
+      value: Pre-used ships have the disadvantage of having previous occupants. It
+        appears the last owners left you a slime infestation.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
+      propertyPath: EventText.Array.data[1]
+      value: Smarter than a jellyfish, harder to eradicate than cockroaches. Slimes
+        ability to thrive in any enviroment mean that they tend to show up in well,
+        any environment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248152030695579282, guid: 8bef6d925b71e5040bc7191c8b001c0e, type: 3}
       propertyPath: PossibleResponses.Array.data[0].Dialog
       value: You approach the slimes trying to not disturb them.
       objectReference: {fileID: 0}
