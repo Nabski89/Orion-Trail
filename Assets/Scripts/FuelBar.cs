@@ -76,11 +76,11 @@ public class FuelBar : MonoBehaviour
         Fuel.localPosition = EmptyPosition;
         StartCoroutine(Fill());
     }
-
+//this ends our filling
     void FuelAmount()
     {
         Golf GolfReference = GetComponentInParent<GenericManager>().GolfReference;
-        GolfReference.FeedFuelValue(Mathf.Abs(Fuel.anchoredPosition.y - Target.anchoredPosition.y));
+      //  GolfReference.FeedFuelValue(Mathf.Abs(Fuel.anchoredPosition.y - Target.anchoredPosition.y));
         Debug.Log("The fuel value for this cell was off from the target by " + Mathf.Abs(Fuel.anchoredPosition.y - Target.anchoredPosition.y));
     }
 }

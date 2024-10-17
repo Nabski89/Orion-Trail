@@ -22,6 +22,7 @@ public class PilotMinigame : MonoBehaviour, ISkillMinigame
     public void ActivateSkill()
     {
         MinigameHolder.SetActive(true);
+        MinigameHolder.GetComponent<Golf>().StartGolf();
     }
     public void EndSkill()
     {

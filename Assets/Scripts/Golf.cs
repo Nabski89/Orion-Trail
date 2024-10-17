@@ -7,180 +7,141 @@ using Unity.VisualScripting;
 
 public class Golf : MonoBehaviour
 {
+    DialogText DialogBox;
     //Used for picking our Range 
-    public GameObject Edge1;
-    public GameObject Edge1b;
-    public GameObject Edge2;
-    public GameObject Edge2b;
-    public float rotationAmount = 0;
-    public float RangeMax = 30;
 
     //Used for picking our Distance 
-    public GameObject PowerSlider;
     public float PowerAmount = 0;
 
     //used for the ball
     public GameObject BeaconBall;
     public ShipController TheShip;
     Supplies TheSupplies;
-    public float FuelUsage;
-
     //end location
-    public float StoredForward;
-    public float StoredSpread;
-    public float StoredPower;
     public GameObject FuelTankSpawn;
     public GameObject BrokenTankSpawn;
-    public GameObject FuelTankParent;
+    public Transform FuelTankParent;
+    public float FuelAmount;
+    GOLFDirection[] customDirections;
+    public GameObject[] StageLights;
+    public GameObject TriggerButton;
     public void Start()
     {
+        DialogBox = GetComponentInParent<GenericManager>().MainTextReference;
         TheSupplies = GetComponentInParent<Supplies>();
     }
-    public void StartGolf(float RotateValue, float FuelFree, float FuelReq)
+    int ReadyStage = 0;
+    public void AdvanceGolf()
     {
-        //check that we don't already have a ball out then activate our layout stuffs
-        TravelBall BallCheck = GetComponentInChildren<TravelBall>();
-        if (BallCheck == null)
+        switch (ReadyStage)
         {
-            Edge1.SetActive(true);
-            Edge2.SetActive(true);
-            PowerSlider.SetActive(true);
-            rotationAmount = RangeMax;
-
-            RangeMax = RotateValue;
-            PowerAmount = FuelReq + FuelFree;
-            FuelUsage = FuelReq;
-            //scale the edges to show how far a thing goes
-            Edge1.transform.localScale = new Vector3(PowerAmount, 1, 1);
-            Edge1b.transform.localScale = Vector3.zero;
-            //       Edge1b.transform.localScale = new Vector3((FuelReq - FuelFree) / FuelReq, 1, 1);
-            Edge2.transform.localScale = new Vector3(PowerAmount, 1, 1);
-            Edge2b.transform.localScale = Vector3.zero;
-            //         Edge2b.transform.localScale = new Vector3((FuelReq - FuelFree) / FuelReq, 1, 1);
-            StartCoroutine(PickPosition());
-            RotateIt(rotationAmount);
+            case 1:
+                Selected();
+                break;
+            case 2:
+                Aimed();
+                break;
+            case 3:
+                Fueled();
+                break;
+            case 4:
+                Launched();
+                break;
+            default:
+                Debug.Log("Unknown command in golf");
+                break;
         }
     }
-    IEnumerator PickPosition()
+    public void StartGolf()
     {
-        while (true)
+        TriggerButton.SetActive(true);
+        DialogBox.TEXTBOX = "Preparing ship for warp. Selecting targeting probe driver.";
+        DialogBox.NewText();
+        ReadyStage = 1;
+        for (int i = 0; i < StageLights.Length; i++)
+            StageLights[i].SetActive(false);
+        StageLights[0].SetActive(true);
+    }
+    public GameObject PreviewLine;
+    public GameObject RotatePointerUp;
+    public GameObject RotatePointerDown;
+    void Selected()
+    {
+        customDirections = FindObjectsOfType<GOLFDirection>();
+        if (customDirections[0] != null)
         {
-            RotateIt(RangeMax);
-            if (Input.GetMouseButtonDown(1))
-            {
-                EndGolf();
-                yield break;
-            }
-            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-            {
-                SelectPower();
-                yield break;
-            }
-            yield return null;
+            DialogBox.TEXTBOX += "\nProbe locked in. Ready to select Target Orientation. ";
+            ReadyStage = 2;
+            StageLights[1].SetActive(true);
+            StageLights[2].SetActive(true);
+            PreviewLine.SetActive(true);
+            PowerAmount = customDirections.Length;
+            PreviewLine.transform.localScale = new Vector3(PowerAmount, 1, 1);
+            RotatePointerUp.SetActive(true);
+            RotatePointerDown.SetActive(true);
         }
     }
-
-    void RotateIt(float rotationValue)
+    void Aimed()
     {
-        // Get the mouse position in screen space
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        Vector2 direction = (Vector2)(mousePosition - transform.position);
-
-        // Calculate the angle from the current object's position to the mouse position
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Rotate the object to point towards the mouse position
-        Edge1.transform.rotation = Quaternion.AngleAxis(angle + rotationValue, Vector3.forward);
-        Edge2.transform.rotation = Quaternion.AngleAxis(angle - rotationValue, Vector3.forward);
-        PowerSlider.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        //too hard to bring this out, turn the quaternoin into the angle from right then we can do some trig I guess to get it back
-        StoredForward = Quaternion.AngleAxis(angle, Vector3.forward).eulerAngles.z;
-    }
+        RotatePointerUp.SetActive(false);
+        RotatePointerDown.SetActive(false);
+        StageLights[3].SetActive(true);
+        StageLights[4].SetActive(true);
+        DialogBox.TEXTBOX += "\nTarget Orientation locked in. Begin Fueling Procedures. ";
+        ReadyStage = 3;
 
 
-    public void SelectPower()
-    {
-        if (FuelUsage > 0)
+        FuelAmount = 0;
+        foreach (GOLFDirection Direction in customDirections)
         {
-            FuelUsage -= 1;
-            Debug.Log("Spawn a fuel tank");
-            //if we have fuel, use it otherwise use a shitty broken fuel
-            //TODO make lacking fuel more punishing
-            if (TheSupplies.Fuel > 0)
+            //this is where we spawn the fuel tanks
+
+            //  if (TheSupplies.Fuel > 0)
             {
+                FuelAmount += 1;
+                Debug.Log("Spawn a fuel tank");
+                Instantiate(FuelTankSpawn, FuelTankParent);
+                //todo figure out why this isn't spawning
                 TheSupplies.SubtractFuel(1);
-                Instantiate(FuelTankSpawn, FuelTankParent.transform);
+
             }
-            else
-                Instantiate(BrokenTankSpawn, FuelTankParent.transform);
-
-        }
-        else
-            SpawnBeacon();
-        PowerSlider.transform.localScale = new Vector3(PowerAmount, 1, 1);
-
-    }
-    //after we do each fuel check if we need to do another
-    public void FeedFuelValue(float fuelOffset)
-    {
-        SelectPower();
-    }
-
-    public ButtonCoverPress CoverButton;
-    void EndGolf()
-    {
-        ReadyClickArea();
-        //reset the fuel button cover
-        if (CoverButton != null)
-            CoverButton.PressButton();
-        Edge1.SetActive(false);
-        Edge2.SetActive(false);
-        PowerSlider.SetActive(false);
-        rotationAmount = 0;
-
-    }
-    void ReadyClickArea()
-    {
-        // Iterate through all children of the target GameObject
-        for (int i = FuelTankParent.transform.childCount - 1; i >= 0; i--)
-        {
-            // Destroy each child GameObject
-            Destroy(FuelTankParent.transform.GetChild(i).gameObject);
+            //   else
+            {
+                Debug.Log("Spawn a damaged fuel tank");
+                Instantiate(BrokenTankSpawn, FuelTankParent);
+            }
         }
     }
-    void SpawnBeacon()
+    void Fueled()
     {
-        GameObject NewBeacon = Instantiate(BeaconBall, transform.position, PowerSlider.transform.rotation);
+        StageLights[5].SetActive(true);
+
+        ReadyStage = 4;
+        DialogBox.TEXTBOX += "\nYeah okay togopal I guess you could call that a fueling event, but it looks like you got badly fucked up by quarternoins AGAIN";
+        //if we have fuel, use it otherwise use a shitty broken fuel
+        //TODO make lacking fuel more punishing
+        Launched();
+    }
+
+    void Launched()
+    {
+        TriggerButton.SetActive(false);
+        DialogBox.TEXTBOX += "\nFueling Complete. Probe is launched, I repeat probe is launched. Brace for warp. ";
+        GameObject NewBeacon = Instantiate(BeaconBall, TheShip.transform.position, PreviewLine.transform.rotation);
         //use up our fuel, and if we don't have enough our shot goes wide AND only half as far
-        TheSupplies.Fuel = Mathf.Max(0, TheSupplies.Fuel - FuelUsage);
-        if (TheSupplies.Fuel == 0)
-        {
-            StoredSpread = StoredSpread * 2;
-            StoredPower = StoredPower / 2;
-
-            //TODO play an error sound when we have no fuel
-        }
         //push forward our values then activate the ball
         TravelBall TheBeacon = NewBeacon.GetComponent<TravelBall>();
-        TheBeacon.TargetLocation = SelectRandomPositionWithinCone(StoredSpread, StoredForward, StoredPower);
-        TheBeacon.initialSpeed = PowerAmount;
-        TheBeacon.TheShip = GetComponentInParent<ShipController>();
+        TheBeacon.initialSpeed = 1f;
+        TheBeacon.TheShip = TheShip;
         TheBeacon.ActivateBeacon();
 
         EndGolf();
     }
-
-    // Function to select a random position within a cone, from GPT
-    public Vector3 SelectRandomPositionWithinCone(float angle, float forwardDirection, float distance)
+    void EndGolf()
     {
-        angle = forwardDirection + Random.Range(-angle, angle);
-        angle = angle * Mathf.Deg2Rad;
-        // Calculate direction within cone
-        Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
-        // Scale direction by distance, normalize to 1 first
-        return direction.normalized * distance + transform.position;
+        //clear out the old fuel tanks
+        for (int i = FuelTankParent.transform.childCount - 1; i >= 0; i--)
+            Destroy(FuelTankParent.transform.GetChild(i).gameObject);
+        PreviewLine.SetActive(false);
     }
-
-
 }
