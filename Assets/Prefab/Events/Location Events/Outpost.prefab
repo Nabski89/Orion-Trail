@@ -69,5 +69,29 @@ PrefabInstance:
         of space. It has been constructed not by travellers from Sol, but by colonists
         from Orion. It stands as a monument to the colonists' success.
       objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[0].Dialog
+      value: You see something that would be a crime on earth but no one cares.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[4].TraitInt
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[0].ActionText
+      value: Impose
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[1].ActionText
+      value: Bully
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[2].ActionText
+      value: Supply
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[3].ActionText
+      value: Rejoice
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealMinigame : MonoBehaviour, ISkillMinigame
 {
     public float SkillModifier { get; }
-//this is supposed let me set my interfaced theing through the inspector
+    //this is supposed let me set my interfaced theing through the inspector
     [SerializeField]
     public GameObject HoldMinigame;
 
@@ -15,13 +15,18 @@ public class HealMinigame : MonoBehaviour, ISkillMinigame
         set { HoldMinigame = value; }
     }
     public CrewSkillManager crewSkillManager { get; set; }
+    DialogText DialogBox;
     void Start()
     {
         crewSkillManager = GetComponentInParent<GenericManager>().ShipReference.GetComponent<CrewSkillManager>();
+        DialogBox = GetComponentInParent<GenericManager>().MainTextReference;
     }
+
     public void ActivateSkill()
     {
         MinigameHolder.SetActive(true);
+        DialogBox.TEXTBOX = "Welcome to medbay. Our doctors currently don't have any idea what they are doing. But that's okay because our enemies don't either. When both of those are doing what they are supposed to, you will be able to removed wounds here or maybe even turn a crewmember into a cyborg.";
+        DialogBox.NewText();
         StartUp();
     }
 

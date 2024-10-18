@@ -68,5 +68,46 @@ PrefabInstance:
       value: At the edge of the Sol system lies a treacherous asteroid belt. Many
         have been crushed by stray asteroids and misguided judgement.
       objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[0].Dialog
+      value: You stay on the designated route
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[1].Dialog
+      value: BEEP BEEP COMING THROUGH
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[2].Dialog
+      value: You know where some stuff is
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[3].Dialog
+      value: You snap a small asteroid into the cargo hold to use for raw materials
+        later
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[3].DevNote
+      value: Mine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[4].TraitInt
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[0].ActionText
+      value: Careful
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[1].ActionText
+      value: Fast
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[2].ActionText
+      value: Hidden
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162490920083833853, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}
+      propertyPath: PossibleResponses.Array.data[3].ActionText
+      value: Mine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffb3d9ee04f76c40b90d13f0abc0363, type: 3}

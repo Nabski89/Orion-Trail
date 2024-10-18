@@ -89,3 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ce149b98a484a4da1ab0f4aa873513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TurnDirection: 0
+  NormalLength: 1
+  FuelAmount: 1

@@ -61,6 +61,10 @@ public class Golf : MonoBehaviour
         for (int i = 0; i < StageLights.Length; i++)
             StageLights[i].SetActive(false);
         StageLights[0].SetActive(true);
+
+        //clear out the old fuel tanks
+        for (int i = FuelTankParent.transform.childCount - 1; i >= 0; i--)
+            Destroy(FuelTankParent.transform.GetChild(i).gameObject);
     }
     public GameObject PreviewLine;
     public GameObject RotatePointerUp;
@@ -96,31 +100,39 @@ public class Golf : MonoBehaviour
         {
             //this is where we spawn the fuel tanks
 
-            //  if (TheSupplies.Fuel > 0)
+            if (TheSupplies.Fuel > 0)
             {
                 FuelAmount += 1;
                 Debug.Log("Spawn a fuel tank");
-                Instantiate(FuelTankSpawn, FuelTankParent);
+                GameObject SpawnedTank = Instantiate(FuelTankSpawn, FuelTankParent);
+                SpawnedTank.GetComponent<FuelBar>().DirectionReference = Direction;
                 //todo figure out why this isn't spawning
                 TheSupplies.SubtractFuel(1);
 
             }
-            //   else
-            {
-                Debug.Log("Spawn a damaged fuel tank");
+            else
                 Instantiate(BrokenTankSpawn, FuelTankParent);
-            }
+
         }
     }
+    int BadAtFueling = 0;
     void Fueled()
     {
-        StageLights[5].SetActive(true);
-
-        ReadyStage = 4;
-        DialogBox.TEXTBOX += "\nYeah okay togopal I guess you could call that a fueling event, but it looks like you got badly fucked up by quarternoins AGAIN";
+        if (StageLights[5].activeSelf == (true))
+            Launched();
+        else
+        {
+            BadAtFueling += 1;
+            if (BadAtFueling < 10)
+                DialogBox.TEXTBOX += "\nComplete fueling before launch";
+            if (BadAtFueling == 10)
+                DialogBox.TEXTBOX += "\nCan you please just flip the fuel switch";
+            if (BadAtFueling == 20)
+                DialogBox.TEXTBOX += "\nWhy are you like this";
+        }
         //if we have fuel, use it otherwise use a shitty broken fuel
         //TODO make lacking fuel more punishing
-        Launched();
+
     }
 
     void Launched()
@@ -131,17 +143,19 @@ public class Golf : MonoBehaviour
         //use up our fuel, and if we don't have enough our shot goes wide AND only half as far
         //push forward our values then activate the ball
         TravelBall TheBeacon = NewBeacon.GetComponent<TravelBall>();
-        TheBeacon.initialSpeed = 1f;
+        //        TheBeacon.initialSpeed = 1f;
         TheBeacon.TheShip = TheShip;
+
+        //Set our custom directions to onto the probe so they can be accessed
+        foreach (GOLFDirection Direction in customDirections)
+            Instantiate(Direction.transform, TheBeacon.transform);
+
         TheBeacon.ActivateBeacon();
 
         EndGolf();
     }
     void EndGolf()
     {
-        //clear out the old fuel tanks
-        for (int i = FuelTankParent.transform.childCount - 1; i >= 0; i--)
-            Destroy(FuelTankParent.transform.GetChild(i).gameObject);
         PreviewLine.SetActive(false);
     }
 }

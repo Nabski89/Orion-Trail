@@ -13,6 +13,7 @@ public class CharacterSkillController : MonoBehaviour
     // Update is called once per frame
     public void CallForSkills()
     {
+
         int childCount = transform.childCount;
 
         // If there are no children, return
@@ -23,10 +24,11 @@ public class CharacterSkillController : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-
+        Debug.Log("We made it into Call For Skills");
         // Activate one random child object
         int randomIndex = Random.Range(0, childCount);
         transform.GetChild(randomIndex).gameObject.SetActive(true);
+        Debug.Log("We activated a single skill" + transform.GetChild(randomIndex));
     }
     public void CullSkills()
     {

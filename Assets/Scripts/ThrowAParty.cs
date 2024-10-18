@@ -5,13 +5,19 @@ using UnityEngine;
 public class ThrowAParty : MonoBehaviour
 {
     public GameObject MoraleChanger;
+    public GameObject MoraleChangerTarget;
     public string[] EntertainMessage;
     public void ThrowParty()
     {
         GetComponentInParent<GenericManager>().MainTextReference.TEXTBOX += "<br>" + EntertainMessage[Random.Range(0, EntertainMessage.Length)];
         Instantiate(MoraleChanger, transform);
-        Instantiate(MoraleChanger, transform);
-        GetComponentInParent<EntertainMinigame>().EndSkill();
+        Instantiate(MoraleChangerTarget, transform);
+
+        Invoke("Pain", 1);
     }
 
+    void Pain()
+    {
+        GetComponentInParent<EntertainMinigame>().EndSkill();
+    }
 }
