@@ -8,11 +8,9 @@ public class EventManager : MonoBehaviour
 {
     public DialogText DialogBox;
     public Transform EventHolder;
-    public Transform Events;
     public Transform EventScreen;
     public Transform Loot;
     public Transform Ship;
-    public bool EventActive;
     CharacterBulkManager CharacterHolder;
     public EventActionButton[] ActionButtonArray;
     public Event TheEvent;
@@ -21,8 +19,12 @@ public class EventManager : MonoBehaviour
     void Start()
     {
         CharacterHolder = GetComponentInChildren<CharacterBulkManager>();
-        ActionButtonArray = CharacterHolder.GetComponentsInChildren<EventActionButton>(true);
         SkillManager = GetComponentInChildren<CrewSkillManager>();
+
+    }
+    public void SetUpCharacters()
+    {
+        ActionButtonArray = CharacterHolder.GetComponentsInChildren<EventActionButton>(true);
         ChangeEventButtonStatus(false);
     }
     public void TriggerEvent()
@@ -53,28 +55,7 @@ public class EventManager : MonoBehaviour
         else
             Debug.LogWarning("Tried to trigger and event but you fucked up and we didn't have one");
     }
-    void EndEvent()
-    {
-        //Clear Our Current Event
-        if (EventScreen.childCount > 0)
-            Destroy(EventScreen.GetChild(0).gameObject);
-        else
-            Debug.LogWarning("EventScreen not found or has no children.");
-        //  if (Events.childCount < 1 && Loot.childCount < 1)
 
-        //enable our skill buttons
-        SkillManager.EnableSkillButtons();
-        ChangeEventButtonStatus(false);
-        EventScreen.gameObject.SetActive(false);
-        Ship.gameObject.SetActive(true);
-
-        //  else
-        //     NextEvent();
-    }
-    void NextEvent()
-    {
-
-    }
     void ChangeEventButtonStatus(bool ActivateEvent)
     {
         foreach (EventActionButton ActionButton in ActionButtonArray)
@@ -109,14 +90,53 @@ public class EventManager : MonoBehaviour
                 ResponseNumber = i;
         }
         DialogBox.TEXTBOX = TheEvent.PossibleResponses[ResponseNumber].Dialog;
+
+        if (TheEvent.PossibleResponses[ResponseNumber].SpawnBonus != null)
+            Instantiate(TheEvent.PossibleResponses[ResponseNumber].SpawnBonus, transform.parent.parent);
+
+        InstantiateAllObjects();
         DialogBox.NewText();
         ChangeEventButtonStatus(false);
         Invoke("EndEvent", 1);
     }
+    //spawn whatever things the event is supposed to spawn
+    void InstantiateAllObjects()
+    {
+        if (TheEvent.ThingsToSpawn == null || TheEvent.ThingsToSpawn.Length == 0)
+        {
+            Debug.LogWarning("ThingsToSpawn array is empty or not assigned!");
+            return;
+        }
+        for (int i = 0; i < TheEvent.ThingsToSpawn.Length; i++)
+        {
+            if (TheEvent.ThingsToSpawn[i] != null)
+                Instantiate(TheEvent.ThingsToSpawn[i], EventHolder.parent.parent);
+            else
+                Debug.LogWarning("Found a null object in ThingsToSpawn array, skipping instantiation.");
+        }
+    }
+    public void EndEvent()
+    {
 
+        //Clear Our Current Event
+        if (EventScreen.childCount > 0)
+            Destroy(EventScreen.GetChild(0).gameObject);
+        else
+            Debug.LogWarning("EventScreen not found or has no children.");
+        //  if (Events.childCount < 1 && Loot.childCount < 1)
 
+        //enable our skill buttons
+        SkillManager.EnableSkillButtons();
+        ChangeEventButtonStatus(false);
+        EventScreen.gameObject.SetActive(false);
+        Ship.gameObject.SetActive(true);
 
+        //see if we need to go into a combat
+        if (GetComponentInChildren<EnemyCombatScript>() != null)
+            GetComponent<CombatController>().InitiateCombat();
 
+        //todo, do the same thing for loot
+    }
 
 
 

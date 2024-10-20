@@ -6,6 +6,10 @@ public class CrewSkillManager : MonoBehaviour
 {
     public CharacterSkillController[] SkillHolder;
     public GameObject[] Skill;
+    public void GetNewSkills()
+    {
+        SkillHolder = GetComponentsInChildren<CharacterSkillController>();
+    }
     public void SkillUsed(int SkillNum)
     {
         SkillSafetyCheck();

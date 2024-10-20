@@ -10,6 +10,7 @@ public class Event : MonoBehaviour
     public string[] EventText;
     public string[] Options;
     public EventManager Manager;
+    public GameObject[] ThingsToSpawn;
     void Start()
     {
         Manager = GetComponentInParent<EventManager>();
@@ -64,5 +65,6 @@ public class Event : MonoBehaviour
         public string Dialog;
         public int TraitInt;
         public string ActionText;
+        public GameObject SpawnBonus;
     }
 }

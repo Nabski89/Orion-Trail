@@ -21,7 +21,6 @@ public class EnemyCombatScript : MonoBehaviour
     void Start()
     {
         Controller = GetComponentInParent<CombatController>();
-        Controller.InitiateCombat();
     }
     [System.Serializable]
     public class Attacks

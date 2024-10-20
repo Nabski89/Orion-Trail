@@ -7,7 +7,7 @@ public class CharacterSkillController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CallForSkills();
+       // CallForSkills();
     }
 
     // Update is called once per frame
