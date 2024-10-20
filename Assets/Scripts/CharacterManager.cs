@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Text;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -76,7 +77,11 @@ public class CharacterManager : MonoBehaviour
     {
 
     }
-
+    public void ChangeMorale(int Change)
+    {
+        Debug.Log("Change of " + Change + "Morale for" + CharName);
+        Morale = Mathf.Clamp(Morale + Change, 0, 100);
+    }
 
     [System.Serializable]
     public class Attacks

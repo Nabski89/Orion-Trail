@@ -37,7 +37,7 @@ public class TriggerUI : MonoBehaviour
         StartCoroutine(ChangeHeightOrWidthBack());
     }
     public bool ChangeHeightWidth = false;
-    bool ChangeHeightWidthComplete = false;
+//    bool ChangeHeightWidthComplete = false;
     public float SmallWidth = 0f;
     public float SmallHeight = 0f;
     public float BigWidth = 200f; // Set the desired width in the Inspector

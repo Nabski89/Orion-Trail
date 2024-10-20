@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class TravelBall : MonoBehaviour
 {
-    public Vector3 TargetLocation;
     public ShipController TheShip;
     // Speed of the golf ball
     public float initialSpeed = 5.0f;
@@ -19,72 +19,40 @@ public class TravelBall : MonoBehaviour
 
     public void ActivateBeacon()
     {
-        Vector3 direction = TargetLocation - transform.position;
-        //we should add some initial rotation offset to this?
-        /*
-                // Calculate the angle in degrees
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-                // Create a rotation with the angle around the Z axis
-                Quaternion rotation = Quaternion.Euler(0, 0, angle);
-
-                // Apply the rotation to the object
-                transform.rotation = rotation;
-        */
         StartCoroutine(MoveToTargetWithDecay(startDelay));
-
     }
-
-
     IEnumerator MoveToTargetWithDecay(float delay)
     {
         // Delay before starting the motion
         yield return new WaitForSeconds(delay);
-        //The initial speed is based off our fuel usage and is nice small whole numbers so if we don't chop it we ZOOM
-        float Power = initialSpeed / 4;
-        float TimeElapsed = 0;
-        float SpinAngleUsed = 0;
-        while (TravelTime > TimeElapsed)
+        if (GetComponentInChildren<GOLFDirection>() != null)
         {
-            transform.position = transform.position + Power * transform.right * Time.deltaTime * (2 - (TimeElapsed / TravelTime));
-            TimeElapsed += Time.deltaTime;
-            if (TimeElapsed < TravelTime / 2)
-                SpinAngleUsed += Time.deltaTime * SpinAngle / TravelTime;
-            else
-                SpinAngleUsed -= 1.25f * Time.deltaTime * SpinAngle / TravelTime;
-
-            transform.Rotate(0, 0, SpinAngleUsed * Time.deltaTime, Space.World);
-            yield return null;
+            GOLFDirection Command = GetComponentInChildren<GOLFDirection>();
+            //The initial speed is based off our fuel usage and is nice small whole numbers so if we don't chop it we ZOOM
+            float Power = initialSpeed;
+            float TimeElapsed = 0;
+            float SpinAngleUsed = Command.TurnDirection;
+            TravelTime = Command.NormalLength * Command.FuelAmount;
+            while (TravelTime > TimeElapsed)
+            {
+                TimeElapsed += Time.deltaTime;
+                transform.position = transform.position + Power * transform.right * Time.deltaTime;
+                transform.Rotate(0, 0, SpinAngleUsed * Time.deltaTime, Space.World);
+                yield return null;
+            }
+            //remove our golf direction, could probably be done more cleanly
+            if (transform.childCount > 0)
+            {
+                Transform firstChild = transform.GetChild(0);
+                firstChild.SetParent(null); // Detach the child from the parent
+                Destroy(firstChild.gameObject); // Destroy the child GameObject
+            }
+            StartCoroutine(MoveToTargetWithDecay(0));
         }
-        TheShip.WarpShip(transform.position);
-        Destroy(gameObject);
-        /*
-                // Calculate initial direction and distance
-                Vector3 direction = (TargetLocation - transform.position).normalized;
-                float distance = Vector3.Distance(transform.position, TargetLocation);
-
-                // Continue moving until the target is reached
-                while (distance > minDistance)
-                {
-                    // Calculate the current speed based on the distance
-                    float currentSpeed = Mathf.Max(initialSpeed * (distance / initialSpeed), minDistance);
-
-                    // Move the object towards the target
-                    transform.Translate(direction * currentSpeed * Time.deltaTime, Space.World);
-
-                    // Update the distance to the target
-                    distance = Vector3.Distance(transform.position, TargetLocation);
-
-                    // Decelerate the speed
-                    initialSpeed -= decelerationRate * Time.deltaTime;
-
-                    yield return null;
-                }
-
-                // Ensure the object reaches exactly the target position, then move the ship
-                transform.position = TargetLocation;
-                GetComponentInParent<ShipController>().WarpShip(transform.position);
-                Destroy(gameObject);
-                */
+        else
+        {
+            TheShip.WarpShip(transform.position);
+            Destroy(gameObject);
+        }
     }
 }

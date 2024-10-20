@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1596926858118003630, guid: f41d5e9de9f92a84fb6dba50faa43374, type: 3}
       propertyPath: m_Name
-      value: Morale
+      value: Morale Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5854442139233731974, guid: f41d5e9de9f92a84fb6dba50faa43374, type: 3}
       propertyPath: m_RootOrder
@@ -54,6 +54,14 @@ PrefabInstance:
     - target: {fileID: 5854442139233731974, guid: f41d5e9de9f92a84fb6dba50faa43374, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696846412345444253, guid: f41d5e9de9f92a84fb6dba50faa43374, type: 3}
+      propertyPath: IsRandom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696846412345444253, guid: f41d5e9de9f92a84fb6dba50faa43374, type: 3}
+      propertyPath: MoraleChange
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f41d5e9de9f92a84fb6dba50faa43374, type: 3}

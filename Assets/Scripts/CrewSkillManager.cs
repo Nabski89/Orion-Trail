@@ -43,6 +43,9 @@ public class CrewSkillManager : MonoBehaviour
     void SkillSafetyCheck()
     {
         if (SkillHolder[0] == null)
+        {
+            Debug.LogWarning("We have ended up in the skill saftey check script. Something has gone wrong.");
             SkillHolder = GetComponentsInChildren<CharacterSkillController>();
+        }
     }
 }
