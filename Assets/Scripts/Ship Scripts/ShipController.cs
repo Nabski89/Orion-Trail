@@ -29,7 +29,7 @@ public class ShipController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collided object has the EventLocation script
-        Debug.Log("TRIGGER with object with SOMETHING");
+        Debug.Log("TRIGGER with object with SOMETHING"+ other);
         EventLocation eventLocation = other.GetComponent<EventLocation>();
 
         if (eventLocation != null)

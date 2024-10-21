@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CombatCrewLocation : MonoBehaviour
+public class CombatCrewLocation : MonoBehaviour, IPointerClickHandler
 {
     public bool Filled;
     public int Rank;
@@ -35,5 +36,16 @@ public class CombatCrewLocation : MonoBehaviour
         Filled = false;
         CrewPicture.sprite = Blank;
         CrewInLocation = null;
+    }
+
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        // Check if the click is within the bounds of the visible sprite
+        if (RectTransformUtility.RectangleContainsScreenPoint(CrewPicture.rectTransform, eventData.position, eventData.pressEventCamera))
+        {
+            // Perform the button's action here
+            Debug.Log("Button clicked!");
+        }
     }
 }

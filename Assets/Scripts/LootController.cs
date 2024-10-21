@@ -11,6 +11,7 @@ public class LootController : MonoBehaviour
     // Start is called before the first frame update
     public void ActivateLooting()
     {
+        LootScreen.gameObject.SetActive(true);
         //clear the list
         foreach (Transform child in LootScreen)
         {

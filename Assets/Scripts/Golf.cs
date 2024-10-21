@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 
 public class Golf : MonoBehaviour
 {
-    DialogText DialogBox;
+    public DialogText DialogBox;
     //Used for picking our Range 
 
     //Used for picking our Distance 

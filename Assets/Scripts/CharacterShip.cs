@@ -24,35 +24,29 @@ public class CharacterShip : MonoBehaviour
         CustomCrew[] customCrews = FindObjectsOfType<CustomCrew>();
 
         // Loop through each CustomCrew instance
-        foreach (CustomCrew CrewToLoad in customCrews)
+        if (customCrews.Length > 0)
         {
-            Debug.Log("We found a crew");
-            // Check if the current instance is attached to the GameObject this script is on
-            if (CrewToLoad.gameObject != null)
-            {
-                Debug.Log("Remove the old crew");
-                // Destroy existing children
-                foreach (Transform child in transform)
-                    Destroy(child.gameObject);
-
-                // Instantiate copies of each game object in the Crew array
-                InstantiateCrewMembers(CrewToLoad.Crew);
-             //   Destroy(CrewToLoad.gameObject);
-            }
+            Debug.Log("We found a custom crew");
+            // Destroy existing children
+            foreach (Transform child in transform)
+                Destroy(child.gameObject);
+            // Instantiate copies of each game object in the Crew array
+            foreach (GameObject crewMemberPrefab in customCrews[0].Crew)
+                Instantiate(crewMemberPrefab, transform);
+            Destroy(customCrews[0]);
         }
+        else
+            Debug.Log("We did not find a custom crew");
+        Invoke("LoadTheCrewSkills", 0.1f);
+        Debug.Log("Ready the new crews skills");
+
     }
 
-    private void InstantiateCrewMembers(GameObject[] crew)
+    void LoadTheCrewSkills()
     {
-        // Instantiate copies of each game object in the Crew array as children
-        foreach (GameObject crewMemberPrefab in crew)
-        {
-            Instantiate(crewMemberPrefab, transform);
-        }
+        GetComponent<CrewSkillManager>().GetNewSkills();
+        GetComponentInParent<EventManager>().SetUpCharacters();
     }
-
-
-
     public void CrewHunger()
     {
         CharacterManager[] characterManagers = GetComponentsInChildren<CharacterManager>();

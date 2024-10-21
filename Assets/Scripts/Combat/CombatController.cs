@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class CombatController : MonoBehaviour
 {
+    public Image CombatBackground;
+    public Sprite[] CombatBackgrounds;
+    public int BackgroundSelectionNumber;
     LootController LootManager;
     private EventManager EventManager;
     public int[] CharAtkType;
@@ -82,6 +86,16 @@ public class CombatController : MonoBehaviour
     }
     IEnumerator SetUpScreen()
     {
+        //set our background to either a preset condition or a randomized thing
+        if (BackgroundSelectionNumber > -1)
+        {
+            CombatBackground.sprite = CombatBackgrounds[BackgroundSelectionNumber];
+            BackgroundSelectionNumber = -1;
+        }
+        else
+            CombatBackground.sprite = CombatBackgrounds[Random.Range(0, CombatBackgrounds.Length)];
+
+        //do the combat lockdown stuff
         yield return new WaitForSeconds(1);
         MinMaxScreen(1);
         CleanUpEnemyHP();
@@ -119,7 +133,7 @@ public class CombatController : MonoBehaviour
             Instantiate(Enemy[SetMeUp].EmptyHP, EnemyHPBarEmpty[SetMeUp].transform);
             yield return new WaitForSeconds(0.05f);
         }
-        for (int i = 0; i < Enemy[SetMeUp].HPAmount.Length && i < Enemy[SetMeUp].MaxHP; i++)
+        for (int i = 0; i < Enemy[SetMeUp].HP && i < Enemy[SetMeUp].MaxHP; i++)
         {
             Instantiate(Enemy[SetMeUp].HPAmount[i], EnemyHPBar[SetMeUp].transform);
             yield return new WaitForSeconds(0.1f);
@@ -130,7 +144,7 @@ public class CombatController : MonoBehaviour
     {
         //  if (EnemyHPBar.childCount == 0)
         {
-            TextBoxUI.TEXTBOX += "<br>" + Enemy[0].transform.name + "You Won The Fight";
+            TextBoxUI.TEXTBOX += "<br>" + Enemy[0].transform.name + " has been defeated.";
             Destroy(Enemy[0].transform.gameObject);
             MinMaxScreen(0);
             //TODO make enemies black on defeat again
@@ -141,13 +155,13 @@ public class CombatController : MonoBehaviour
             {
                 CrewList[i].GetComponent<CharacterCombatController>().EndCombat();
             }
-            LootManager.LootScreen.gameObject.SetActive(true);
-            LootManager.ActivateLooting();
+
             CombatStarted = false;
             foreach (CombatLockdown lockdown in CombatLockdowns)
             {
                 lockdown.UnLockdown();
             }
+            //    LootManager.ActivateLooting();
         }
     }
     public void EngageCombatRound(int Rank, int Bonus)
@@ -184,6 +198,7 @@ public class CombatController : MonoBehaviour
     {
         CombatOverlay.localScale = Vector3.one * Viewable;
     }
+    //check all our enemies to make sure they have no HP
     public void CheckEndCombat()
     {
         for (int i = 0; i < Enemy.Length; i++)
