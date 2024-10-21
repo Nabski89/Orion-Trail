@@ -115,6 +115,10 @@ PrefabInstance:
       propertyPath: CharacterPicture
       value: 
       objectReference: {fileID: 21300000, guid: ed8c2d65d402e794495b56a5da57db5e, type: 3}
+    - target: {fileID: 7997041192605215369, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8123585006920976685, guid: a6bd9ed89bd768b459afedd70b4db715, type: 3}
       propertyPath: m_Sprite
       value: 

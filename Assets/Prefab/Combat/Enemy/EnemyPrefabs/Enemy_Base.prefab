@@ -52,8 +52,9 @@ MonoBehaviour:
   EnemyNumber: 0
   HP: 5
   MaxHP: 5
-  EmptyHP: {fileID: 0}
-  HPAmount: []
+  EmptyHP: {fileID: 778043076864859225, guid: 37eaee8137b26764b99a4b5fca183591, type: 3}
+  HPAmount:
+  - {fileID: 778043076864859225, guid: cc85d28815056614b819fc34df92cbb2, type: 3}
   UnitSprite: {fileID: 0}
   enemyUI: {fileID: 0}
   HPBar: {fileID: 0}

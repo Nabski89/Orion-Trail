@@ -24,21 +24,19 @@ public class CharacterShip : MonoBehaviour
         CustomCrew[] customCrews = FindObjectsOfType<CustomCrew>();
 
         // Loop through each CustomCrew instance
-        foreach (CustomCrew CrewToLoad in customCrews)
+        if (customCrews.Length > 0)
         {
-            Debug.Log("We found a crew");
-            if (CrewToLoad.gameObject != null)
-            {
-                // Destroy existing children
-                foreach (Transform child in transform)
-                    Destroy(child.gameObject);
-
-                // Instantiate copies of each game object in the Crew array
-                foreach (GameObject crewMemberPrefab in CrewToLoad.Crew)
-                    Instantiate(crewMemberPrefab, transform);
-
-            }
+            Debug.Log("We found a custom crew");
+            // Destroy existing children
+            foreach (Transform child in transform)
+                Destroy(child.gameObject);
+            // Instantiate copies of each game object in the Crew array
+            foreach (GameObject crewMemberPrefab in customCrews[0].Crew)
+                Instantiate(crewMemberPrefab, transform);
+            Destroy(customCrews[0]);
         }
+        else
+            Debug.Log("We did not find a custom crew");
         Invoke("LoadTheCrewSkills", 0.1f);
         Debug.Log("Ready the new crews skills");
 
