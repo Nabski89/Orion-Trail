@@ -33,23 +33,30 @@ public class EnemyCombatScript : MonoBehaviour
     public Attacks[] Attack;
     public void GetAttacked(int IncomingDamage)
     {
-        while (IncomingDamage > 0)
-        {
-            IncomingDamage -= 1;
-            HP -= 1;
-            DestroyHP();
-        }
+        //     while (IncomingDamage > 0)
+        //   {
+        HP -= IncomingDamage;
+        UpdateHP();
+        // }
         if (HP < 1)
             Defeated();
     }
-    void DestroyHP()
+    //new HP update plan, clear out the entire thing every dang time and rebuild it
+    void UpdateHP()
     {
-        if (HPBar.GetChild(0) != null)
+        while (HPBar.childCount > 0)
         {
-            Debug.Log("Enemy number " + EnemyNumber + " was dealt damage which should remove a " + Controller.EnemyHPBar[EnemyNumber].GetChild(0).gameObject);
-            Transform child = HPBar.GetChild(0);
+            var child = HPBar.GetChild(0);
             child.SetParent(null);
             Destroy(child.gameObject);
+        }
+        //make sure we have some HP before we spawn anything or we will be stuck at 1
+        if (HP > 0)
+        {
+            for (int i = 0; i < HP; i++)
+            {
+                Instantiate(HPAmount[i], HPBar.transform);
+            }
         }
     }
     void Defeated()

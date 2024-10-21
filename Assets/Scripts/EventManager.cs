@@ -9,7 +9,6 @@ public class EventManager : MonoBehaviour
     public DialogText DialogBox;
     public Transform EventHolder;
     public Transform EventScreen;
-    public Transform Loot;
     public Transform Ship;
     CharacterBulkManager CharacterHolder;
     public EventActionButton[] ActionButtonArray;
@@ -117,14 +116,13 @@ public class EventManager : MonoBehaviour
     }
     public void EndEvent()
     {
-
-        //Clear Our Current Event
-        if (EventScreen.childCount > 0)
-            Destroy(EventScreen.GetChild(0).gameObject);
-        else
-            Debug.LogWarning("EventScreen not found or has no children.");
-        //  if (Events.childCount < 1 && Loot.childCount < 1)
-
+        //clear out everything in the event holder so we don't load it again later
+        while (EventHolder.childCount > 0)
+        {
+            var child = EventHolder.GetChild(0);
+            child.SetParent(null);
+            Destroy(child.gameObject);
+        }
         //enable our skill buttons
         SkillManager.EnableSkillButtons();
         ChangeEventButtonStatus(false);
@@ -133,8 +131,16 @@ public class EventManager : MonoBehaviour
 
         //see if we need to go into a combat
         if (GetComponentInChildren<EnemyCombatScript>() != null)
+        {
             GetComponent<CombatController>().InitiateCombat();
-
+        }
+        /*
+                else if
+                (GetComponentInChildren<Lootable>() != null)
+                {
+                    GetComponent<LootController>().ActivateLooting();
+                }
+        */
         //todo, do the same thing for loot
     }
 

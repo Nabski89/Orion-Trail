@@ -133,7 +133,7 @@ public class CombatController : MonoBehaviour
             Instantiate(Enemy[SetMeUp].EmptyHP, EnemyHPBarEmpty[SetMeUp].transform);
             yield return new WaitForSeconds(0.05f);
         }
-        for (int i = 0; i < Enemy[SetMeUp].HPAmount.Length && i < Enemy[SetMeUp].MaxHP; i++)
+        for (int i = 0; i < Enemy[SetMeUp].HP && i < Enemy[SetMeUp].MaxHP; i++)
         {
             Instantiate(Enemy[SetMeUp].HPAmount[i], EnemyHPBar[SetMeUp].transform);
             yield return new WaitForSeconds(0.1f);
@@ -155,12 +155,13 @@ public class CombatController : MonoBehaviour
             {
                 CrewList[i].GetComponent<CharacterCombatController>().EndCombat();
             }
-            LootManager.ActivateLooting();
+
             CombatStarted = false;
             foreach (CombatLockdown lockdown in CombatLockdowns)
             {
                 lockdown.UnLockdown();
             }
+            //    LootManager.ActivateLooting();
         }
     }
     public void EngageCombatRound(int Rank, int Bonus)
@@ -197,6 +198,7 @@ public class CombatController : MonoBehaviour
     {
         CombatOverlay.localScale = Vector3.one * Viewable;
     }
+    //check all our enemies to make sure they have no HP
     public void CheckEndCombat()
     {
         for (int i = 0; i < Enemy.Length; i++)
