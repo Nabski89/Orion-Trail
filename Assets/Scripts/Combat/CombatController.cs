@@ -161,7 +161,7 @@ public class CombatController : MonoBehaviour
             {
                 lockdown.UnLockdown();
             }
-            //    LootManager.ActivateLooting();
+            LootManager.ActivateLooting();
         }
     }
     public void EngageCombatRound(int Rank, int Bonus)

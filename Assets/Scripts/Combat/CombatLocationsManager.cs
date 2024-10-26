@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 public class CombatLocationsManager : MonoBehaviour
 {
     public CombatCrewLocation[] Location;
     public CombatEnemyLocation[] EnemyLocation;
     public Color[] EnemyLocationHighlights;
+    public int Movements;
+    public TextMeshProUGUI MovementText;
     // Update is called once per frame
     public void ClearOutForNewCombat()
     {
+        //update our UI text
+        MovementText.text = Movements.ToString();
+        //move out all previous crew and enemies
         for (int i = 0; i < Location.Length; i++)
         {
             Location[i].Filled = false;
@@ -78,8 +85,14 @@ public class CombatLocationsManager : MonoBehaviour
         }
         return null;
     }
+    public void CheckIfStoreMove()
+    {
+        Movements -= 1;
+        MovementText.text = Movements.ToString();
+    }
     public void MoveToEmpty(CombatCrewLocation CrewHere)
     {
+        CheckIfStoreMove();
         CombatCrewLocation EmptySpot = null;
         //find our empty spot
         for (int i = 0; i < Location.Length; i++)
@@ -99,6 +112,7 @@ public class CombatLocationsManager : MonoBehaviour
     //same as above except the last line
     public void MoveEnemyToEmpty(CombatEnemyLocation EnemyHere)
     {
+        CheckIfStoreMove();
         if (EnemyHere.EnemyInLocation == null)
             Debug.LogWarning("Tried to move an enemy without an enemy actually in the location");
         else
