@@ -45,29 +45,9 @@ public class EnemyAttack : MonoBehaviour
     void DamageCharacter(int location, int DamageAmount)
     {
         int HitSpot = 2 * location + Random.Range(0, 2);
-
+        Debug.Log("The Spot we are trying to hit is " + HitSpot);
         if (CrewLayout.Location[HitSpot].CrewInLocation != null)
             CrewLayout.Location[HitSpot].CrewInLocation.HP -= DamageAmount;
-        else
-        {
-            if (IsEven(HitSpot))
-            {
-                HitSpot += 1;
-                if (CrewLayout.Location[HitSpot].CrewInLocation != null)
-                    CrewLayout.Location[HitSpot].CrewInLocation.HP -= DamageAmount;
-                else
-                    MoveOnToNextRank(location, DamageAmount);
-            }
-            else
-            {
-                HitSpot -= 1;
-                if (CrewLayout.Location[HitSpot].CrewInLocation != null)
-                    CrewLayout.Location[HitSpot].CrewInLocation.HP -= DamageAmount;
-                else
-                    MoveOnToNextRank(location, DamageAmount);
-
-            }
-        }
         StartCoroutine(FlashColor(CrewLayout.Location[location].transform));
     }
     IEnumerator FlashColor(Transform Element)
@@ -90,7 +70,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (location < 2)
         {
-            DamageCharacter(location+1, DamageAmount);
+            DamageCharacter(location + 1, DamageAmount);
         }
         else
         {
