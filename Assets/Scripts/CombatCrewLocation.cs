@@ -11,10 +11,6 @@ public class CombatCrewLocation : MonoBehaviour, IPointerClickHandler
     public Sprite Blank;
     public CharacterManager CrewInLocation;
     public Image CrewPicture;
-    void Start()
-    {
-        CrewPicture = GetComponent<Image>();
-    }
     public void FillIn(CharacterManager crewInLocation)
     {
         CrewInLocation = crewInLocation;

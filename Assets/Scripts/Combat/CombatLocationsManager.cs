@@ -93,12 +93,10 @@ public class CombatLocationsManager : MonoBehaviour
     public void MoveToEmpty(CombatCrewLocation CrewHere)
     {
         CheckIfStoreMove();
-        CombatCrewLocation EmptySpot = null;
+
         //find our empty spot
-        for (int i = 0; i < Location.Length; i++)
-            if (Location[i].CrewInLocation == false)
-                EmptySpot = Location[i];
-        //get empty out the old slot
+        CombatCrewLocation EmptySpot = GetRandomUnfilledLocation();
+        //empty out the old slot
         EmptySpot.FillInDelayed(CrewHere.CrewInLocation);
         //spawn the moving object and change the picture to who is moving in
         GameObject CrewMover = Instantiate(MoveableObject, CrewHere.transform.localPosition, Quaternion.identity, transform);
@@ -144,8 +142,12 @@ public class CombatLocationsManager : MonoBehaviour
             yield return null;
         }
         // Ensure the final location and clear the sprite
+        //I don't remember if this is for both crew and enemies so we are doing double duty with a check
         ToMove.localPosition = FinalPosition;
-        ToMove.GetComponent<Image>().sprite = Blank;
+        if (GetComponent<CombatCrewLocation>() != false)
+            ToMove.GetComponent<CombatCrewLocation>().CrewPicture.sprite = Blank;
+        else
+            ToMove.GetComponent<Image>().sprite = Blank;
         Destroy(ToMove.gameObject);
     }
     public void AttackEnemy(int Rank, int Bonus)

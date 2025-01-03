@@ -31,6 +31,7 @@ public class SlotMachineRoll : MonoBehaviour
     }
     public void StartRouletteButton()
     {
+        GetComponentInParent<SlotMachineManager>().DisableSelectedHighlight();
         StartCoroutine(SpinningSlots());
     }
     public void StopRouletteButton(float Delay)
@@ -88,7 +89,5 @@ public class SlotMachineRoll : MonoBehaviour
             transform.GetChild(0).SetAsLastSibling();
             SlotWheel.anchoredPosition = newPosition;
         }
-
-
     }
 }

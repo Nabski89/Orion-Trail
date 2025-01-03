@@ -5,6 +5,8 @@ using TMPro;
 
 public class EnemyUI : MonoBehaviour
 {
+    public EnemyCombatScript CombatScript;
+
     public ShuffleChildren AttackSelectorHolder;
     public Transform AttackHolder;
     public DialogText TextBoxUI;
@@ -14,6 +16,7 @@ public class EnemyUI : MonoBehaviour
     }
     public void PopulateAttacks(EnemyCombatScript Enemy)
     {
+        CombatScript = Enemy;
         //spawn all our attacks
         int index = 0;
         while (index < Enemy.Attack.Length)
@@ -57,17 +60,17 @@ public class EnemyUI : MonoBehaviour
         // Loop through each AttackActive component in the array
         for (int i = 0; i < AttackSelectorHolder.ActiveCheck.Length; i++)
         {
-        //    Debug.Log("Time to check if " + i + " is active.");
+            //    Debug.Log("Time to check if " + i + " is active.");
             // Check if the Active property is set to true
             if (AttackSelectorHolder.ActiveCheck[i].Active == true)
             {
-               Transform NewThing = Instantiate(AttackHolder.GetChild(i), transform);
-               NewThing.GetComponent<EnemyAttack>().enabled = true;
-               NewThing.GetComponent<AudioSource>().enabled = true;
-          //      Debug.Log("AttackActive at index " + i + " is active.");
-                TextBoxUI.TEXTBOX += "<br>COSMIC BLAST FROM "+ transform.name;
+                Transform NewThing = Instantiate(AttackHolder.GetChild(i), transform);
+                NewThing.GetComponent<EnemyAttack>().CombatScript = CombatScript;
+                NewThing.GetComponent<EnemyAttack>().enabled = true;
+                NewThing.GetComponent<AudioSource>().enabled = true;
+                //      Debug.Log("AttackActive at index " + i + " is active.");
+                TextBoxUI.TEXTBOX += "<br>COSMIC BLAST FROM " + transform.name;
                 //Enemy[i].transform.name + " " + Enemy[i].Attack[randomIndex].AttackText + " for " + AttackAmount + " damage and blocks " + BlockAmount;
-
             }
         }
         //randomize the next attack

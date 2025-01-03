@@ -109,7 +109,7 @@ public class SlotMachineManager : MonoBehaviour
             if (DamageCount[HitMe] == 5)
                 genericManager.MainTextReference.TEXTBOX += " 2 Bonus";
 
-                //initiate an attack hitting a RANK for some bonus damage
+            //initiate an attack hitting a RANK for some bonus damage
             combatController.EngageCombatRound(HitMe, Mathf.Max(0, DamageCount[HitMe] - 3));
         }
     }
@@ -118,6 +118,15 @@ public class SlotMachineManager : MonoBehaviour
         for (int i = 0; i < slotMachineRolls.Length; i++)
         {
             CharUI[i].textMeshPro.text = characterManagers[i].HP.ToString();
+        }
+    }
+    public void DisableSelectedHighlight()
+    {
+        SlotValue[] slotValues = GetComponentsInChildren<SlotValue>();
+        foreach (SlotValue slotValue in slotValues)
+        {
+            if (slotValue.SelectedOutline != null)
+                slotValue.SelectedOutline.gameObject.SetActive(false);
         }
     }
 }
