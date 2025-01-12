@@ -24,4 +24,7 @@ public class BlackHole : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+
+    
 }

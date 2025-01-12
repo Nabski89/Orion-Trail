@@ -11,6 +11,46 @@ PrefabInstance:
       propertyPath: Subevent1
       value: 
       objectReference: {fileID: 3646817120629541474}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: PossibleResponses.Array.data[0].Dialog
+      value: Lets start a fight
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: PossibleResponses.Array.data[1].Dialog
+      value: Lets start a fight
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: PossibleResponses.Array.data[2].Dialog
+      value: Lets start a fight
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: PossibleResponses.Array.data[3].Dialog
+      value: Lets start a fight
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: PossibleResponses.Array.data[4].Dialog
+      value: Lets start a fight
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: PossibleResponses.Array.data[0].ActionText
+      value: FIGHT
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: PossibleResponses.Array.data[1].ActionText
+      value: FIGHT
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: PossibleResponses.Array.data[2].ActionText
+      value: FIGHT
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: PossibleResponses.Array.data[3].ActionText
+      value: FIGHT
+      objectReference: {fileID: 0}
+    - target: {fileID: 106168357562645771, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
+      propertyPath: PossibleResponses.Array.data[4].ActionText
+      value: FIGHT
+      objectReference: {fileID: 0}
     - target: {fileID: 2230521034978849947, guid: 35964d5b71e718b4bb84bb49a445bb23, type: 3}
       propertyPath: m_IsActive
       value: 0

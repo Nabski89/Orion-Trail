@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class EnemyUI : MonoBehaviour
@@ -10,12 +11,31 @@ public class EnemyUI : MonoBehaviour
     public ShuffleChildren AttackSelectorHolder;
     public Transform AttackHolder;
     public DialogText TextBoxUI;
+    public Slider progressBar; // Reference to the UI Slider
+    public float AbilityCooldown;
+    public float AbilityCooldownRemaining;
     void Start()
     {
         AttackSelectorHolder = GetComponentInChildren<ShuffleChildren>();
+
+        progressBar.maxValue = AbilityCooldown;
+        progressBar.value = AbilityCooldown;
+        AbilityCooldownRemaining = AbilityCooldown;
+    }
+    void Update()
+    {
+        UpdateAttackCooldown();
+    }
+    public void UpdateAttackCooldown()
+    {
+        if (AbilityCooldown != 0)
+            progressBar.value = AbilityCooldownRemaining;
+        //   canvasElement.anchoredPosition = startPosition;
     }
     public void PopulateAttacks(EnemyCombatScript Enemy)
     {
+        //set our ability cooldown to a random thing so everyone doesn't go at once
+        AbilityCooldown = Random.Range(0, 5);
         CombatScript = Enemy;
         //spawn all our attacks
         int index = 0;
@@ -52,6 +72,14 @@ public class EnemyUI : MonoBehaviour
 
     public void Attack()
     {
+        // Cooldown is complete, you can trigger other actions here 
+        // Reset cooldown for with a little wiggle
+        progressBar.maxValue = AbilityCooldown;
+        AbilityCooldownRemaining = AbilityCooldown + Random.Range(-1.1f, 1.1f);
+        progressBar.value = AbilityCooldownRemaining;
+
+
+
         Atk = 0;
         Block = 0;
         //reset that array so it doesn't just say the default ones
@@ -64,7 +92,14 @@ public class EnemyUI : MonoBehaviour
             // Check if the Active property is set to true
             if (AttackSelectorHolder.ActiveCheck[i].Active == true)
             {
-                Transform NewThing = Instantiate(AttackHolder.GetChild(i), transform);
+                //Enemies should have 5 attacks. If you are seeing an error here it's probably because you don't have something in the fifth slot. I think
+                Transform NewThing = null;
+                if (AttackHolder.GetChild(i) != null)
+                {
+                    NewThing = Instantiate(AttackHolder.GetChild(i), transform);
+                }
+                else
+                    Debug.LogWarning("Tried to attack but there was no attack in the slot");
                 NewThing.GetComponent<EnemyAttack>().CombatScript = CombatScript;
                 NewThing.GetComponent<EnemyAttack>().enabled = true;
                 NewThing.GetComponent<AudioSource>().enabled = true;

@@ -40,7 +40,10 @@ public class CombatController : MonoBehaviour
     {
         if (Enemy != null && CombatStarted == true)
         {
-            //       EndCombat();
+            //the enemies attack
+            StartCoroutine(EnemyAttack());
+            //Damage Over Time Abilities
+            StartCoroutine(TriggerDoTEffects());
         }
     }
     public SlotMachineManager slotMachineManager;
@@ -170,12 +173,12 @@ public class CombatController : MonoBehaviour
         Debug.Log("Crew is Attacking Rank: " + Rank + " for " + Bonus);
         //the crew attacks
         CrewLayout.AttackEnemy(Rank, Bonus);
-        //the enemies attack
-        StartCoroutine(EnemyAttack());
     }
+    //cycle through each enemy we have
+    //lower their attack timer
+    //attack if ready
     IEnumerator EnemyAttack()
     {
-        yield return new WaitForSeconds(.25f);
         // Debug.Log("How Many Enemy " + EnemyUI.Length);
         for (int i = 0; i < EnemyUI.Length; i++)
         {
@@ -183,11 +186,24 @@ public class CombatController : MonoBehaviour
             if (EnemyUI[i].isActiveAndEnabled)
             {
                 Enemy[i].enemyUI = EnemyHPBarEmpty[i].GetComponentInParent<EnemyUI>();
-                EnemyUI[i].Attack();
+                EnemyUI[i].AbilityCooldownRemaining -= Time.deltaTime;
+                if (EnemyUI[i].AbilityCooldownRemaining < 0)
+                    EnemyUI[i].Attack();
                 slotMachineManager.UpdateHP();
-                yield return new WaitForSeconds(.25f);
             }
-            yield return new WaitForSeconds(.50f);
+        }
+        yield return null;
+    }
+    public float DOTCooldown = 3;
+    public float DOTCooldownBase = 3;
+    public Transform DOTPulse;
+    IEnumerator TriggerDoTEffects()
+    {
+        DOTCooldown -= Time.deltaTime;
+        if (DOTCooldown < 0)
+        {
+            Debug.Log("TriggerDoTEffects");
+            DOTCooldown += DOTCooldownBase;
         }
         yield return null;
     }
