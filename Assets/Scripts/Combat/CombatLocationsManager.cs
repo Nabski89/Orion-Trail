@@ -6,12 +6,16 @@ using TMPro;
 
 public class CombatLocationsManager : MonoBehaviour
 {
+    public CombatController CombatController;
     public CombatCrewLocation[] Location;
     public CombatEnemyLocation[] EnemyLocation;
     public Color[] EnemyLocationHighlights;
     public int Movements;
     public TextMeshProUGUI MovementText;
-    // Update is called once per frame
+    void Start()
+    {
+        CombatController = GetComponentInParent<CombatController>();
+    }
     public void ClearOutForNewCombat()
     {
         //update our UI text
@@ -87,24 +91,28 @@ public class CombatLocationsManager : MonoBehaviour
     }
     public void CheckIfStoreMove()
     {
+        //increment our timer up by 1 second when we try to move
+        CombatController.RealTimeTimer += 1;
         Movements -= 1;
         MovementText.text = Movements.ToString();
     }
     public void MoveToEmpty(CombatCrewLocation CrewHere)
     {
-        CheckIfStoreMove();
-
-        //find our empty spot
-        CombatCrewLocation EmptySpot = GetRandomUnfilledLocation();
-        //empty out the old slot
-        EmptySpot.FillInDelayed(CrewHere.CrewInLocation);
-        //spawn the moving object and change the picture to who is moving in
-        GameObject CrewMover = Instantiate(MoveableObject, CrewHere.transform.localPosition, Quaternion.identity, transform);
-        CrewMover.GetComponent<Image>().sprite = CrewHere.CrewInLocation.CharacterPicture;
-        //move out the old picture
-        CrewHere.MoveOut();
-        //start the actual moving section
-        StartCoroutine(Move(CrewHere.transform.localPosition, EmptySpot.transform.localPosition, CrewMover.GetComponent<RectTransform>()));
+        if (CrewHere.Filled == true)
+        {
+            CheckIfStoreMove();
+            //find our empty spot
+            CombatCrewLocation EmptySpot = GetRandomUnfilledLocation();
+            //empty out the old slot
+            EmptySpot.FillInDelayed(CrewHere.CrewInLocation);
+            //spawn the moving object and change the picture to who is moving in
+            GameObject CrewMover = Instantiate(MoveableObject, CrewHere.transform.localPosition, Quaternion.identity, transform);
+            CrewMover.GetComponent<Image>().sprite = CrewHere.CrewInLocation.CharacterPicture;
+            //move out the old picture
+            CrewHere.MoveOut();
+            //start the actual moving section
+            StartCoroutine(Move(CrewHere.transform.localPosition, EmptySpot.transform.localPosition, CrewMover.GetComponent<RectTransform>()));
+        }
     }
     //currently this is triggered by a button when you click on an enemy
     //same as above except the last line

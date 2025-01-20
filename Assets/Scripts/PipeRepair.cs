@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PipeRepair : MonoBehaviour
 {
     public Sprite[] PipeImage;
+    public Sprite[] PipeImageFacingDown;
+    public Sprite[] BrokenPipe;
     public Pipes[] ShipPart;
     [System.Serializable]
     public class Pipes
@@ -38,12 +40,12 @@ public class PipeRepair : MonoBehaviour
         {
             //Distance between the two pipes, if the number is negative the scale is negative so the part is flipped
             int PipeDistance = Mathf.RoundToInt(ShipPart[i].Pipe.anchoredPosition.y - ShipPart[i + 1].Pipe.anchoredPosition.y);
-            if (PipeDistance > 0)
-                ShipPart[i].Pipe.localScale = new Vector3(1, -1, 1);
+            if (PipeDistance < 0)
+                ShipPart[i].Pipe.GetComponent<Image>().sprite = PipeImage[Mathf.Abs(PipeDistance)];
             else
-                ShipPart[i].Pipe.localScale = Vector3.one;
+                ShipPart[i].Pipe.GetComponent<Image>().sprite = PipeImageFacingDown[Mathf.Abs(PipeDistance)];
 
-            ShipPart[i].Pipe.GetComponent<Image>().sprite = PipeImage[Mathf.Abs(PipeDistance)];
+
 
             //turn on the other end of the pipe
             Transform PipeChild = ShipPart[i].Pipe.transform.GetChild(0);

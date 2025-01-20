@@ -20,6 +20,7 @@ public class CombatController : MonoBehaviour
     public CharacterManager[] CrewList;
     public CombatLockdown[] CombatLockdowns;
     public CombatLocationsManager CrewLayout;
+    public float RealTimeTimer;
     void Start()
     {
         CrewLayout = GetComponentInChildren<CombatLocationsManager>(true);
@@ -38,10 +39,12 @@ public class CombatController : MonoBehaviour
     bool CombatStarted = false;
     void Update()
     {
-        if (Enemy != null && CombatStarted == true)
+        if (Enemy != null && CombatStarted == true && RealTimeTimer > 0)
         {
+            //this timer activates when actions are or aren't ready
+            RealTimeTimer -= Time.deltaTime;
             //the enemies attack
-            StartCoroutine(EnemyAttack());
+            EnemyAttack();
             //Damage Over Time Abilities
             StartCoroutine(TriggerDoTEffects());
         }
@@ -51,6 +54,7 @@ public class CombatController : MonoBehaviour
     {
         if (CombatStarted == false)
         {
+            RealTimeTimer = 0.1f;
             CombatStarted = true;
             //set up the crew
             CrewList = Crew.GetComponentsInChildren<CharacterManager>();
@@ -177,14 +181,15 @@ public class CombatController : MonoBehaviour
     //cycle through each enemy we have
     //lower their attack timer
     //attack if ready
-    IEnumerator EnemyAttack()
+    void EnemyAttack()
     {
         // Debug.Log("How Many Enemy " + EnemyUI.Length);
         for (int i = 0; i < EnemyUI.Length; i++)
         {
-            //      Debug.Log("Time for Enemy # " + i);
+                  Debug.Log("Time for Enemy # " + i);
             if (EnemyUI[i].isActiveAndEnabled)
             {
+                EnemyUI[i].UpdateAttackCooldown();
                 Enemy[i].enemyUI = EnemyHPBarEmpty[i].GetComponentInParent<EnemyUI>();
                 EnemyUI[i].AbilityCooldownRemaining -= Time.deltaTime;
                 if (EnemyUI[i].AbilityCooldownRemaining < 0)
@@ -192,7 +197,6 @@ public class CombatController : MonoBehaviour
                 slotMachineManager.UpdateHP();
             }
         }
-        yield return null;
     }
     public float DOTCooldown = 3;
     public float DOTCooldownBase = 3;

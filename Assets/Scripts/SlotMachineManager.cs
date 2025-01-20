@@ -19,10 +19,15 @@ public class SlotMachineManager : MonoBehaviour
         slotMachineRolls = GetComponentsInChildren<SlotMachineRoll>();
         CharUI = GetComponentsInChildren<CharCombUI>();
     }
+    void Update()
+    {
+        StopRoll();
+    }
     public CharacterBulkManager CrewShipReference;
     CharacterManager[] characterManagers;
     public void ActivateSlots()
     {
+
         characterManagers = CrewShipReference.GetComponentsInChildren<CharacterManager>();
         // Perform an action for each element in the array
         for (int i = 0; i < slotMachineRolls.Length; i++)
@@ -39,6 +44,8 @@ public class SlotMachineManager : MonoBehaviour
     {
         if (Selectable == 0)
         {
+            //every time we roll costs at least a second
+            combatController.RealTimeTimer += 1f;
             //reset our attack values
             Atk = 0;
             Block = 0;
@@ -49,17 +56,21 @@ public class SlotMachineManager : MonoBehaviour
     }
     public void StopRoll()
     {
-        //hacky way to make sure it is spinning
-        if (slotMachineRolls[0].rollSpeed > 0)
+        //if we are back to paused time then we can stop the slot machine
+        if (combatController.RealTimeTimer < 0.1f)
         {
-            float delay = 0;
-            foreach (SlotMachineRoll roll in slotMachineRolls)
+            //hacky way to make sure it is spinning
+            if (slotMachineRolls[0].rollSpeed > 0)
             {
-                delay += 0.25f;
-                roll.StopRouletteButton(delay);
+                float delay = 0;
+                foreach (SlotMachineRoll roll in slotMachineRolls)
+                {
+                    delay += 0.25f;
+                    roll.StopRouletteButton(delay);
+                }
+                //make it so we can actually attack
+                Selectable = 1;
             }
-            //make it so we can actually attack
-            Selectable = 1;
         }
     }
     public int Atk;
@@ -80,9 +91,13 @@ public class SlotMachineManager : MonoBehaviour
         if (Selectable > 0)
         {
             Selectable -= 1;
+
+            //cycle through each of our things in the selected slot and activate them
             foreach (SlotMachineRoll SlotCharacter in slotMachineRolls)
             {
                 SlotValue Slot = SlotCharacter.transform.GetChild(Selected).GetComponent<SlotValue>();
+                //increase the timer
+                combatController.RealTimeTimer += Slot.Cooldown;
                 Atk += Slot.Attack;
                 Block += Slot.Block;
                 Special += Slot.Buff;

@@ -11,6 +11,7 @@ public class SlotValue : MonoBehaviour
     public bool Rank1;
     public bool Rank2;
     public bool Rank3;
+    public float Cooldown;
 
     public GameObject SelectedOutline;
     public void SlotHighlight()

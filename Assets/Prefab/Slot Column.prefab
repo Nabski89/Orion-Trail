@@ -250,6 +250,7 @@ MonoBehaviour:
   Rank1: 0
   Rank2: 1
   Rank3: 0
+  Cooldown: 0.5
   SelectedOutline: {fileID: 8135529930438090266}
 --- !u!114 &3566155778783056921
 MonoBehaviour:
@@ -378,6 +379,7 @@ MonoBehaviour:
   Rank1: 1
   Rank2: 0
   Rank3: 0
+  Cooldown: 0.25
   SelectedOutline: {fileID: 1788668266767126292}
 --- !u!114 &4385825220718849766
 MonoBehaviour:
@@ -506,6 +508,7 @@ MonoBehaviour:
   Rank1: 0
   Rank2: 1
   Rank3: 0
+  Cooldown: 1
   SelectedOutline: {fileID: 80258952042310281}
 --- !u!114 &4459999048136762351
 MonoBehaviour:
@@ -634,6 +637,7 @@ MonoBehaviour:
   Rank1: 0
   Rank2: 0
   Rank3: 1
+  Cooldown: 1.5
   SelectedOutline: {fileID: 7201012929086619162}
 --- !u!114 &5718214390229064351
 MonoBehaviour:
@@ -762,6 +766,7 @@ MonoBehaviour:
   Rank1: 1
   Rank2: 0
   Rank3: 0
+  Cooldown: 1.5
   SelectedOutline: {fileID: 1428889714035065995}
 --- !u!114 &6212263298840699632
 MonoBehaviour:
@@ -1750,6 +1755,7 @@ MonoBehaviour:
   Rank1: 1
   Rank2: 0
   Rank3: 0
+  Cooldown: 0.5
   SelectedOutline: {fileID: 6052717101665099379}
 --- !u!114 &9188096208561994225
 MonoBehaviour:

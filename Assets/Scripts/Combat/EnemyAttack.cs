@@ -9,6 +9,7 @@ public class EnemyAttack : MonoBehaviour
     public EnemyCombatScript CombatScript;
     public int Rank;
     public GameObject AttackEffect;
+    public GameObject AttackEffectMiss;
     public int DamageAmount;
 
     CombatLocationsManager CrewLayout;
@@ -69,15 +70,21 @@ public class EnemyAttack : MonoBehaviour
     //if there is still no one in that one then we go onto the next rank, trying it again
     IEnumerator DamageCharacter(int location, int DamageAmount)
     {
-        GameObject UIEffect = Instantiate(AttackEffect, CombatScript.Location.transform.position, Quaternion.identity);
-        UIEffect.GetComponent<AttackUIEffect>().startPosition = CombatScript.Location.transform.position;
-
-
-        UIEffect.GetComponent<AttackUIEffect>().endPosition = CrewLayout.Location[location].transform.position;
-
         Debug.Log("The Spot we are trying to hit is " + location);
+        //spawn a different effect depending on if we hit or miss
         if (CrewLayout.Location[location].CrewInLocation != null)
+        {
             CrewLayout.Location[location].CrewInLocation.HP -= DamageAmount;
+            GameObject UIEffect = Instantiate(AttackEffect, CombatScript.Location.transform.position, Quaternion.identity);
+            UIEffect.GetComponent<AttackUIEffect>().startPosition = CombatScript.Location.transform.position;
+            UIEffect.GetComponent<AttackUIEffect>().endPosition = CrewLayout.Location[location].transform.position;
+        }
+        else
+        {
+            GameObject UIEffect = Instantiate(AttackEffectMiss, CombatScript.Location.transform.position, Quaternion.identity);
+            UIEffect.GetComponent<AttackUIEffect>().startPosition = CombatScript.Location.transform.position;
+            UIEffect.GetComponent<AttackUIEffect>().endPosition = CrewLayout.Location[location].transform.position;
+        }
         StartCoroutine(FlashColor(CrewLayout.Location[location].transform));
         yield return null;
     }

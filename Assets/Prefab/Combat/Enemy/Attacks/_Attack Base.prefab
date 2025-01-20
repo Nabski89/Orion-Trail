@@ -99,6 +99,8 @@ MonoBehaviour:
   Rank1: 1
   Rank2: 0
   Rank3: 0
+  Cooldown: 3
+  SelectedOutline: {fileID: 0}
 --- !u!114 &8744379110548226079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +116,7 @@ MonoBehaviour:
   CombatScript: {fileID: 0}
   Rank: 0
   AttackEffect: {fileID: 2205974557800148272, guid: 4ec2a2f9bb578344696c3f35ac6bcf15, type: 3}
+  AttackEffectMiss: {fileID: 5116298092015392692, guid: f51f4dc873045d145ae3369cefdd3c53, type: 3}
   DamageAmount: 1
 --- !u!82 &241623311437338843
 AudioSource:
