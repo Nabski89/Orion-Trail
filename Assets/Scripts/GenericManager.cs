@@ -9,4 +9,5 @@ public class GenericManager : MonoBehaviour
     public Transform CombatLog;
     public Golf GolfReference;
     public PopupUI MouseOver;
+    public Compass CompassReference;
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6765005039022979789}
   - component: {fileID: 3016205951162469394}
   m_Layer: 0
-  m_Name: Map
+  m_Name: _Base Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,6 +54,10 @@ MonoBehaviour:
   - The ship creaks as you enter a new solar system.
   - You've once again traveled through the empty vastness of space to a uncharted
     solar system. Should have brought the maps with.
+  SpecialHazard: []
+  SpecialPlanet: []
+  EliteEnemies: []
+  BossEnemies: []
 --- !u!70 &6765005039022979789
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -101,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5926581790735344157}
   - component: {fileID: 5926581790735344156}
+  - component: {fileID: 6200703187643769315}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -175,6 +180,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6200703187643769315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926581790735344154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92854d21353a9f8449318609664bfcdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5926581790879054947
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5926581791148482871}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Map Edge Beacons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,6 +811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5926581791577500899}
   - component: {fileID: 5926581791577500898}
+  - component: {fileID: 419170916434843578}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -868,6 +886,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &419170916434843578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926581791577500896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92854d21353a9f8449318609664bfcdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5926581791653937367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,7 +1033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5926581791738002174}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Map Edge Beacons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1184,7 +1214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5926581791887746929}
   m_Layer: 0
-  m_Name: GameObject (3)
+  m_Name: Map Edge Beacons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1372,6 +1402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5926581792415157933}
   - component: {fileID: 5926581792415157932}
+  - component: {fileID: 2503041452114476735}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -1447,6 +1478,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2503041452114476735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926581792415157930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92854d21353a9f8449318609664bfcdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5926581792478198435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,7 +1500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5926581792478198434}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: Map Edge Beacons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1504,6 +1547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5926581792509785849}
   - component: {fileID: 5926581792509785848}
+  - component: {fileID: 733410292486550088}
   m_Layer: 0
   m_Name: Planet (1)
   m_TagString: Untagged
@@ -1578,6 +1622,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &733410292486550088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926581792509785830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92854d21353a9f8449318609664bfcdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5926581792544134052
 GameObject:
   m_ObjectHideFlags: 0

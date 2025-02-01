@@ -36,15 +36,12 @@ public class Golf : MonoBehaviour
         switch (ReadyStage)
         {
             case 1:
-                Selected();
-                break;
-            case 2:
                 Aimed();
                 break;
-            case 3:
+            case 2:
                 Fueled();
                 break;
-            case 4:
+            case 3:
                 Launched();
                 break;
             default:
@@ -54,6 +51,9 @@ public class Golf : MonoBehaviour
     }
     public void StartGolf()
     {
+        //enable the ability to select our probe
+        SelectProbeMinus.SetActive(true);
+        SelectProbePlus.SetActive(true);
         TriggerButton.SetActive(true);
         DialogBox.TEXTBOX = "Preparing ship for warp. Selecting targeting probe driver.";
         DialogBox.NewText();
@@ -66,16 +66,20 @@ public class Golf : MonoBehaviour
         for (int i = FuelTankParent.transform.childCount - 1; i >= 0; i--)
             Destroy(FuelTankParent.transform.GetChild(i).gameObject);
     }
+    public GameObject SelectProbeMinus;
+    public GameObject SelectProbePlus;
     public GameObject PreviewLine;
     public GameObject RotatePointerUp;
     public GameObject RotatePointerDown;
-    void Selected()
+    //this is called from the MovePutterSelect script
+    public void Selected()
     {
+        //
         customDirections = FindObjectsOfType<GOLFDirection>();
-        if (customDirections[0] != null)
+        if (customDirections.Length > 0)
         {
             DialogBox.TEXTBOX += "\nProbe locked in. Ready to select Target Orientation. ";
-            ReadyStage = 2;
+
             StageLights[1].SetActive(true);
             StageLights[2].SetActive(true);
             PreviewLine.SetActive(true);
@@ -84,35 +88,51 @@ public class Golf : MonoBehaviour
             RotatePointerUp.SetActive(true);
             RotatePointerDown.SetActive(true);
         }
+        else
+        {
+            DialogBox.TEXTBOX += "\nInvalid Probe Selected.";
+            //     PreviewLine.transform.localScale = new Vector3(0, 1, 1);
+            PreviewLine.SetActive(false);
+            StageLights[0].SetActive(true);
+            StageLights[1].SetActive(false);
+            RotatePointerUp.SetActive(false);
+            RotatePointerDown.SetActive(false);
+        }
     }
     void Aimed()
     {
-        RotatePointerUp.SetActive(false);
-        RotatePointerDown.SetActive(false);
-        StageLights[3].SetActive(true);
-        StageLights[4].SetActive(true);
-        DialogBox.TEXTBOX += "\nTarget Orientation locked in. Begin Fueling Procedures. ";
-        ReadyStage = 3;
-
-
-        FuelAmount = 0;
-        foreach (GOLFDirection Direction in customDirections)
+        if (StageLights[1].activeSelf == false)
+            DialogBox.TEXTBOX += "Invalid Probe Selected. Select A Valid Probe To Continue.";
+        else
         {
-            //this is where we spawn the fuel tanks
+            SelectProbeMinus.SetActive(false);
+            SelectProbePlus.SetActive(false);
+            RotatePointerUp.SetActive(false);
+            RotatePointerDown.SetActive(false);
+            StageLights[3].SetActive(true);
+            StageLights[4].SetActive(true);
+            DialogBox.TEXTBOX += "\nTarget Orientation locked in. Begin Fueling Procedures. ";
+            ReadyStage = 2;
 
-            if (TheSupplies.Fuel > 0)
+
+            FuelAmount = 0;
+            foreach (GOLFDirection Direction in customDirections)
             {
-                FuelAmount += 1;
-                Debug.Log("Spawn a fuel tank");
-                GameObject SpawnedTank = Instantiate(FuelTankSpawn, FuelTankParent);
-                SpawnedTank.GetComponent<FuelBar>().DirectionReference = Direction;
-                //todo figure out why this isn't spawning
-                TheSupplies.SubtractFuel(1);
+                //this is where we spawn the fuel tanks
 
+                if (TheSupplies.Fuel > 0)
+                {
+                    FuelAmount += 1;
+                    Debug.Log("Spawn a fuel tank");
+                    GameObject SpawnedTank = Instantiate(FuelTankSpawn, FuelTankParent);
+                    SpawnedTank.GetComponent<FuelBar>().DirectionReference = Direction;
+                    //todo figure out why this isn't spawning
+                    TheSupplies.SubtractFuel(1);
+
+                }
+                else
+                    Instantiate(BrokenTankSpawn, FuelTankParent);
             }
-            else
-                Instantiate(BrokenTankSpawn, FuelTankParent);
-
         }
     }
     int BadAtFueling = 0;

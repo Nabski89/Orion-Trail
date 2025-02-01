@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class MovePutterSelect : MonoBehaviour
 {
+    Golf GolfParent;
     public GameObject[] PutterSelections;
     public float[] RotationValues; // Array of rotation values
     private int currentIndex = 0;
     public int PutterNumber = 0;
     public GameObject ClickSoundEffect;
-
+    void Start()
+    {
+        GolfParent = GetComponentInParent<Golf>();
+    }
     public void RotateToNextValue(bool moveUp)
     {
         Instantiate(ClickSoundEffect);
@@ -38,13 +42,13 @@ public class MovePutterSelect : MonoBehaviour
             {
                 PutterSelections[i].SetActive(false);
             }
-
         }
         //reenable our good light
         if (PutterSelections[currentIndex] != null)
         {
             PutterSelections[currentIndex].SetActive(true);
         }
+        GolfParent.Selected();
     }
     private IEnumerator Rotate(float startAngle, float endAngle, float duration)
     {
