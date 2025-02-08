@@ -7,11 +7,13 @@ public class CharacterShip : MonoBehaviour
 {
     public StatScreen StatUI;
     GenericManager Reference;
+    Supplies SupplyReference;
 
     // Start is called before the first frame update
     void Start()
     {
         Reference = GetComponentInParent<GenericManager>();
+        SupplyReference = Reference.GetComponent<Supplies>();
         LoadCustomCrew();
         DamageEngine(3);
         DamageEngine(2);
@@ -116,23 +118,39 @@ public class CharacterShip : MonoBehaviour
         }
         SetEngineUI();
     }
-    public void RepairEngine()
+    //type 1 for mechanical, 2 for electrical, 3 for advanced, 4 for any
+    public void RepairEngine(int Type, int RepairValue)
     {
-        /**
-        int lowestIntegrity = integrityArray[0];
-        int lowestIndex = 0;
 
-        for (int i = 1; i < integrityArray.Length; i++)
+        //set it to the last part type then set it to the bonus part if we don't have any
+        int PartType = 3;
+        if (Type < 6)
+            PartType = 2;
+        if (Type < 4)
+            PartType = 1;
+        //switch case to select what types of parts we are repairing
+        switch (PartType)
         {
-            if (integrityArray[i] < lowestIntegrity)
-            {
-                lowestIntegrity = integrityArray[i];
-                lowestIndex = i;
-            }
+            case 1:
+                if (SupplyReference.MechanicalPart < 1)
+                    SupplyReference.MechanicalPart -= 1;
+                break;
+            case 2:
+                if (SupplyReference.ElectricalPart > 0)
+                    SupplyReference.ElectricalPart -= 1;
+                break;
+            case 3:
+                if (SupplyReference.TechPart > 0)
+                    SupplyReference.TechPart -= 1;
+                break;
+            default:
+                Debug.Log("We encountered and error while trying to repair the engine");
+                break;
         }
-
-        Debug.Log("Item with the lowest integrity: " + lowestIntegrity + " at index " + lowestIndex);
-        **/
+        //actually repair the parts, Warning this caps out at a repair value of 5
+        ShipPart[Type].Integrity = Mathf.Min(ShipPart[Type].Integrity + RepairValue, 5);
+        //reset the UI
+        SetEngineUI();
     }
     public void SetEngineUI()
     {

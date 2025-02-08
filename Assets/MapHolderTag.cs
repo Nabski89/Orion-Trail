@@ -28,18 +28,18 @@ public class MapHolderTag : MonoBehaviour
             {
                 DialogBox.TEXTBOX = WelcomeText[Random.Range(0, WelcomeText.Length)];
                 DialogBox.NewText();
-                //populate our compass map
+                //populate our compass
                 Compass.InitializeMap(this);
             }
         }
     }
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         ShipController TheShip = other.GetComponent<ShipController>();
         if (TheShip != null)
         {
             //send an update of our planet location to the compass
-            Compass.UpdateMap(this);
+            Compass.ClearMap();
         }
     }
 }

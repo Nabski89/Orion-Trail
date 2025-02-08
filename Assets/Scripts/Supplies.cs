@@ -10,12 +10,11 @@ public class Supplies : MonoBehaviour
     public float Fuel = 10;
     public float MaxFuel = 25;
     //Hull Parts
-    public int RepairHull = 1;
+    public int MechanicalPart = 1;
     //Electronics
-    public int RepairElectronic = 1;
+    public int ElectricalPart = 1;
     //Engine Parts
-    public int RepairEngine = 1;
-
+    public int TechPart = 1;
     public void SubtractFuel(float fuelDown)
     {
         Fuel -= fuelDown;

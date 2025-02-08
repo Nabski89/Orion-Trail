@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class RotateView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+
+    public Transform Canvas;
     public Transform Ship;
     public RectTransform Compass;
     public float rotationSpeed = 50f;
@@ -21,6 +23,8 @@ public class RotateView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             // Rotate the compass counterclockwise along the z-axis
             Compass.Rotate(Vector3.forward * -rotationSpeed * Time.deltaTime);
+
+            Canvas.rotation = transform.rotation;
         }
     }
     // Called when the button is pressed

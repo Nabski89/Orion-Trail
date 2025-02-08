@@ -39,7 +39,11 @@ public class PipeRepair : MonoBehaviour
         for (int i = 0; i < ShipPart.Length - 1; i++)
         {
             //Distance between the two pipes, if the number is negative the scale is negative so the part is flipped
-            int PipeDistance = Mathf.RoundToInt(ShipPart[i].Pipe.anchoredPosition.y - ShipPart[i + 1].Pipe.anchoredPosition.y);
+            float Part2Y = 0;
+            if (i < ShipPart.Length - 1)
+                Part2Y = ShipPart[i + 1].Pipe.anchoredPosition.y;
+            int PipeDistance = Mathf.RoundToInt(ShipPart[i].Pipe.anchoredPosition.y - Part2Y);
+
             if (PipeDistance < 0)
                 ShipPart[i].Pipe.GetComponent<Image>().sprite = PipeImage[Mathf.Abs(PipeDistance)];
             else
