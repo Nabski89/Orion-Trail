@@ -8,7 +8,6 @@ public class MovePutterSelect : MonoBehaviour
     public GameObject[] PutterSelections;
     public float[] RotationValues; // Array of rotation values
     private int currentIndex = 0;
-    public int PutterNumber = 0;
     public GameObject ClickSoundEffect;
     void Start()
     {
@@ -30,7 +29,8 @@ public class MovePutterSelect : MonoBehaviour
         {
             currentIndex = (currentIndex - 1 + RotationValues.Length) % RotationValues.Length;
         }
-        StartCoroutine(Rotate(transform.eulerAngles.z, RotationValues[currentIndex], Mathf.Abs(transform.eulerAngles.z - RotationValues[currentIndex]) / 360)); // Adjust the duration as needed
+        //the rotation value in the second one is going to be not referenced to the overall rotation
+        StartCoroutine(Rotate()); // Adjust the duration as needed
         DoPutterStuff();
     }
     public void DoPutterStuff()
@@ -50,20 +50,22 @@ public class MovePutterSelect : MonoBehaviour
         }
         GolfParent.Selected();
     }
-    private IEnumerator Rotate(float startAngle, float endAngle, float duration)
+    public Transform CanvasRotation;
+    private IEnumerator Rotate()
     {
         float timeElapsed = 0;
-
+        //if we do local angle it always sets it at zero. Euler works but only when it isn't rotated. I hoped the below would work but SHRUG
+        float startAngle = transform.localEulerAngles.z;
+        float endAngle = transform.parent.parent.localRotation.z - RotationValues[currentIndex];
+        float duration = Mathf.Abs((startAngle - endAngle) / 360);
         while (timeElapsed < duration)
         {
             float angle = Mathf.Lerp(startAngle, endAngle, timeElapsed / duration);
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            transform.localRotation = Quaternion.Euler(0, 0, angle);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.rotation = Quaternion.Euler(0, 0, endAngle);
+        transform.localRotation = Quaternion.Euler(0, 0, endAngle);
     }
-
-
 }

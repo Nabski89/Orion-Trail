@@ -65,6 +65,7 @@ public class Golf : MonoBehaviour
         //clear out the old fuel tanks
         for (int i = FuelTankParent.transform.childCount - 1; i >= 0; i--)
             Destroy(FuelTankParent.transform.GetChild(i).gameObject);
+        Selected();
     }
     public GameObject SelectProbeMinus;
     public GameObject SelectProbePlus;
@@ -78,7 +79,7 @@ public class Golf : MonoBehaviour
         customDirections = FindObjectsOfType<GOLFDirection>();
         if (customDirections.Length > 0)
         {
-            DialogBox.TEXTBOX += "\nProbe locked in. Ready to select Target Orientation. ";
+        //    DialogBox.TEXTBOX += "\nProbe locked in. Ready to select Target Orientation. ";
 
             StageLights[1].SetActive(true);
             StageLights[2].SetActive(true);
@@ -90,7 +91,7 @@ public class Golf : MonoBehaviour
         }
         else
         {
-            DialogBox.TEXTBOX += "\nInvalid Probe Selected.";
+     //       DialogBox.TEXTBOX += "\nInvalid Probe Selected.";
             //     PreviewLine.transform.localScale = new Vector3(0, 1, 1);
             PreviewLine.SetActive(false);
             StageLights[0].SetActive(true);
@@ -102,7 +103,7 @@ public class Golf : MonoBehaviour
     void Aimed()
     {
         if (StageLights[1].activeSelf == false)
-            DialogBox.TEXTBOX += "Invalid Probe Selected. Select A Valid Probe To Continue.";
+            DialogBox.TEXTBOX += "\nInvalid Probe Selected. Select A Valid Probe To Continue.";
         else
         {
             SelectProbeMinus.SetActive(false);
